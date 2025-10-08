@@ -4,20 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — WhyTF Health</title>
-  <meta name="description" content="Suggest topics, corrections, or feedback to WhyTF Health." />
   <link rel="stylesheet" href="styles.css" />
-  <style>
-    .form{max-width:640px;margin:0 auto}
-    .input, textarea{width:100%;background:#11161d;border:1px solid rgba(255,255,255,.1);color:#e5e5e5;border-radius:8px;padding:.75rem}
-    textarea{min-height:160px;resize:vertical}
-    label{display:block;margin:.75rem 0 .35rem}
-    .small{color:#cfcfcf;font-size:.9rem}
-    .notice{background:#11161d;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;margin-bottom:1rem;color:#cfcfcf}
-  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container flex between center">
       <a href="index.html" class="logo" aria-label="WhyTF Health home">
         <img src="assets/logo.png" alt="WhyTF Health logo" />
@@ -27,46 +17,33 @@
         <a href="about.html" class="nav-link">About</a>
         <a href="blog/index.html" class="nav-link">Blog</a>
         <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="contact.html" class="nav-link" aria-current="page">Contact</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
-
-  <main id="main" class="container section">
-    <h1>Contact</h1>
-    <p class="subtext">Have a suggestion, correction, or a topic you want explained? Send it here — we read everything.</p>
-
-    <div class="notice" role="status">
-      <strong>Privacy:</strong> Your message is delivered securely without exposing our email address.
-    </div>
-
-    <!-- Formspree-wired form -->
-    <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
-      <label for="topic">Topic</label>
-      <input class="input" id="topic" name="topic" type="text" required placeholder="e.g., Diabetes explainer — add exercise angle" />
-
-      <label for="message">Comment</label>
-      <textarea id="message" name="message" required placeholder="Tell us what to improve, correct, or cover next."></textarea>
-
-      <!-- Formspree helpers -->
-      <input type="hidden" name="_subject" value="WhyTF Health — Contact Submission" />
-      <input type="text" name="_gotcha" style="display:none" aria-hidden="true" />
-
-      <button class="btn" type="submit">Send</button>
-      <p class="small">By submitting, you consent to us storing your message to review and respond if needed.</p>
-    </form>
-  </main>
-
-  <section class="pre-footer-note" aria-label="Project line">
-    <div class="container">
-      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
-    </div>
-  </section>
-
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p>© 2025 Why TF Health — Human biology explained in layers.</p>
-    </div>
-  </footer>
-</body>
-</html>
+  <main class="container section">
+  <h1>Contact</h1>
+  <p>Send your thoughts, ideas, or corrections below — we read every message.</p>
+  <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
+    <label for="email">Your email</label>
+    <input class="input" id="email" name="email" type="email" required placeholder="you@example.com" />
+    <label for="topic">Topic</label>
+    <input class="input" id="topic" name="topic" type="text" required placeholder="e.g., Diabetes explainer suggestion" />
+    <label for="message">Message</label>
+    <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+    <input type="hidden" name="_subject" value="WhyTF Health Contact Submission" />
+    <input type="hidden" name="_redirect" value="https://whytfhealth.com/contact.html?sent=1" />
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+    <button class="btn" type="submit">Send</button>
+  </form>
+  <script>
+    (function(){const params=new URLSearchParams(location.search);
+      if(params.get('sent')==='1'){const p=document.createElement('p');
+      p.textContent='Thanks — your message was sent successfully.';
+      p.style.marginTop='1rem';document.querySelector('form').after(p);}})();
+  </script>
+</main>
+  <div class="divider"></div>
+  <section class="pre-footer-note"><div class="container"><p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p></div></section>
+  <footer class="site-footer"><div class="container"><p>© 2025 Why TF Health — Human biology explained in layers.</p></div></footer>
+</body></html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact — WhyTF Health</title>
-  <meta name="description" content="Suggest topics, corrections, or feedback to WhyTF Health.">
+  <meta name="description" content="Suggest topics, corrections, or feedback to WhyTF Health." />
   <link rel="stylesheet" href="styles.css" />
   <style>
     .form{max-width:640px;margin:0 auto}
@@ -12,6 +12,7 @@
     textarea{min-height:160px;resize:vertical}
     label{display:block;margin:.75rem 0 .35rem}
     .small{color:#cfcfcf;font-size:.9rem}
+    .notice{background:#11161d;border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;margin-bottom:1rem;color:#cfcfcf}
   </style>
 </head>
 <body>
@@ -35,17 +36,24 @@
     <h1>Contact</h1>
     <p class="subtext">Have a suggestion, correction, or a topic you want explained? Send it here — we read everything.</p>
 
-    <form class="form card" action="https://formspree.io/f/your-endpoint-id" method="POST">
+    <div class="notice" role="status">
+      <strong>Privacy:</strong> Your message is delivered securely without exposing our email address.
+    </div>
+
+    <!-- Formspree-wired form -->
+    <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
       <label for="topic">Topic</label>
       <input class="input" id="topic" name="topic" type="text" required placeholder="e.g., Diabetes explainer — add exercise angle" />
 
       <label for="message">Comment</label>
       <textarea id="message" name="message" required placeholder="Tell us what to improve, correct, or cover next."></textarea>
 
-      <input type="hidden" name="_subject" value="WhyTF Health Contact Submission">
-      <input type="hidden" name="_gotcha" />
+      <!-- Formspree helpers -->
+      <input type="hidden" name="_subject" value="WhyTF Health — Contact Submission" />
+      <input type="text" name="_gotcha" style="display:none" aria-hidden="true" />
+
       <button class="btn" type="submit">Send</button>
-      <p class="small">We use a secure form endpoint to forward messages privately to our inbox.</p>
+      <p class="small">By submitting, you consent to us storing your message to review and respond if needed.</p>
     </form>
   </main>
 

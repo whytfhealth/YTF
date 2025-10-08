@@ -62,6 +62,19 @@ img{max-width:100%;height:auto;display:block}
 .how-card:nth-child(1){box-shadow:0 0 0 1px var(--purple-3) inset}
 .how-card:nth-child(2){box-shadow:0 0 0 1px var(--purple-2) inset}
 .how-card:nth-child(3){box-shadow:0 0 0 1px var(--purple-4) inset}
+/* Subtle purple pulse for How it Works cards */
+.how-card {
+  animation: purplePulse 6s ease-in-out infinite;
+}
+
+@keyframes purplePulse {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(168,85,247,0.15);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(168,85,247,0.3);
+  }
+}
 
 .blog-grid{grid-template-columns:repeat(3,1fr)}
 .blog-card h3{margin:.2rem 0}
@@ -141,17 +154,28 @@ body.about li{margin:.25rem 0}
 }
 
 .white-card {
-  background: #0f1217; /* matches dark theme */
-  border: 1px solid #ffffff; /* solid white border always visible */
+  background: #0f1217;
+  border: 1px solid #ffffff;
   border-radius: 10px;
   padding: 1rem;
-  transition: box-shadow .2s ease, transform .15s ease;
+  transition: box-shadow .3s ease, transform .2s ease;
+  animation: whitePulse 6s ease-in-out infinite;
 }
 
 .white-card:hover,
 .white-card:focus-within {
-  box-shadow: 0 0 8px rgba(255,255,255,0.25);
+  box-shadow: 0 0 12px rgba(255,255,255,0.25);
   transform: translateY(-1px);
+}
+
+/* Subtle white glow animation */
+@keyframes whitePulse {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(255,255,255,0.15);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(255,255,255,0.25);
+  }
 }
 
 .white-card h3 {

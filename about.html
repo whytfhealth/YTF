@@ -2,30 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=.0" />
   <title>About — WhyTF Health</title>
+  <meta name="description" content="WhyTF Health is a medical-education project making complex physiology clear, accurate, and fascinating — in layers anyone can follow.">
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <header class="site-header">
+<body class="about">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
     <div class="container flex between center">
       <a href="index.html" class="logo" aria-label="WhyTF Health home">
         <img src="assets/logo.png" alt="WhyTF Health logo" />
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
+        <a href="about.html" class="nav-link" aria-current="page">About</a>
         <a href="blog/index.html" class="nav-link">Blog</a>
         <a href="podcast.html" class="nav-link">Podcast</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-      </nav>
+      <a href="contact.html" class="nav-link">Contact</a></nav>
     </div>
   </header>
-  <main class="container section">
-  <h1>About WhyTF Health</h1>
-  <p>WhyTF Health exists to make human biology actually understandable — for everyone from curious readers to med students.</p>
+
+  <main id="main">
+    <section class="hero container" aria-labelledby="hero-title">
+      <div class="dna-bg"></div>
+      <div class="dna-line"></div>
+      <div class="hero-text">
+        <h id="hero-title">WhyTF Health — Why That’s Fascinating</h>
+        <p class="subtext">An independent medical‑education project explaining how the human body really works — clearly, accurately, and in layers.</p>
+        <div class="cta-buttons">
+          <a href="blog/index.html" class="btn">Browse the Blog</a>
+          <a href="podcast.html" class="btn secondary">Podcast Episodes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="vision">
+      Medicine is everywhere in our lives — headlines, clinics, family conversations — yet most people carry fragments of understanding. 
+We’re building a place where complex physiology is translated into clear mental pictures that actually stick. 
+Each explainer is designed as a ladder: start with the big idea, climb step by step into mechanisms, then finish with clinical links and practical takeaways.
+    </section>
+
+    <section class="container section" aria-labelledby="problem">
+      Oversimplification creates myths; overcomplexity creates silence. 
+WhyTF Health takes the third path: plain‑English framing first, then the real machinery — receptors, hormones, ion channels, feedback loops. 
+By the end, readers can visualize the pathway and explain it to someone else without losing accuracy.
+    </section>
+
+    <section class="container section" aria-labelledby="how">
+      <h2 id="how">How we do it</h2>
+      <div class="how-grid">
+        <div class="how-card">
+          <h>Layered learning</h>
+          <p>Each article starts simple, then builds into mechanisms and clinical links.</p>
+        </div>
+        <div class="how-card">
+          <h>Human tone</h>
+          <p>Curious, clear, and slightly nerdy — scientifically rigorous without the sludge.</p>
+        </div>
+        <div class="how-card">
+          <h>Accessible science</h>
+          <p>Terms defined in-line, supported by visuals and references when useful.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section" aria-labelledby="benefits">
+      <h2 id="benefits">What readers get</h2>
+      <div class="blog-grid">
+        <div class="blog-card card">
+          <h>For students</h>
+          <p>Revision-grade deep dives that explain the “why” behind physiology.</p>
+        </div>
+        <div class="blog-card card">
+          <h>For professionals</h>
+          <p>Sharable explainers that translate expertise to patients and peers.</p>
+        </div>
+        <div class="blog-card card">
+          <h>For everyone</h>
+          <p>Real science written so you can finally say, “Ohhh, I get it now.”</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section tight" aria-labelledby="principles">
+      <h2 id="principles">Principles</h2>
+      <ul>
+        <li><strong>Accuracy:</strong> evidence‑based, with sources or consensus when appropriate.</li>
+        <li><strong>Clarity:</strong> plain English first, definitions in-line, minimal jargon.</li>
+        <li><strong>Curiosity:</strong> we don’t just state facts; we explore why they’re fascinating.</li>
+      </ul>
+    </section>
+
+    <section class="container section tight" aria-labelledby="name">
+      <h2 id="name">Our name</h2>
+      <blockquote>
+        <p>WhyTF doesn’t stand for frustration — it stands for fascination.<br><strong>Why That’s <span class="accent-word">Fascinating</span> Health.</strong></p>
+      </blockquote>
+    </section>
+  
+    <section class="container section tight" aria-labelledby="suggestions">
+      <h2 id="suggestions">Suggestions & corrections</h2>
+      <p>Spotted something to improve? We welcome topic ideas, corrections, and feedback. Use the <a href="contact.html">contact page</a> to send a note — all suggestions are appreciated.</p>
+    </section>
+    
 </main>
+
   <div class="divider"></div>
-  <section class="pre-footer-note"><div class="container"><p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p></div></section>
-  <footer class="site-footer"><div class="container"><p>© 2025 Why TF Health — Human biology explained in layers.</p></div></footer>
-</body></html>
+  <section class="pre-footer-note" aria-label="Project line">
+    <div class="container">
+      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 Why TF Health — Human biology explained in layers.</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,40 +1,135 @@
-/* Base site styles with divider animation */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background-color: #0E0E0E;
-  color: #E5E5E5;
+
+/* ========== WhyTF Health Global Styles (Dark + Purple) ========== */
+:root{
+  --bg:#0e0e0e;
+  --bg-2:#0a0a0a;
+  --card:#11161d;
+  --text:#e5e5e5;
+  --muted:#cfcfcf;
+  --purple:#a855f7;
+  --purple-2:#8b5cf6;
+  --purple-3:#7c3aed;
+  --purple-4:#a78bfa;
+  --border:rgba(255,255,255,.1);
 }
-a {
-  color: #A855F7;
-  text-decoration: none;
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";line-height:1.6}
+a{color:var(--purple);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;height:auto;display:block}
+
+/* Layout */
+.container{width:92%;max-width:1100px;margin:0 auto}
+.section{padding:2.5rem 0}
+.flex{display:flex}.between{justify-content:space-between}.center{align-items:center}
+
+/* Header / Nav */
+.site-header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,var(--bg-2),rgba(10,10,10,.8));border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+.logo img{height:40px;width:auto}
+.nav{display:flex;gap:1rem;flex-wrap:wrap}
+.nav-link{padding:.4rem .6rem;border-radius:6px;color:var(--text)}
+.nav-link[aria-current="page"]{background-color:rgba(168,85,247,.15);box-shadow:0 0 0 1px var(--purple) inset}
+
+/* Hero */
+.hero{position:relative;padding:4rem 0}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3rem);margin:0 0 .5rem}
+.subtext{color:var(--muted);max-width:58ch}
+.cta-buttons{margin-top:1rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{background:var(--purple);color:#fff;padding:.75rem 1.2rem;border-radius:8px;display:inline-block;border:1px solid transparent}
+.btn.secondary{background:transparent;border-color:var(--purple)}
+.btn:hover{filter:brightness(1.05)}
+
+/* DNA subtle animation background */
+.dna-bg{
+  position:absolute;inset:-10% -5% auto -5%;height:180px;pointer-events:none;opacity:.25;
+  background:
+    radial-gradient(60% 120% at 10% 50%, rgba(168,85,247,.25), transparent 60%),
+    radial-gradient(40% 80% at 90% 40%, rgba(139,92,246,.25), transparent 60%);
 }
-a:hover { text-decoration: underline; }
-.container { width: 90%; max-width: 1100px; margin: 0 auto; }
-.section { padding: 2.5rem 0; }
-.site-header { background: #0A0A0A; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.nav a { margin-left: 1.5rem; color: #E5E5E5; }
-.nav a[aria-current="page"] { border-bottom: 2px solid #A855F7; }
-.hero { padding: 4rem 0; text-align: center; }
-.hero h1 { font-size: 2rem; color: #FFF; }
-.hero .subtext { color: #CFCFCF; margin-bottom: 1.5rem; }
-.btn { background-color: #A855F7; color: #FFF; padding: 0.75rem 1.5rem; border-radius: 4px; margin: 0.5rem; display: inline-block; }
-.btn.secondary { background: transparent; border: 1px solid #A855F7; }
-.pre-footer-note { background: #0a0a0a; border-top: 1px solid rgba(255,255,255,.06); border-bottom: 1px solid rgba(255,255,255,.06); padding: .85rem 0; text-align: center; color: #cfcfcf; }
-.pre-footer-note strong { color: #e8e8e8; }
-.accent-word { color: #A855F7; }
-.site-footer { background: #0A0A0A; text-align: center; padding: 1rem 0; font-size: 0.9rem; color: #CFCFCF; }
-.divider {
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, rgba(168,85,247,0.3), rgba(168,85,247,1), rgba(168,85,247,0.3));
-  background-size: 200% 100%;
-  animation: sweep 4s linear infinite;
-  border: none;
-  margin: 2.5rem 0 2rem 0;
-  box-shadow: 0 0 10px rgba(168,85,247,0.5);
+.dna-line{
+  position:absolute;inset:auto 0 0 0;height:2px;background:linear-gradient(90deg,transparent,var(--purple),transparent);
+  opacity:.5;animation:slide 10s linear infinite;
 }
-@keyframes sweep {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+@keyframes slide{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+@media (prefers-reduced-motion: reduce){.dna-line{animation:none}}
+
+/* Cards / grids */
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1rem}
+.how-grid,.blog-grid,.pod-grid{display:grid;gap:1rem}
+.how-grid{grid-template-columns:repeat(3,1fr)}
+.how-card{border:1px solid var(--border);border-radius:10px;padding:1rem;background:linear-gradient(180deg,#11161d,#0f141a)}
+.how-card h3{margin-top:0}
+.how-card:nth-child(1){box-shadow:0 0 0 1px var(--purple-3) inset}
+.how-card:nth-child(2){box-shadow:0 0 0 1px var(--purple-2) inset}
+.how-card:nth-child(3){box-shadow:0 0 0 1px var(--purple-4) inset}
+
+.blog-grid{grid-template-columns:repeat(3,1fr)}
+.blog-card h3{margin:.2rem 0}
+.read-time{color:var(--muted);font-size:.9rem}
+
+/* Podcast */
+.pod-intro{color:var(--muted)}
+.pod-embed iframe{width:100%;border-radius:12px}
+
+/* Sections headers */
+.section-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:1rem}
+.section-cta{color:var(--purple)}
+.section-cta:hover{text-decoration:underline}
+
+/* Pre-footer (on all pages) */
+.pre-footer-note{background:var(--bg-2);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);padding:.85rem 0;text-align:center}
+.pre-footer-note p{margin:0;color:var(--muted)}
+.pre-footer-note strong{color:#e8e8e8}
+
+/* Footer */
+.site-footer{background:var(--bg-2);text-align:center;padding:1rem 0;color:var(--muted);font-size:.95rem}
+
+/* Skip link + focus */
+.skip-link{position:absolute;left:-999px;top:-999px;background:var(--purple);color:#fff;padding:.5rem .75rem;border-radius:6px}
+.skip-link:focus{left:1rem;top:1rem;z-index:1000}
+:focus-visible{outline:2px solid var(--purple);outline-offset:2px}
+
+/* Responsive */
+@media (max-width: 900px){
+  .how-grid,.blog-grid{grid-template-columns:1fr 1fr}
 }
+@media (max-width: 640px){
+  .how-grid,.blog-grid{grid-template-columns:1fr}
+  .nav{gap:.5rem}
+}
+
+/* Small DNA icon animation for pre-footer */
+.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
+.dna-icon svg{display:block}
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
+.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){ .dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}}
+
+/* About-page specific spacing tweaks */
+body.about .section{padding:1.2rem 0}
+body.about .section p{margin:0.5rem 0 0.85rem}
+body.about .hero{padding:3rem 0}
+
+/* Refined DNA icon visuals */
+.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
+.dna-icon svg{display:block}
+
+/* Section spacing helper */
+.section.tight{padding-top:1.2rem;padding-bottom:1.6rem}
+body.about ul{margin:.4rem 0 0 .9rem}
+body.about li{margin:.25rem 0}
+
+.accent-word{color: var(--purple);}
+
+/* Section divider line (animated gradient) */
+.divider{
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg, rgba(168,85,247,0.3), rgba(168,85,247,1), rgba(168,85,247,0.3));
+  background-size:200% 100%;
+  animation:sweep 4s linear infinite;
+  border:none;
+  margin:2.5rem 0 2rem 0;
+  box-shadow:0 0 10px rgba(168,85,247,0.5);
+}
+@keyframes sweep{0%{background-position:200% 0}100%{background-position:-200% 0}}

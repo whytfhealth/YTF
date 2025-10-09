@@ -210,3 +210,6 @@ body.about li{margin:.25rem 0}
     gap: 1.25rem;
   }
 }
+/* Coming soon tiles */
+.nolink { color: #fff; cursor: default; }
+.soon { color: var(--muted); font-size: .9rem; margin-top: .25rem; }

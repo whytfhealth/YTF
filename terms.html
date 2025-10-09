@@ -9,17 +9,19 @@
   <link rel="stylesheet" href="styles.css?v=2025-10-09-1">
 </head>
 <body>
-  <header class="container">
-  <a href="/" class="logo"><img src="/assets/logo.png" alt="WhyTF Health logo"></a>
-  <nav class="nav">
-    <a href="/">Home</a>
-    <a href="/about.html">About</a>
-    <a href="/blog/">Blog</a>
-    <a href="/podcast.html">Podcast</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</header>
-
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="assets/logo.png" alt="WhyTF Health logo" />
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="nav-link" aria-current="page">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="blog/index.html" class="nav-link">Blog</a>
+        <a href="podcast.html" class="nav-link">Podcast</a>
+      <a href="contact.html" class="nav-link">Contact</a></nav>
+    </div>
+  </header>
   <main class="container section">
     <h1>Terms & Disclaimer</h1>
     <p><strong>Last updated:</strong> October 2025</p>

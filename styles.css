@@ -213,3 +213,5 @@ body.about li{margin:.25rem 0}
 /* Coming soon tiles */
 .nolink { color: #fff; cursor: default; }
 .soon { color: var(--muted); font-size: .9rem; margin-top: .25rem; }
+.topic-link { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(168,85,247,.35); padding-bottom: .1rem; }
+.topic-link:hover { border-color: rgba(168,85,247,.8); }

@@ -29,8 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <body class="blog-page">
+    <body id="top" class="blog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
  <header class="site-header" role="banner">
@@ -53,8 +52,12 @@
     <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
   </div>
 </header>
-  <main id="main" class="container section">
-    <article class="post">
+ <main id="main" class="container section">
+
+  <!-- ARTICLE WRAPPER: grid for article + right-rail TOC -->
+  <div class="article-shell">
+    <!-- MAIN ARTICLE COLUMN -->
+    <article id="post-body" class="post">
       <header class="post-header">
         <h1>WhyTF We Get Diabetes - The Sugar Traffic Jam Inside Your Body</h1>
         <p class="subtext">The full story — from sugar on your plate to chaos in your cells.</p>
@@ -823,6 +826,12 @@
         <p><strong>Disclaimer:</strong> Educational only — not medical advice. Always consult a qualified clinician for individual care.</p>
       </section>
     </article>
+      <!-- RIGHT RAIL: On this page (desktop only) -->
+    <aside class="onpage" id="onpage" aria-label="On this page">
+      <h4>On this page</h4>
+      <nav id="onpage-links"></nav>
+    </aside>
+  </div> <!-- /.article-shell -->
 
 
   <div class="divider" aria-hidden="true"></div>
@@ -884,29 +893,52 @@
 </script>
 <script>
 (function(){
-  const btn = document.querySelector('.back-to-top');
-  if(!btn) return;
+  const body = document.querySelector('#post-body');
+  const nav  = document.querySelector('#onpage-links');
+  if(!body || !nav) return; // only on article pages
 
-  function toggle(){
-    const st = window.scrollY || document.documentElement.scrollTop;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = st / max;
-    if(pct > 0.30){ btn.classList.add('is-visible'); }
-    else{ btn.classList.remove('is-visible'); }
-  }
+  // Collect H2/H3 headings in the article
+  const heads = Array.from(body.querySelectorAll('h2, h3'));
+  if(!heads.length) return;
 
-  // Show/hide on load, scroll, resize
-  document.addEventListener('DOMContentLoaded', toggle, { once:true });
-  window.addEventListener('scroll', toggle, { passive:true });
-  window.addEventListener('resize', toggle);
-
-  // Jump to top (smooth unless reduced motion)
-  btn.addEventListener('click', function(e){
-    e.preventDefault();
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce){ window.scrollTo(0,0); }
-    else{ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  // Ensure each heading has a stable id (slug from text)
+  heads.forEach(h=>{
+    if(!h.id){
+      h.id = h.textContent.trim()
+        .toLowerCase()
+        .replace(/[^\w]+/g,'-')
+        .replace(/(^-|-$)/g,'');
+    }
   });
+
+  // Build "On this page" links
+  nav.innerHTML = heads.map(h=>{
+    const lvl = h.tagName === 'H3' ? 'l2' : 'l1';
+    const label = h.textContent.trim();
+    return `<a class="${lvl}" href="#${h.id}">${label}</a>`;
+  }).join('');
+
+  // Add tiny '#' deep-link to each heading
+  heads.forEach(h=>{
+    const a = document.createElement('a');
+    a.className = 'heading-anchor';
+    a.href = '#'+h.id;
+    a.setAttribute('aria-label','Link to this section');
+    a.textContent = '#';
+    h.appendChild(a);
+  });
+
+  // Highlight active section while scrolling
+  const links = Array.from(nav.querySelectorAll('a'));
+  const io = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id = e.target.id;
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+id));
+      }
+    });
+  }, { rootMargin:'-40% 0px -50% 0px', threshold:0 });
+  heads.forEach(h=>io.observe(h));
 })();
 </script>
 <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>

@@ -2,39 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>About — WhyTF Health</title>
-  <meta name="description" content="WhyTF Health is an independent medical education project: layered explainers that reveal how the human body really works — in plain English, without dumbing it down." />
+  <meta name="description" content="WhyTF Health — Why That’s Fascinating. An independent medical-education project that explains how the human body really works, in clear layers you choose to go through." />
   <link rel="canonical" href="https://whytfhealth.com/about.html" />
 
+  <!-- Fonts to match Home (headings use Outfit) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="/styles.css" />
-  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-  <script defer src="https://cloud.umami.is/script.js"
-          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="About — WhyTF Health">
-  <meta property="og:description" content="Layered, plain-English explainers that make real physiology stick — without oversimplifying.">
+  <meta property="og:description" content="An independent medical-education project explaining how the human body really works — in layers, without the jargon wall." />
   <meta property="og:url" content="https://whytfhealth.com/about.html">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About — WhyTF Health">
-  <meta name="twitter:description" content="Layered, plain-English explainers that make real physiology stick — without oversimplifying.">
+  <meta name="twitter:description" content="An independent medical-education project explaining how the human body really works — in layers you choose to go through." />
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 </head>
 
 <body class="about">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header (sticky, matches site) -->
+  <!-- Site header (unchanged layout) -->
   <header class="site-header" role="banner">
     <div class="container flex between center">
       <a href="/index.html" class="logo" aria-label="WhyTF Health home">
-        <img src="/assets/logo.png" alt="WhyTF Health logo">
+        <img src="/assets/logo.png" alt="WhyTF Health logo" />
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="/index.html" class="nav-link">Home</a>
@@ -46,55 +48,71 @@
     </div>
   </header>
 
-  <main id="main" class="container section">
-    <!-- Page title & professional strapline -->
-    <header class="hero" style="padding-top:2rem;padding-bottom:1.25rem">
-      <h1 style="margin-bottom:.35rem">WhyTF Health — <span class="accent-word">Why That’s Fascinating</span></h1>
-      <p class="subtext">An independent medical education project explaining how the human body really works.</p>
-    </header>
-
-    <div class="purple-divider" aria-hidden="true"></div>
-
-    <!-- Story section (combined mission/vision/authorship) -->
-    <section class="section tight" aria-labelledby="anatomy-idea">
-      <h2 id="anatomy-idea">The Anatomy of an Idea — and the Curiosity Behind It</h2>
-      <p>It began with a strange observation: that some of the most intelligent people in the world — the engineers who build systems, the strategists who move markets, the artists who turn thought into beauty — often know almost nothing about the bodies they live in.</p>
-      <p>They can write code that predicts the future, or design machines that learn on their own, yet if you ask them <em>why they couldn’t sleep last night</em>, or <em>why stress can twist their stomach into knots</em>, they hesitate. It isn’t ignorance. It’s distance — a quiet divide between intelligence and being human.</p>
-      <p>That divide was the seed of <strong>WhyTF Health</strong>. Because medicine, for all its wonder, is rarely taught in a way that invites people in. It’s either flattened into pop-science trivia or buried beneath terminology that even doctors joke about forgetting. Somewhere between those two extremes, curiosity dies.</p>
-      <p>So this project was built to bring it back. To build a place where complexity isn’t the enemy, and understanding doesn’t require a degree. A place where the story of how your body works unfolds in layers — simple first, then deeper — until even the most intricate mechanism feels logical, even beautiful.</p>
-      <p>We don’t oversimplify. We don’t overcomplicate. <strong>We translate.</strong></p>
-      <p>Every article is a ladder: you start with the big idea, climb step by step into the machinery, and reach the point where biology becomes story and science becomes sense. <strong>You choose how deep to go</strong> — and however far you go, you’ll understand.</p>
-      <p>This isn’t just about teaching. It’s about returning medicine to the people it belongs to — everyone with a body and a question. If a medical student revises here, if a doctor sends a patient here, if a curious reader arrives here at 2 a.m. wondering why they can’t sleep — the idea is the same: knowledge should be clear, generous, and alive.</p>
-      <p>That’s the anatomy of this idea — a curiosity that grew into structure, a single <em>why</em> that refused to stop asking. <br><strong>Created and written by Adithya Arun.</strong></p>
+  <main id="main">
+    <!-- Page header -->
+    <section class="container section" aria-labelledby="about-title">
+      <h1 id="about-title">WhyTF Health — <span class="accent-word">Why That’s Fascinating</span></h1>
+      <p class="subtext">An independent medical-education project explaining how the human body really works — in layers you choose to go through.</p>
     </section>
 
-    <hr class="dotted-divider" aria-hidden="true">
+    <!-- Subtle home-style shimmer divider (thin, premium) -->
+    <div class="pulse-divider" aria-hidden="true"></div>
 
-    <!-- Name meaning -->
-    <section class="section tight" aria-labelledby="name-meaning">
-      <h2 id="name-meaning">What “WhyTF” Stands For</h2>
-      <p><strong>“WhyTF” is short for “Why That’s Fascinating.”</strong> It’s our reminder to chase the <em>fascination</em> in biology — to ask better questions, refuse lazy answers, and make the real mechanisms memorable.</p>
+    <!-- Origin story (merged purpose + voice + authorship) -->
+    <section class="container section" aria-labelledby="anatomy-idea">
+      <h2 id="anatomy-idea">The Anatomy of an Idea — Curiosity in Plain English</h2>
+      <p>
+        WhyTF Health began with ordinary questions smart people ask when life gets messy:
+        <em>“Why couldn’t I sleep?”</em> “Why did that meal wreck my energy?” “Why does stress make my heart race?”
+        Brilliant engineers, founders, teachers — people who run teams and ship complex systems — were guessing at their own biology.
+        Not because they lacked the will to learn, but because the material they found was either flattened into feel-good oversimplifications or buried under jargon and grey prose.
+      </p>
+      <p>
+        We set out to build a third path. Not shallow, not obtuse — layered.
+        Start with the big picture in plain English; descend step-by-step into mechanisms; surface with clinical links and practical takeaways.
+        At every rung, you decide how deep to go — and no matter how deep, the story still makes sense.
+      </p>
+      <p>
+        The tone is human. The diagrams are mental pictures. The language respects both the science and the reader.
+        This site is founded and written by me, with medical-student training and an editor’s obsession with clarity.
+        When a topic demands specialist review, we’ll say so — and credit it.
+      </p>
+      <p>
+        A note on the name: <strong>YTF stands for “Why That’s Fascinating.”</strong>
+        Curiosity, not frustration. We’re here to make complex things click — and stay clicked.
+      </p>
     </section>
 
-    <hr class="dotted-divider" aria-hidden="true">
-
-    <!-- How we work (succinct, professional) -->
-    <section class="section tight" aria-labelledby="how-we-work">
-      <h2 id="how-we-work">How We Work</h2>
+    <!-- Who it's for -->
+    <section class="container section" aria-labelledby="who-for">
+      <h2 id="who-for">Who It’s For</h2>
       <ul>
-        <li><strong>Layered explainers:</strong> big idea → mechanisms → clinical links and practical takeaways.</li>
-        <li><strong>Plain-English first:</strong> clarity without dumbing down — receptors, hormones, ion channels, feedback loops, made readable.</li>
-        <li><strong>Sources & updates:</strong> every flagship piece cites primary texts/guidelines and shows “last updated.”</li>
-        <li><strong>Respect for time:</strong> scannable structure, pull-outs, and read-time so you can go as deep as you need.</li>
+        <li><strong>Curious readers</strong> who want to understand their bodies without being talked down to.</li>
+        <li><strong>Medical students</strong> who need clean first passes and then precise mechanisms that hold up under exams.</li>
+        <li><strong>Clinicians</strong> who explain every day and want metaphors that map to the real pathways.</li>
       </ul>
     </section>
 
-    <hr class="dotted-divider" aria-hidden="true">
+    <!-- How we write / standards (brief, professional) -->
+    <section class="container section" aria-labelledby="standards">
+      <h2 id="standards">How We Write</h2>
+      <ul>
+        <li><strong>Layered explainers:</strong> overview → mechanisms → clinic.</li>
+        <li><strong>Primary sources:</strong> guidelines, landmark reviews, and core physiology texts.</li>
+        <li><strong>Versioned content:</strong> posts show “last updated”; major changes are logged.</li>
+        <li><strong>Plain-English first, accuracy always:</strong> metaphors are checked against the biology.</li>
+      </ul>
+      <p class="subtext">All content is educational — <em>not</em> medical advice. Please speak to a qualified clinician for personal care.</p>
+    </section>
 
-    <!-- Friendly suggestions/corrections -->
-    <section class="section tight" aria-labelledby="suggestions">
-      <h2 id="suggestions">Suggestions &amp; Corrections</h2>
-      <p>Spotted something to improve? We welcome topic ideas, corrections, and feedback. Use the <a href="/contact.html">contact page</a> to send a note — <strong>all suggestions are appreciated</strong>.</p>
+    <!-- Friendly feedback invitation -->
+    <section class="container section" aria-labelledby="feedback">
+      <h2 id="feedback">Suggestions &amp; Corrections</h2>
+      <p>
+        Spotted something we can improve, or want an explainer on a specific topic?
+        We’d love to hear from you. Use the <a href="/contact.html">contact page</a> to send a note —
+        <strong>all suggestions are appreciated</strong> and help us make the work sharper for everyone.
+      </p>
     </section>
   </main>
 

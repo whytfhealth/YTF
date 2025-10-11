@@ -34,33 +34,35 @@
   <!-- Header (same as all pages) -->
   <header class="site-header" role="banner">
     <div class="container flex between center">
-      <a href="../index.html" class="logo" aria-label="WhyTF Health home">
-        <img src="../assets/logo.png" alt="WhyTF Health logo" />
-      </a>
+      <!-- In your header logo -->
+<a href="/index.html" class="logo" aria-label="WhyTF Health home">
+  <img src="/assets/logo.png" alt="WhyTF Health logo" />
+</a>
   
 
-    <div class="header-progress" role="progressbar" aria-label="Reading progress"
-         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-      <div class="header-progress__track">
-        <svg class="header-progress__outline" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%"   stop-color="#9b5cff"/>
-              <stop offset="100%" stop-color="#d38aff"/>
-            </linearGradient>
-          </defs>
-          <!-- faint static border -->
-          <rect x="1" y="1" width="98" height="38" rx="20" ry="20"
-                fill="none" stroke="rgba(200,120,255,.28)" stroke-width="2"/>
-          <!-- short bright dash that travels around the border -->
-          <rect class="header-progress__dash" x="1" y="1" width="98" height="38" rx="20" ry="20"
-                fill="none" stroke="url(#hp-grad)" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+   <div class="header-progress" role="progressbar" aria-label="Reading progress"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="header-progress__track">
+    <!-- ultra-thin animated outline via SVG -->
+    <svg class="header-progress__outline" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
+      <!-- Static hairline border -->
+      <rect x="0.75" y="0.75" width="98.5" height="30.5" rx="16" ry="16"
+            fill="none" stroke="rgba(200,120,255,0.35)" stroke-width="1.5"/>
+      <!-- Subtle moving highlight (very slow, very faint) -->
+      <rect class="header-progress__dash" x="0.75" y="0.75" width="98.5" height="30.5" rx="16" ry="16"
+            fill="none" stroke="url(#hp-grad)" stroke-width="1.5" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#9b5cff"/>
+          <stop offset="100%" stop-color="#d38aff"/>
+        </linearGradient>
+      </defs>
+    </svg>
 
-        <!-- thin inner progress line -->
-        <div class="header-progress__bar"></div>
-      </div>
-    </div>
+    <!-- thin inner reading line -->
+    <div class="header-progress__bar"></div>
+  </div>
+</div>
 
       <nav class="nav" aria-label="Primary">
         <a href="/" class="nav-link">Home</a>

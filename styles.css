@@ -252,78 +252,83 @@ body.about li{margin:.25rem 0}
   opacity: 0.7;
 }
 
-/* ===== Header Reading Pill (flat, safe, no header overrides) ===== */
+/* ===== Premium Header Reading Pill (flat, thin, slow) ===== */
+
+/* Show the pill only on blog pages (body.blog-page) */
+.blog-page .header-progress { display: block; }
+
+/* Let it occupy the middle gap between logo and nav */
 .header-progress{
-  /* don’t show on non-blog pages; you toggle via .blog-page on <body> */
-  display: none;
-  /* slot naturally between logo and nav without pushing either */
-  flex: 0 1 280px;         /* shorter horizontally */
-  max-width: 320px;
-  min-width: 220px;
-  margin: 0 .5rem;         /* small breathing room */
+  display: none;                /* toggled on by .blog-page above */
+  flex: 1 1 auto;               /* fill available space between logo and nav */
+  max-width: 520px;             /* not too long */
+  min-width: 260px;
+  margin: 0 .75rem;
 
-  /* reveal-on-scroll */
+  /* reveal after scroll */
   opacity: 0;
-  transform: translateY(-6px);
-  transition: opacity .2s ease, transform .2s ease;
-  pointer-events: none;    /* avoid focus while hidden */
-  z-index: 0;              /* sit under nav hover menus if any */
+  transform: translateY(-4px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+  z-index: 0;                   /* never cover logo/nav */
 }
-.blog-page .header-progress{ display:block; }
-
 .header-progress.is-visible{
-  opacity: 1;
-  transform: none;
-  pointer-events: auto;
+  opacity: 1; transform: none; pointer-events: auto;
 }
 
+/* Flat body: very subtle background so it’s distinct from header */
 .header-progress__track{
   position: relative;
   width: 100%;
-  height: 44px;            /* taller pill */
+  height: 32px;                 /* thinner height per your ask */
   border-radius: 9999px;
-  background: rgba(16,18,24,.85); /* flat, distinct from header */
+  background: rgba(18,22,29,0.55); /* flat, faint dark */
   overflow: hidden;
 }
 
-/* SVG outline sits exactly over the track */
+/* Outline fits exactly on top of the track */
 .header-progress__outline{
   position: absolute; inset: 0; width: 100%; height: 100%;
   pointer-events: none;
 }
 
-/* short bright dash glides around the border (true outline behavior) */
+/* VERY thin moving highlight: elegant, slow, not “toy train” */
 .header-progress__dash{
-  stroke-dasharray: 18 260;      /* bright segment length, then gap */
+  stroke-dasharray: 4 620;      /* tiny bright dash, very long gap */
   stroke-dashoffset: 0;
-  animation: hp-dash 3.2s linear infinite;
+  opacity: 0.55;                /* faint */
+  animation: hp-dash 26s linear infinite;  /* very slow */
 }
 @keyframes hp-dash{
-  to { stroke-dashoffset: -278; } /* negative moves forward */
+  to { stroke-dashoffset: -624; }  /* smooth, slow travel */
 }
 
-/* thin inner progress line */
+/* Inner progress line: hairline, glows a touch */
 .header-progress__bar{
   position:absolute;
   left: 10px; right: 10px;
   top: 50%;
-  height: 3px;
+  height: 2px;                  /* thinner line */
   transform: translateY(-50%);
   width: 0%;
   background: linear-gradient(90deg, #9b5cff 0%, #d38aff 100%);
-  box-shadow: 0 0 8px rgba(180,100,255,.45);
+  box-shadow: 0 0 6px rgba(180,100,255,.35);
   border-radius: 9999px;
   transition: width .12s ease-out;
 }
 
-/* Mobile: stack below header; slightly shorter height */
+/* Mobile: stack below header, keep it elegant and not tall */
 @media (max-width: 768px){
+  .blog-page .site-header .container{
+    flex-wrap: wrap;
+    gap: .6rem;
+  }
   .blog-page .header-progress{
-    flex: 1 1 100%;
+    order: 3;                   /* logo, nav, pill */
+    flex-basis: 100%;
     max-width: none;
-    order: 3;                 /* after logo (1) and nav (2) if your header wraps */
     margin-top: .25rem;
   }
-  .header-progress__track{ height: 38px; }
-  .header-progress__bar{ left: 8px; right: 8px; height: 3px; }
+  .header-progress__track{ height: 28px; }
+  .header-progress__bar{ left: 8px; right: 8px; height: 2px; }
 }

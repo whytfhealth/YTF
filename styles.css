@@ -253,19 +253,47 @@ body.about li{margin:.25rem 0}
 }
 
 /* =============================
-   Scroll Progress Bar
+   Header Pill Progress (Blog pages)
    ============================= */
-
-#scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background: linear-gradient(90deg, rgba(150, 80, 255, 1) 0%, rgba(200, 120, 255, 1) 100%);
-  width: 0%;
-  z-index: 9999;
-  transition: width 0.1s ease-out;
-  box-shadow: 0 0 8px rgba(180, 100, 255, 0.7);
+.blog-page .site-header .container {
+  gap: 1rem; /* give the pill some breathing room */
 }
+
+.header-progress {
+  display: none;            /* hidden by default; enabled on .blog-page below */
+  flex: 1;                  /* take the middle space between logo and nav */
+  max-width: 520px;         /* don’t grow too large on desktop */
+  min-width: 220px;
+}
+
+.blog-page .header-progress { display: block; }
+
+.header-progress__track {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,0.04);             /* subtle dark fill */
+  border: 1px solid rgba(180,100,255,0.7);        /* purple outline */
+  box-shadow: 0 0 8px rgba(180,100,255,0.25);     /* gentle glow */
+  overflow: hidden;
+}
+
+.header-progress__bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(150,80,255,1) 0%, rgba(200,120,255,1) 100%);
+  box-shadow: 0 0 10px rgba(180,100,255,0.65);
+  transition: width 0.12s ease-out;
+}
+
+/* Keep layout tidy on small screens: hide the pill if space gets tight */
+@media (max-width: 640px) {
+  .blog-page .header-progress { display: none; }
+}
+
 
 

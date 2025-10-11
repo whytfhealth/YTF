@@ -576,3 +576,20 @@ p, li, blockquote { max-width: none !important; }
 
 /* Make sure tooltips position well inside article area */
 .post { position: relative; }
+
+/* ===== Make glossary links look neutral inside headings ===== */
+h1 .gloss,
+h2 .gloss,
+h3 .gloss {
+  color: #ffffff;                 /* white text to match headings */
+  border-bottom: none;            /* remove dotted underline */
+  cursor: pointer;                /* still clickable */
+  text-decoration: none;          /* no underline even on hover */
+}
+h1 .gloss:hover,
+h2 .gloss:hover,
+h3 .gloss:hover {
+  color: #ffffff;                 /* no hover color shift */
+  border-bottom: none;
+  text-decoration: none;
+}

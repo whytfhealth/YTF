@@ -882,7 +882,33 @@
   }
 })();
 </script>
+<script>
+(function(){
+  const btn = document.querySelector('.back-to-top');
+  if(!btn) return;
 
+  function toggle(){
+    const st = window.scrollY || document.documentElement.scrollTop;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = st / max;
+    if(pct > 0.30){ btn.classList.add('is-visible'); }
+    else{ btn.classList.remove('is-visible'); }
+  }
+
+  // Show/hide on load, scroll, resize
+  document.addEventListener('DOMContentLoaded', toggle, { once:true });
+  window.addEventListener('scroll', toggle, { passive:true });
+  window.addEventListener('resize', toggle);
+
+  // Jump to top (smooth unless reduced motion)
+  btn.addEventListener('click', function(e){
+    e.preventDefault();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ window.scrollTo(0,0); }
+    else{ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  });
+})();
+</script>
 <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 
 </body>

@@ -858,15 +858,6 @@
 })();
 
 (function(){
-  /* ===== Reveal on scroll ===== */
-  const candidates = document.querySelectorAll('h2, h3, .divider, .pre-footer-note, .white-card, .how-card');
-  candidates.forEach(el => el.classList.add('reveal'));
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target); }
-    });
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
-  candidates.forEach(el => io.observe(el));
 
   /* ===== Back to top ===== */
   const btn = document.querySelector('.back-to-top');

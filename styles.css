@@ -480,4 +480,37 @@ body::after{
   .scroll-progress{ height: 1.5px; }
 }
 
+/* Restore full-width paragraphs and lists inside content */
+p, li, blockquote { max-width: none !important; }
 
+/* Pre-footer & footer centered again */
+.pre-footer-note, .pre-footer-note .container, .pre-footer-note p {
+  text-align: center !important;
+}
+
+.site-footer, .site-footer .container, .site-footer p {
+  text-align: center !important;
+}
+
+/* Keep footer links on one line and nicely spaced */
+.site-footer a{ margin: 0 .35rem; }
+
+/* Sticky header restored; no layout shift */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11,15,20,0.86); /* your dark bg with slight opacity */
+  -webkit-backdrop-filter: saturate(120%) blur(8px);
+  backdrop-filter: saturate(120%) blur(8px);
+}
+
+/* Ensure header’s inner container stays the size it was */
+.site-header .container{
+  min-height: 64px;  /* match your previous header height */
+  position: relative; /* needed for the progress underline anchor */
+  align-items: center;
+}
+@media (max-width:768px){
+  .site-header .container{ min-height: 56px; }
+}

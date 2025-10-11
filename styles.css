@@ -252,85 +252,36 @@ body.about li{margin:.25rem 0}
   opacity: 0.7;
 }
 
-/* ===== Flat Header Reading Pill (static border + comet fill) ===== */
+/* ===== Header Underline Progress Bar ===== */
 
-/* show only on blog pages */
-.blog-page .header-progress { display: block; }
-
-.header-progress{
-  display: none;                 /* toggled on by .blog-page */
-  /* Fill the space between logo and nav, capped for elegance */
-  flex: 1 1 auto;
-  max-width: 520px;
-  min-width: 260px;
-  margin: 0 .75rem;
-
-  /* reveal after scrolling */
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity .25s ease, transform .25s ease;
-  pointer-events: none;
-  z-index: 0;
-}
-.header-progress.is-visible{
-  opacity: 1; transform: none; pointer-events: auto;
-}
-
-/* Flat pill body — subtle, distinct from header */
-.header-progress__track{
-  position: relative;
-  width: 100%;
-  height: 32px;                  /* slimmer height */
-  border-radius: 9999px;
-  background: rgba(18,22,29,0.55);                 /* semi-transparent dark */
-  border: 1px solid rgba(200,120,255,0.35);        /* static hairline border */
-  overflow: hidden;
-}
-
-/* Thin inner progress line */
-.header-progress__bar{
-  position: absolute;
-  left: 10px; right: 10px;       /* inner “rails” */
-  top: 50%;
+.scroll-progress {
+  position: fixed;
+  top: var(--header-height, 64px); /* adjust if your header height differs */
+  left: 0;
+  width: 0%;
   height: 2px;
-  transform: translateY(-50%);
-  width: calc(var(--pct) * 1%);  /* driven by JS */
-  background: linear-gradient(90deg, #9b5cff 0%, #d38aff 100%);
-  box-shadow: 0 0 6px rgba(180,100,255,.35);
-  border-radius: 9999px;
-  transition: width .14s ease-out;  /* subtle easing, not bouncy */
+  z-index: 999;
+  background: linear-gradient(90deg, #a76bff 0%, #d3a3ff 100%);
+  box-shadow: 0 0 6px rgba(170, 100, 255, 0.3);
+  transition: width 0.15s ease-out;
 }
 
-/* Soft “comet” at the leading edge of the bar */
-.header-progress__comet{
+/* Optional: subtle base line under header (for a more anchored look) */
+.scroll-progress::before {
+  content: '';
   position: absolute;
-  top: 50%;
-  height: 8px; width: 18px;       /* small glow head */
-  transform: translate(-50%, -50%);
-  /* place comet along the same inner rails as the bar */
-  left: calc(10px + ( (100% - 20px) * (var(--pct) / 100) ) );
-  pointer-events: none;
-  /* subtle glow dot */
-  background: radial-gradient(circle at 30% 50%, rgba(211,138,255,0.95) 0%,
-                                                   rgba(155,92,255,0.75) 45%,
-                                                   rgba(155,92,255,0.00) 70%);
-  filter: blur(0.5px);
-  opacity: .9;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.04); /* faint underlying track */
+  z-index: -1;
 }
 
-/* Mobile: stack under header, keep slim */
-@media (max-width: 768px){
-  .blog-page .site-header .container{
-    flex-wrap: wrap; gap: .6rem;
-  }
-  .blog-page .header-progress{
-    order: 3; flex-basis: 100%;
-    max-width: none; margin-top: .25rem;
-  }
-  .header-progress__track{ height: 28px; }
-  .header-progress__bar{ left: 8px; right: 8px; height: 2px; }
-  .header-progress__comet{
-    left: calc(8px + ( (100% - 16px) * (var(--pct) / 100) ));
-    height: 7px; width: 16px;
+/* Slightly thinner on mobile */
+@media (max-width: 768px) {
+  .scroll-progress {
+    top: var(--header-height, 56px);
+    height: 1.5px;
   }
 }

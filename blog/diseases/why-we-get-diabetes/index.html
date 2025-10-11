@@ -41,15 +41,7 @@
   
 
   <!-- Header reading progress (flat pill, static border, comet fill) -->
-<div class="header-progress" role="progressbar" aria-label="Reading progress"
-     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--pct:0;">
-  <div class="header-progress__track">
-    <div class="header-progress__bar"></div>
-    <div class="header-progress__comet" aria-hidden="true"></div>
-  </div>
-</div>
-
-
+<div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
 
       <nav class="nav" aria-label="Primary">
         <a href="/" class="nav-link">Home</a>
@@ -845,29 +837,20 @@
   </footer>
 <script>
 (function(){
-  const pill  = document.querySelector('.header-progress');
-  const track = document.querySelector('.header-progress__track');
-  if(!pill || !track) return;
+  const bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
 
-  let revealed = false;
-
-  function update(){
+  function updateProgress(){
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = Math.max(0, Math.min(100, (scrollTop / docHeight) * 100));
-
-    pill.style.setProperty('--pct', pct.toFixed(2));
-    pill.setAttribute('aria-valuenow', Math.round(pct));
-
-    if(!revealed && scrollTop > 2){
-      pill.classList.add('is-visible');
-      revealed = true;
-    }
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (scrollTop / docHeight) * 100;
+    bar.style.width = scrolled + "%";
+    bar.setAttribute('aria-valuenow', Math.round(scrolled));
   }
 
-  document.addEventListener('DOMContentLoaded', update, { once:true });
-  window.addEventListener('scroll', update, { passive:true });
-  window.addEventListener('resize', update);
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+  document.addEventListener('DOMContentLoaded', updateProgress);
 })();
 </script>
 </body>

@@ -33,17 +33,30 @@
 
   <!-- Header (same as all pages) -->
   <header class="site-header" role="banner">
-    <div class="container flex between center">
-      <a href="/" class="logo" aria-label="WhyTF Health home">
-        <img src="/assets/logo.png" alt="WhyTF Health logo" />
-      </a>
+   <div class="header-progress" role="progressbar" aria-label="Reading progress"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <div class="header-progress__track">
+    <!-- animated border outline (SVG so it follows the rounded shape perfectly) -->
+    <svg class="header-progress__outline" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="rgba(150,80,255,1)"/>
+          <stop offset="100%" stop-color="rgba(210,130,255,1)"/>
+        </linearGradient>
+      </defs>
+      <!-- Base faint border (always on) -->
+      <rect x="1" y="1" width="98" height="38" rx="20" ry="20"
+            fill="none" stroke="rgba(200,120,255,0.28)" stroke-width="2"/>
+      <!-- Moving highlight segment -->
+      <rect class="header-progress__dash" x="1" y="1" width="98" height="38" rx="20" ry="20"
+            fill="none" stroke="url(#hp-grad)" stroke-width="2" stroke-linecap="round"/>
+    </svg>
 
-      <!-- Pill progress inside header -->
-    <div class="header-progress" role="progressbar" aria-label="Reading progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-      <div class="header-progress__track">
-        <div class="header-progress__bar"></div>
-      </div>
-    </div>
+    <!-- the thin inner reading line -->
+    <div class="header-progress__bar"></div>
+  </div>
+</div>
+
 
       <nav class="nav" aria-label="Primary">
         <a href="/" class="nav-link">Home</a>
@@ -837,7 +850,7 @@
       <p>© 2025 WhyTF Health · Educational only — not medical advice · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
     </div>
   </footer>
- <script>
+<script>
   (function() {
     const pill = document.querySelector('.header-progress');
     const bar  = document.querySelector('.header-progress__bar');
@@ -853,14 +866,12 @@
       bar.style.width = pct + '%';
       pill.setAttribute('aria-valuenow', Math.round(pct));
 
-      // reveal-on-first-scroll
       if (!revealed && scrollTop > 2) {
         pill.classList.add('is-visible');
         revealed = true;
       }
     }
 
-    // in case page loads mid-scroll (back/forward cache, anchor jumps, etc.)
     document.addEventListener('DOMContentLoaded', updateProgress);
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);

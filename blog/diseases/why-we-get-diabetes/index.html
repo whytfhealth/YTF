@@ -839,22 +839,31 @@
   </footer>
  <script>
   (function() {
-    const bar = document.querySelector('.header-progress__bar');
-    const container = document.querySelector('.header-progress');
+    const pill = document.querySelector('.header-progress');
+    const bar  = document.querySelector('.header-progress__bar');
+    if (!pill || !bar) return;
 
-    if (!bar || !container) return;
+    let revealed = false;
 
     function updateProgress() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
       bar.style.width = pct + '%';
-      container.setAttribute('aria-valuenow', Math.round(pct));
+      pill.setAttribute('aria-valuenow', Math.round(pct));
+
+      // reveal-on-first-scroll
+      if (!revealed && scrollTop > 2) {
+        pill.classList.add('is-visible');
+        revealed = true;
+      }
     }
 
+    // in case page loads mid-scroll (back/forward cache, anchor jumps, etc.)
+    document.addEventListener('DOMContentLoaded', updateProgress);
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
-    document.addEventListener('DOMContentLoaded', updateProgress);
   })();
 </script>
 </body>

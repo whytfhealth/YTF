@@ -253,47 +253,112 @@ body.about li{margin:.25rem 0}
 }
 
 /* =============================
-   Header Pill Progress (Blog pages)
+   Header Pill Progress (shorter + taller + reveal-on-scroll)
    ============================= */
-.blog-page .site-header .container {
-  gap: 1rem; /* give the pill some breathing room */
+
+/* breathing room in header */
+.blog-page .site-header .container { gap: 1rem; }
+
+/* Pill container: SHORTER width than before (≈ 60% of previous),
+   TALLER track will handle the visual “thickness” */
+.header-progress{
+  display: none;              /* only on blog pages (set below) */
+  flex: 0 1 240px;            /* smaller horizontal footprint */
+  max-width: 300px;
+  min-width: 200px;
+
+  /* hidden at first; we’ll reveal on scroll via .is-visible */
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;       /* avoid focus while hidden */
+}
+.blog-page .header-progress{ display:block; }
+.blog-page .header-progress.is-visible{
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
-.header-progress {
-  display: none;            /* hidden by default; enabled on .blog-page below */
-  flex: 1;                  /* take the middle space between logo and nav */
-  max-width: 520px;         /* don’t grow too large on desktop */
-  min-width: 220px;
-}
-
-.blog-page .header-progress { display: block; }
-
-.header-progress__track {
+/* Tall 3D pill body */
+.header-progress__track{
   position: relative;
   width: 100%;
-  height: 12px;
+  height: 52px;                               /* ~2× previous height */
   border-radius: 9999px;
-  background: rgba(255,255,255,0.04);             /* subtle dark fill */
-  border: 1px solid rgba(180,100,255,0.7);        /* purple outline */
-  box-shadow: 0 0 8px rgba(180,100,255,0.25);     /* gentle glow */
+  background: linear-gradient(180deg,#141821 0%, #0d1218 100%); /* 3D base */
+  box-shadow:
+    inset 0 3px 8px rgba(0,0,0,.55),          /* inner depth */
+    inset 0 1px 0 rgba(255,255,255,.06),      /* top lip */
+    0 0 12px rgba(180,100,255,.20);           /* ambient glow */
   overflow: hidden;
 }
 
-.header-progress__bar {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
+/* Animated purple outline that “sweeps” around */
+.header-progress__track::before{
+  content:"";
+  position:absolute;
+  inset:-2px;                                  /* thin ring */
+  border-radius:inherit;
+  padding:2px;
+  background:
+    conic-gradient(from 0deg,
+      rgba(180,100,255,.10),
+      rgba(200,120,255,.75),
+      rgba(180,100,255,.10) 75%);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: border-sweep 3.5s linear infinite;
+  pointer-events:none;
+}
+
+/* top gloss for extra 3D */
+.header-progress__track::after{
+  content:"";
+  position:absolute;
+  left: 6px; right: 6px; top: 6px; height: 38%;
+  border-radius:inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+@keyframes border-sweep{ to { transform: rotate(360deg); } }
+
+/* Thin inner progress line */
+.header-progress__bar{
+  position:absolute;
+  left: 10px; right: 10px;
+  top: 50%;
+  height: 4px;                                 /* thin reading line */
+  transform: translateY(-50%);
   width: 0%;
-  background: linear-gradient(90deg, rgba(150,80,255,1) 0%, rgba(200,120,255,1) 100%);
-  box-shadow: 0 0 10px rgba(180,100,255,0.65);
-  transition: width 0.12s ease-out;
+  background: linear-gradient(90deg, rgba(150,80,255,1) 0%, rgba(210,130,255,1) 100%);
+  box-shadow: 0 0 10px rgba(180,100,255,.55);
+  border-radius: 9999px;
+  transition: width .12s ease-out;
 }
 
-/* Keep layout tidy on small screens: hide the pill if space gets tight */
-@media (max-width: 640px) {
-  .blog-page .header-progress { display: none; }
+/* Mobile: pill stacks below header, wider but a bit shorter for elegance */
+@media (max-width: 768px){
+  .blog-page .site-header .container{
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+  .blog-page .header-progress{
+    order: 3;                 /* logo (1), nav (2), pill (3) */
+    flex-basis: 100%;
+    max-width: none;
+    margin-top: .25rem;
+  }
+  .header-progress__track{
+    margin: 0 auto;
+    width: min(94%, 560px);
+    height: 36px;             /* slightly slimmer on phones */
+  }
+  .header-progress__bar{
+    left: 8px; right: 8px; height: 3px;
+  }
 }
-
-
-

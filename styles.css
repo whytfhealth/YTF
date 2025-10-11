@@ -252,36 +252,33 @@ body.about li{margin:.25rem 0}
   opacity: 0.7;
 }
 
-/* ===== Header Underline Progress Bar ===== */
 
-.scroll-progress {
-  position: fixed;
-  top: var(--header-height, 64px); /* adjust if your header height differs */
-  left: 0;
-  width: 0%;
-  height: 2px;
-  z-index: 999;
-  background: linear-gradient(90deg, #a76bff 0%, #d3a3ff 100%);
-  box-shadow: 0 0 6px rgba(170, 100, 255, 0.3);
-  transition: width 0.15s ease-out;
+/* ===== Header underline progress (crisp, no reflow) ===== */
+
+/* anchor the bar without altering header layout */
+.site-header .container {
+  position: relative; /* safe: doesn’t change layout, just creates anchor */
 }
 
-/* Optional: subtle base line under header (for a more anchored look) */
-.scroll-progress::before {
-  content: '';
+/* the underline itself */
+.scroll-progress{
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255,255,255,0.04); /* faint underlying track */
-  z-index: -1;
+  right: 0;
+  bottom: -1px;                 /* sits just under the header content */
+  height: 2px;                  /* 1.5–2px looks premium */
+  pointer-events: none;         /* never intercept clicks/taps */
+  background: linear-gradient(90deg, #A679FF 0%, #D4A8FF 100%);
+  transform: scaleX(0);         /* we animate this, not width */
+  transform-origin: left center;
+  will-change: transform;       /* performance */
 }
 
-/* Slightly thinner on mobile */
-@media (max-width: 768px) {
-  .scroll-progress {
-    top: var(--header-height, 56px);
-    height: 1.5px;
-  }
+/* slightly slimmer on small screens, but same placement */
+@media (max-width: 768px){
+  .scroll-progress{ height: 1.5px; }
 }
+
+
+
+

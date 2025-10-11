@@ -31,28 +31,26 @@
     <body class="blog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header (same as all pages) -->
-  <header class="site-header" role="banner">
-    <div class="container flex between center">
-      <!-- In your header logo -->
-<a href="/index.html" class="logo" aria-label="WhyTF Health home">
-  <img src="/assets/logo.png" alt="WhyTF Health logo" />
-</a>
-  
+ <header class="site-header" role="banner">
+  <div class="container flex between center">
+    <!-- logo -->
+    <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+      <img src="/assets/logo.png" alt="WhyTF Health logo">
+    </a>
 
-  <!-- Header reading progress (flat pill, static border, comet fill) -->
-<div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    <!-- nav -->
+    <nav class="nav" aria-label="Primary">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/about.html" class="nav-link">About</a>
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/podcast.html" class="nav-link">Podcast</a>
+      <a href="/contact.html" class="nav-link">Contact</a>
+    </nav>
 
-      <nav class="nav" aria-label="Primary">
-        <a href="/" class="nav-link">Home</a>
-        <a href="/blog/" class="nav-link" aria-current="page">Blog</a>
-        <a href="/about.html" class="nav-link">About</a>
-        <a href="/podcast.html" class="nav-link">Podcast</a>
-        <a href="/contact.html" class="nav-link">Contact</a>
-      </nav>
-    </div>
-  </header>
-
+    <!-- ✅ ADD THIS LINE AS THE LAST CHILD INSIDE THE CONTAINER -->
+    <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  </div>
+</header>
   <main id="main" class="container section">
     <article class="post">
       <header class="post-header">
@@ -835,22 +833,24 @@
       <p>© 2025 WhyTF Health · Educational only — not medical advice · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
     </div>
   </footer>
+
 <script>
 (function(){
   const bar = document.querySelector('.scroll-progress');
   if (!bar) return;
 
-  function updateProgress(){
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const scrolled = (scrollTop / docHeight) * 100;
-    bar.style.width = scrolled + "%";
-    bar.setAttribute('aria-valuenow', Math.round(scrolled));
+  function update(){
+    const st = window.scrollY || document.documentElement.scrollTop;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = Math.max(0, Math.min(1, st / max));
+    bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
+    bar.setAttribute('aria-valuenow', Math.round(pct * 100));
   }
 
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  window.addEventListener('resize', updateProgress);
-  document.addEventListener('DOMContentLoaded', updateProgress);
+  // run once and on events
+  document.addEventListener('DOMContentLoaded', update, { once: true });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
 })();
 </script>
 </body>

@@ -370,4 +370,114 @@ body.about li{margin:.25rem 0}
   white-space: nowrap; border: 0;
 }
 
+/* ===== TYPOGRAPHY: premium headings + clean body ===== */
+
+/* Body stays on fast system stack */
+:root{
+  --body-font: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  --head-font: "Outfit", var(--body-font);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.65);
+  --bg: #0b0f14; /* base dark */
+  --purple-1: #A679FF;
+  --purple-2: #D4A8FF;
+}
+
+/* Base */
+html { scroll-behavior: smooth; }
+body{
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  /* Subtle radial at top for depth */
+  background-image:
+    radial-gradient(1200px 420px at 50% -220px, rgba(171,114,255,0.08), rgba(0,0,0,0) 60%);
+  background-attachment: scroll;
+}
+
+/* Premium heading hierarchy (Outfit) */
+h1, h2, h3{
+  font-family: var(--head-font);
+  color: #fff;
+  letter-spacing: 0.1px;
+  margin-top: 0;
+}
+h1{ font-weight: 700; line-height: 1.2; font-size: clamp(1.9rem, 1.2rem + 2.2vw, 2.8rem); }
+h2{ font-weight: 700; line-height: 1.28; font-size: clamp(1.45rem, 1.1rem + 1.2vw, 2rem); }
+h3{ font-weight: 600; line-height: 1.34; font-size: clamp(1.2rem, 1rem + .6vw, 1.4rem); }
+
+/* Article text niceties */
+p{ max-width: 68ch; }
+.subtext, .meta, .white-read-time, .read-time{ color: var(--muted); letter-spacing: 0.2px; }
+strong{ font-weight: 600; } /* avoid “shouting” bold */
+
+/* Vertical rhythm */
+.section{ padding-top: 48px; padding-bottom: 48px; }
+@media (max-width: 768px){ .section{ padding-top: 36px; padding-bottom: 36px; } }
+h2.section-title{ margin-top: 32px; margin-bottom: 16px; }
+h3{ margin-top: 24px; margin-bottom: 12px; }
+p + p{ margin-top: 12px; }
+
+/* ===== MICRO-MOTION: subtle reveal on scroll ===== */
+.reveal{ opacity: 0; transform: translateY(6px); }
+.reveal.is-in{ opacity: 1; transform: none; transition: opacity .18s cubic-bezier(.21,.61,.35,1), transform .18s cubic-bezier(.21,.61,.35,1); }
+
+/* Prefer reduced motion: show instantly */
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* Apply reveal to common items without editing your HTML */
+h2, h3, .divider, .pre-footer-note, .white-card, .how-card{ will-change: opacity, transform; }
+
+/* ===== AMBIENT: ultra-light vignette (premium, not obvious) ===== */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(0,0,0,.25);
+  z-index: 0;
+}
+@media (max-width: 768px){
+  body::after{ box-shadow: inset 0 0 60px rgba(0,0,0,.22); }
+}
+
+/* Ensure header/content sit above vignette */
+.site-header, main, footer{ position: relative; z-index: 1; }
+
+/* ===== Back-to-top button (minimal) ===== */
+.back-to-top{
+  position: fixed;
+  right: 18px;
+  bottom: 22px;
+  width: 44px; height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(15,20,26,.65);
+  color: #fff;
+  display: grid; place-items: center;
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0; transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease, border-color .18s ease, background-color .18s ease;
+  z-index: 999;
+}
+.back-to-top.is-visible{
+  opacity: 1; transform: none; pointer-events: auto;
+}
+.back-to-top:hover{ border-color: rgba(255,255,255,.22); background: rgba(15,20,26,.78); }
+@media (prefers-reduced-motion: reduce){
+  .back-to-top, .back-to-top:hover{ transition: none; }
+}
+
+/* Keep scroll-progress line you already have slightly thinner on mobile */
+@media (max-width: 768px){
+  .scroll-progress{ height: 1.5px; }
+}
+
 

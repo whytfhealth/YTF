@@ -40,29 +40,16 @@
 </a>
   
 
-   <div class="header-progress" role="progressbar" aria-label="Reading progress"
-     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+  <!-- Header reading progress (flat pill, static border, comet fill) -->
+<div class="header-progress" role="progressbar" aria-label="Reading progress"
+     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" style="--pct:0;">
   <div class="header-progress__track">
-    <!-- ultra-thin animated outline via SVG -->
-    <svg class="header-progress__outline" viewBox="0 0 100 32" preserveAspectRatio="none" aria-hidden="true">
-      <!-- Static hairline border -->
-      <rect x="0.75" y="0.75" width="98.5" height="30.5" rx="16" ry="16"
-            fill="none" stroke="rgba(200,120,255,0.35)" stroke-width="1.5"/>
-      <!-- Subtle moving highlight (very slow, very faint) -->
-      <rect class="header-progress__dash" x="0.75" y="0.75" width="98.5" height="30.5" rx="16" ry="16"
-            fill="none" stroke="url(#hp-grad)" stroke-width="1.5" stroke-linecap="round" />
-      <defs>
-        <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="#9b5cff"/>
-          <stop offset="100%" stop-color="#d38aff"/>
-        </linearGradient>
-      </defs>
-    </svg>
-
-    <!-- thin inner reading line -->
     <div class="header-progress__bar"></div>
+    <div class="header-progress__comet" aria-hidden="true"></div>
   </div>
 </div>
+
+
 
       <nav class="nav" aria-label="Primary">
         <a href="/" class="nav-link">Home</a>
@@ -858,29 +845,29 @@
   </footer>
 <script>
 (function(){
-  const pill = document.querySelector('.header-progress');
-  const bar  = document.querySelector('.header-progress__bar');
-  if (!pill || !bar) return;
+  const pill  = document.querySelector('.header-progress');
+  const track = document.querySelector('.header-progress__track');
+  if(!pill || !track) return;
 
   let revealed = false;
 
-  function updateProgress(){
+  function update(){
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const docHeight = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = Math.max(0, Math.min(100, (scrollTop / docHeight) * 100));
 
-    bar.style.width = pct + '%';
+    pill.style.setProperty('--pct', pct.toFixed(2));
     pill.setAttribute('aria-valuenow', Math.round(pct));
 
-    if (!revealed && scrollTop > 2){
+    if(!revealed && scrollTop > 2){
       pill.classList.add('is-visible');
       revealed = true;
     }
   }
 
-  document.addEventListener('DOMContentLoaded', updateProgress);
-  window.addEventListener('scroll', updateProgress, { passive: true });
-  window.addEventListener('resize', updateProgress);
+  document.addEventListener('DOMContentLoaded', update, { once:true });
+  window.addEventListener('scroll', update, { passive:true });
+  window.addEventListener('resize', update);
 })();
 </script>
 </body>

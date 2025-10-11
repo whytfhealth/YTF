@@ -541,37 +541,38 @@ p, li, blockquote { max-width: none !important; }
 @media (prefers-reduced-motion: reduce){
   .back-to-top, .back-to-top:hover{ transition: none; }
 }
-/* === Article + right-rail TOC (desktop) === */
-.article-shell{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 280px;
-  gap:2rem;
-}
-@media (max-width: 1024px){
-  .article-shell{ grid-template-columns: 1fr; }
-}
 
-.onpage{
-  position: sticky; top: 96px; align-self: start;
-  max-height: calc(100vh - 120px); overflow:auto;
-  width: 100%;
-  padding: 1rem;
-  border:1px solid rgba(255,255,255,.08);
-  border-radius: 12px;
+/* ===== Inline Glossary (no tooltip yet) ===== */
+.gloss {
+  color: var(--purple);
+  border-bottom: 1px dotted rgba(168,85,247,.6);
+  text-decoration: none;
+  cursor: help;
+  transition: border-color .15s ease, color .15s ease;
+}
+.gloss:hover { border-bottom-color: rgba(168,85,247,1); }
+
+/* (future) tooltip – will only show when data-def is non-empty */
+.gloss[data-def]:hover::after {
+  content: attr(data-def);
+  position: absolute;
+  z-index: 999;
+  max-width: 48ch;
+  padding: .55rem .7rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.08);
   background: linear-gradient(180deg,#0f141a,#0b0f14);
-  box-shadow: 0 6px 24px rgba(0,0,0,.18);
-  font-size:.95rem;
+  color: #eaeaea;
+  font-size: .92rem;
+  line-height: 1.35;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  transform: translateY(-120%);
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  animation: glossIn .12s ease forwards;
 }
-.onpage h4{ margin:.2rem 0 .6rem; font:600 1rem/1.2 var(--head-font); color:#fff }
-.onpage a{ display:block; color:rgba(255,255,255,.85); text-decoration:none; padding:.28rem 0 }
-.onpage a:hover{ text-decoration:underline }
-.onpage .l2{ padding-left:.75rem; opacity:.92 }
-.onpage .active{ color:#fff; font-weight:600 }
-@media (max-width: 1024px){ .onpage{ display:none; } }
+@keyframes glossIn { to { opacity: 1; } }
 
-/* Small '#' anchor that appears when hovering headings */
-.heading-anchor{
-  opacity:0; margin-left:.4rem; text-decoration:none; color:var(--purple-2);
-  transition:opacity .12s ease;
-}
-h2:hover .heading-anchor, h3:hover .heading-anchor{ opacity:1; }
+/* Make sure tooltips position well inside article area */
+.post { position: relative; }

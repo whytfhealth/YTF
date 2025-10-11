@@ -57,7 +57,7 @@
   <!-- ARTICLE WRAPPER: grid for article + right-rail TOC -->
   <div class="article-shell">
     <!-- MAIN ARTICLE COLUMN -->
-    <article id="post-body" class="post">
+    <article class="post" id="post-body"> 
       <header class="post-header">
         <h1>WhyTF We Get Diabetes - The Sugar Traffic Jam Inside Your Body</h1>
         <p class="subtext">The full story — from sugar on your plate to chaos in your cells.</p>
@@ -826,13 +826,7 @@
         <p><strong>Disclaimer:</strong> Educational only — not medical advice. Always consult a qualified clinician for individual care.</p>
       </section>
     </article>
-      <!-- RIGHT RAIL: On this page (desktop only) -->
-    <aside class="onpage" id="onpage" aria-label="On this page">
-      <h4>On this page</h4>
-      <nav id="onpage-links"></nav>
-    </aside>
-  </div> <!-- /.article-shell -->
-
+      
 
   <div class="divider" aria-hidden="true"></div>
   <section class="pre-footer-note" aria-label="Project line">
@@ -891,56 +885,118 @@
   }
 })();
 </script>
+
 <script>
+/* Glossary autolinker: wraps key terms in the article with <a class="gloss">…</a>
+   – Every click goes to /glossary/coming-soon.html (for now)
+   – Later, give each term a real slugUrl to override the default
+   – Case-insensitive, longest-terms-first, avoids links/code/anchors
+*/
 (function(){
-  const body = document.querySelector('#post-body');
-  const nav  = document.querySelector('#onpage-links');
-  if(!body || !nav) return; // only on article pages
+  const ARTICLE_SEL = '#post-body';   // your article container id
+  const DEFAULT_URL = '/glossary/coming-soon.html';
 
-  // Collect H2/H3 headings in the article
-  const heads = Array.from(body.querySelectorAll('h2, h3'));
-  if(!heads.length) return;
+  // Term list (slug + optional micro-definition for later; keep data-def "" for now)
+  const TERMS = [
+    // Simple Overview
+    {term:'receptors', slug:'receptors'},
+    {term:'insulin', slug:'insulin'},
+    {term:'ketones', slug:'ketones'},
+    {term:'diabetic ketoacidosis', slug:'diabetic-ketoacidosis'},
+    // Detailed Explanation
+    {term:'pancreas', slug:'pancreas'},
+    {term:'islets of langerhans', slug:'islets-of-langerhans'},
+    {term:'beta cells', slug:'beta-cells'}, {term:'β-cells', slug:'beta-cells'},
+    {term:'glycogen', slug:'glycogen'},
+    {term:'glut4', slug:'glut4'},
+    {term:'insulin resistant', slug:'insulin-resistance'},
+    {term:'insulin resistance', slug:'insulin-resistance'},
+    {term:'receptor desensitisation', slug:'receptor-desensitisation'},
+    {term:'lipotoxicity', slug:'lipotoxicity'},
+    {term:'hyperinsulinaemia', slug:'hyperinsulinaemia'},
+    {term:'prediabetes', slug:'prediabetes'}, {term:'pre-diabetes', slug:'prediabetes'},
+    {term:'type 1 diabetes', slug:'type-1-diabetes'},
+    {term:'type 2 diabetes', slug:'type-2-diabetes'},
+    {term:'irs-1', slug:'irs-1'}, {term:'irs', slug:'irs'},
+    {term:'pi3k', slug:'pi3k'},
+    {term:'akt', slug:'akt'},
+    {term:'phosphorylation', slug:'phosphorylation'}, {term:'phosphorylated', slug:'phosphorylation'},
+    {term:'fatty acids', slug:'fatty-acids'},
+    {term:'inflammatory molecules', slug:'inflammatory-molecules'},
+    {term:'fatty acid oxidation', slug:'fatty-acid-oxidation'},
+    {term:'free radicals', slug:'free-radicals'},
+    {term:'oxidative stress', slug:'oxidative-stress'},
+    {term:'insulin signalling', slug:'insulin-signalling'}, {term:'insulin signaling', slug:'insulin-signalling'},
+    {term:'gluconeogenesis', slug:'gluconeogenesis'},
+    {term:'cytokine', slug:'cytokine'}, {term:'cytokines', slug:'cytokine'},
+    {term:'tnf-α', slug:'tnf-alpha'}, {term:'tnf alpha', slug:'tnf-alpha'},
+    {term:'il-6', slug:'il-6'},
+    {term:'insulin resistance syndrome', slug:'insulin-resistance-syndrome'},
+    {term:'t cells', slug:'t-cells'}, {term:'t-cells', slug:'t-cells'},
+    {term:'hla-dr3', slug:'hla-dr3'},
+    {term:'hla-dr4', slug:'hla-dr4'},
+    {term:'coxsackie b', slug:'coxsackie-b'},
+    {term:'rubella', slug:'rubella'},
+    {term:'antibodies', slug:'antibodies'},
+    {term:'compensated insulin resistance', slug:'compensated-insulin-resistance'},
+    {term:'hypertrophy', slug:'hypertrophy'},
+    {term:'endoplasmic reticulum strain', slug:'endoplasmic-reticulum-strain'},
+    {term:'apoptosis', slug:'apoptosis'},
+    {term:'amylin', slug:'amylin'},
+    {term:'hyperglycaemia', slug:'hyperglycaemia'}, {term:'hyperglycemia', slug:'hyperglycaemia'},
+    {term:'neuropathy', slug:'neuropathy'},
+    {term:'retinopathy', slug:'retinopathy'},
+    {term:'atherosclerosis', slug:'atherosclerosis'},
+    {term:'gene expression', slug:'gene-expression'},
+    {term:'epigenetic marks', slug:'epigenetic-marks'},
+    {term:'beta cell exhaustion', slug:'beta-cell-exhaustion'}, {term:'β-cell exhaustion', slug:'beta-cell-exhaustion'},
+    {term:'lada', slug:'lada'}, {term:'latent autoimmune diabetes in adults', slug:'lada'},
+    // Global terms
+    {term:'diabetes', slug:'diabetes'}
+  ];
 
-  // Ensure each heading has a stable id (slug from text)
-  heads.forEach(h=>{
-    if(!h.id){
-      h.id = h.textContent.trim()
-        .toLowerCase()
-        .replace(/[^\w]+/g,'-')
-        .replace(/(^-|-$)/g,'');
+  // Build regex from terms (longest first to avoid partial overlaps)
+  TERMS.sort((a,b)=>b.term.length - a.term.length);
+  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const pattern = '\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\b';
+  const rx = new RegExp(pattern, 'gi');
+
+  const root = document.querySelector(ARTICLE_SEL);
+  if(!root) return;
+
+  // Walk text nodes only (skip existing links/code/pre)
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node){
+      const p = node.parentNode;
+      if(!p) return NodeFilter.FILTER_REJECT;
+      const tag = p.nodeName.toLowerCase();
+      if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) return NodeFilter.FILTER_REJECT;
+      if (!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
     }
   });
 
-  // Build "On this page" links
-  nav.innerHTML = heads.map(h=>{
-    const lvl = h.tagName === 'H3' ? 'l2' : 'l1';
-    const label = h.textContent.trim();
-    return `<a class="${lvl}" href="#${h.id}">${label}</a>`;
-  }).join('');
+  const toProcess = [];
+  while (walker.nextNode()) toProcess.push(walker.currentNode);
 
-  // Add tiny '#' deep-link to each heading
-  heads.forEach(h=>{
-    const a = document.createElement('a');
-    a.className = 'heading-anchor';
-    a.href = '#'+h.id;
-    a.setAttribute('aria-label','Link to this section');
-    a.textContent = '#';
-    h.appendChild(a);
+  toProcess.forEach(textNode=>{
+    const html = textNode.nodeValue.replace(rx, (m)=>{
+      // Find matching term to get slug (case-insensitive)
+      const t = TERMS.find(t => t.term.toLowerCase() === m.toLowerCase());
+      const url = (t && t.slugUrl) ? t.slugUrl : DEFAULT_URL;
+      const def = (t && t.def) ? t.def : '';  // keep empty now
+      const slugHref = url; // all go to coming soon for now
+      return `<a class="gloss" href="${slugHref}" data-term="${(t?t.slug:m).toLowerCase()}" data-def="${def}" rel="nofollow">${m}</a>`;
+    });
+    const span = document.createElement('span');
+    span.innerHTML = html;
+    textNode.parentNode.replaceChild(span, textNode);
   });
 
-  // Highlight active section while scrolling
-  const links = Array.from(nav.querySelectorAll('a'));
-  const io = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        const id = e.target.id;
-        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href') === '#'+id));
-      }
-    });
-  }, { rootMargin:'-40% 0px -50% 0px', threshold:0 });
-  heads.forEach(h=>io.observe(h));
 })();
 </script>
+
+
 <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 
 </body>

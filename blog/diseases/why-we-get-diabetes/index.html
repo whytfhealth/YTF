@@ -33,30 +33,34 @@
 
   <!-- Header (same as all pages) -->
   <header class="site-header" role="banner">
-   <div class="header-progress" role="progressbar" aria-label="Reading progress"
-     aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-  <div class="header-progress__track">
-    <!-- animated border outline (SVG so it follows the rounded shape perfectly) -->
-    <svg class="header-progress__outline" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-      <defs>
-        <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%"   stop-color="rgba(150,80,255,1)"/>
-          <stop offset="100%" stop-color="rgba(210,130,255,1)"/>
-        </linearGradient>
-      </defs>
-      <!-- Base faint border (always on) -->
-      <rect x="1" y="1" width="98" height="38" rx="20" ry="20"
-            fill="none" stroke="rgba(200,120,255,0.28)" stroke-width="2"/>
-      <!-- Moving highlight segment -->
-      <rect class="header-progress__dash" x="1" y="1" width="98" height="38" rx="20" ry="20"
-            fill="none" stroke="url(#hp-grad)" stroke-width="2" stroke-linecap="round"/>
-    </svg>
+    <div class="container flex between center">
+      <a href="../index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="../assets/logo.png" alt="WhyTF Health logo" />
+      </a>
+  
 
-    <!-- the thin inner reading line -->
-    <div class="header-progress__bar"></div>
-  </div>
-</div>
+    <div class="header-progress" role="progressbar" aria-label="Reading progress"
+         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+      <div class="header-progress__track">
+        <svg class="header-progress__outline" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="hp-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#9b5cff"/>
+              <stop offset="100%" stop-color="#d38aff"/>
+            </linearGradient>
+          </defs>
+          <!-- faint static border -->
+          <rect x="1" y="1" width="98" height="38" rx="20" ry="20"
+                fill="none" stroke="rgba(200,120,255,.28)" stroke-width="2"/>
+          <!-- short bright dash that travels around the border -->
+          <rect class="header-progress__dash" x="1" y="1" width="98" height="38" rx="20" ry="20"
+                fill="none" stroke="url(#hp-grad)" stroke-width="2" stroke-linecap="round"/>
+        </svg>
 
+        <!-- thin inner progress line -->
+        <div class="header-progress__bar"></div>
+      </div>
+    </div>
 
       <nav class="nav" aria-label="Primary">
         <a href="/" class="nav-link">Home</a>
@@ -851,31 +855,31 @@
     </div>
   </footer>
 <script>
-  (function() {
-    const pill = document.querySelector('.header-progress');
-    const bar  = document.querySelector('.header-progress__bar');
-    if (!pill || !bar) return;
+(function(){
+  const pill = document.querySelector('.header-progress');
+  const bar  = document.querySelector('.header-progress__bar');
+  if (!pill || !bar) return;
 
-    let revealed = false;
+  let revealed = false;
 
-    function updateProgress() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  function updateProgress(){
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
 
-      bar.style.width = pct + '%';
-      pill.setAttribute('aria-valuenow', Math.round(pct));
+    bar.style.width = pct + '%';
+    pill.setAttribute('aria-valuenow', Math.round(pct));
 
-      if (!revealed && scrollTop > 2) {
-        pill.classList.add('is-visible');
-        revealed = true;
-      }
+    if (!revealed && scrollTop > 2){
+      pill.classList.add('is-visible');
+      revealed = true;
     }
+  }
 
-    document.addEventListener('DOMContentLoaded', updateProgress);
-    window.addEventListener('scroll', updateProgress, { passive: true });
-    window.addEventListener('resize', updateProgress);
-  })();
+  document.addEventListener('DOMContentLoaded', updateProgress);
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('resize', updateProgress);
+})();
 </script>
 </body>
 </html>

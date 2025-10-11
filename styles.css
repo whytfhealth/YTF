@@ -252,80 +252,78 @@ body.about li{margin:.25rem 0}
   opacity: 0.7;
 }
 
-/* Header pill: flat look + animated border dash */
-.blog-page .site-header .container { gap: 1rem; }
-
-/* smaller width, taller height as requested */
+/* ===== Header Reading Pill (flat, safe, no header overrides) ===== */
 .header-progress{
-  display: none;                     /* enabled on .blog-page below */
-  flex: 0 1 240px;                   /* ~60% of the old length */
-  max-width: 300px;
-  min-width: 200px;
+  /* don’t show on non-blog pages; you toggle via .blog-page on <body> */
+  display: none;
+  /* slot naturally between logo and nav without pushing either */
+  flex: 0 1 280px;         /* shorter horizontally */
+  max-width: 320px;
+  min-width: 220px;
+  margin: 0 .5rem;         /* small breathing room */
 
-  /* reveal on first scroll */
+  /* reveal-on-scroll */
   opacity: 0;
   transform: translateY(-6px);
-  transition: opacity .25s ease, transform .25s ease;
-  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;    /* avoid focus while hidden */
+  z-index: 0;              /* sit under nav hover menus if any */
 }
 .blog-page .header-progress{ display:block; }
-.blog-page .header-progress.is-visible{
-  opacity: 1; transform: none; pointer-events: auto;
+
+.header-progress.is-visible{
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
-/* FLAT body, distinct from header */
 .header-progress__track{
   position: relative;
   width: 100%;
-  height: 48px;                      /* tall pill */
+  height: 44px;            /* taller pill */
   border-radius: 9999px;
-  background: rgba(18,22,29,0.75);   /* flat, semi-opaque dark */
-  backdrop-filter: saturate(120%) blur(2px); /* subtle glassy separation (optional) */
+  background: rgba(16,18,24,.85); /* flat, distinct from header */
   overflow: hidden;
 }
 
-/* SVG outline fills the track box */
+/* SVG outline sits exactly over the track */
 .header-progress__outline{
   position: absolute; inset: 0; width: 100%; height: 100%;
   pointer-events: none;
 }
 
-/* Moving highlight: a short dash glides around the border */
+/* short bright dash glides around the border (true outline behavior) */
 .header-progress__dash{
-  stroke-dasharray: 16 260;          /* short bright segment, long gap */
+  stroke-dasharray: 18 260;      /* bright segment length, then gap */
   stroke-dashoffset: 0;
   animation: hp-dash 3.2s linear infinite;
 }
 @keyframes hp-dash{
-  to { stroke-dashoffset: -276; }    /* negative to move forward */
+  to { stroke-dashoffset: -278; } /* negative moves forward */
 }
 
-/* Thin inner progress line */
+/* thin inner progress line */
 .header-progress__bar{
   position:absolute;
   left: 10px; right: 10px;
   top: 50%;
-  height: 4px;
+  height: 3px;
   transform: translateY(-50%);
   width: 0%;
-  background: linear-gradient(90deg, rgba(150,80,255,1) 0%, rgba(210,130,255,1) 100%);
+  background: linear-gradient(90deg, #9b5cff 0%, #d38aff 100%);
   box-shadow: 0 0 8px rgba(180,100,255,.45);
   border-radius: 9999px;
   transition: width .12s ease-out;
 }
 
-/* Mobile: place pill below header, wider and a bit shorter */
+/* Mobile: stack below header; slightly shorter height */
 @media (max-width: 768px){
-  .blog-page .site-header .container{
-    flex-wrap: wrap; gap: .75rem;
-  }
   .blog-page .header-progress{
-    order: 3; flex-basis: 100%; max-width: none; margin-top: .25rem;
+    flex: 1 1 100%;
+    max-width: none;
+    order: 3;                 /* after logo (1) and nav (2) if your header wraps */
+    margin-top: .25rem;
   }
-  .header-progress__track{
-    margin: 0 auto;
-    width: min(94%, 560px);
-    height: 40px;                    /* slightly slimmer on phones */
-  }
+  .header-progress__track{ height: 38px; }
   .header-progress__bar{ left: 8px; right: 8px; height: 3px; }
 }

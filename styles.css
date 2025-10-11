@@ -541,3 +541,26 @@ p, li, blockquote { max-width: none !important; }
 @media (prefers-reduced-motion: reduce){
   .back-to-top, .back-to-top:hover{ transition: none; }
 }
+
+* ===== BACK-TO-TOP: TEST MODE (forces visibility) ===== */
+.back-to-top{
+  position: fixed !important;
+  right: 24px !important;
+  bottom: 24px !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  border: 2px solid rgba(255,255,255,.35) !important;
+  background: rgba(15,20,26,.92) !important;
+  color: #fff !important;
+  font-size: 20px !important;
+  line-height: 1 !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,.4) !important;
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+  z-index: 2147483647 !important; /* top of everything */
+  outline: 2px solid rgba(166,121,255,.6) !important; /* TEMP: neon outline so you can spot it */
+}

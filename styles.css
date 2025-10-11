@@ -279,6 +279,95 @@ body.about li{margin:.25rem 0}
   .scroll-progress{ height: 1.5px; }
 }
 
+/* ===== Summary table ===== */
+.table-scroll{
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1rem 0 1.25rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.10); /* outer edge */
+}
 
+.summary-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card, #10151b);
+  color: var(--text, #ffffff);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+/* header */
+.summary-table thead th{
+  text-align: left;
+  padding: .85rem 1rem;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+  font-weight: 700; /* headings bold */
+  position: sticky;
+  top: 0;          /* keeps headers visible if table scrolls */
+  z-index: 1;
+}
+
+/* rows */
+.summary-table tbody th,
+.summary-table tbody td{
+  padding: .8rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  vertical-align: top;
+}
+
+/* left column = Concept (bold) */
+.summary-table tbody th[scope="row"]{
+  width: 28%;
+  min-width: 180px;
+  font-weight: 700;             /* bold */
+  color: #ffffff;
+  border-right: 1px solid rgba(255,255,255,0.08);
+  white-space: nowrap;          /* keeps labels tidy */
+}
+
+/* right column = Plain-English Recap (NOT bold) */
+.summary-table tbody td{
+  font-weight: 400;             /* normal weight */
+  color: rgba(255,255,255,0.92);
+}
+
+/* final row edge cleanup */
+.summary-table tbody tr:last-child th,
+.summary-table tbody tr:last-child td{
+  border-bottom: 0;
+}
+
+/* subtle row hover on desktop only */
+@media (hover: hover){
+  .summary-table tbody tr:hover td,
+  .summary-table tbody tr:hover th[scope="row"]{
+    background: rgba(255,255,255,0.03);
+  }
+}
+
+/* small screens: allow better wrapping */
+@media (max-width: 640px){
+  .summary-table{
+    font-size: .95rem;
+  }
+  .summary-table tbody th[scope="row"]{
+    white-space: normal;
+    width: 40%;
+    min-width: 140px;
+  }
+}
+
+/* screen-reader helper */
+.sr-only{
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
 
 

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MicroBlog — Coming Soon</title>
+  <meta name="description" content="You clicked a term that will get its own short explainer. We’re writing these now."/>
+  <link rel="canonical" href="https://whytfhealth.com/microblog/coming-soon.html"/>
+  <link rel="stylesheet" href="/styles.css"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MicroBlog — Coming Soon">
+  <meta property="og:description" content="Short, precise explainers for key terms — publishing soon.">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
+        <a href="/podcast.html" class="nav-link">Podcast</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+  </header>
+
+  <main id="main" class="container section" style="max-width:820px;">
+    <header class="post-header" style="margin-bottom:1.25rem;">
+      <h1 id="mb-title">MicroBlog — Coming Soon</h1>
+      <p class="subtext" id="mb-sub">You clicked a term that will get its own short explainer. We’re writing these now.</p>
+    </header>
+
+    <div class="card" style="padding:1.5rem;border:1px solid var(--border);">
+      <p id="term-line" style="margin-top:0;">
+        <strong>Term:</strong> <span id="term">—</span>
+      </p>
+      <p style="margin:.6rem 0 1rem;">
+        For now, head back to the article or browse the full <a href="/blog/">Blog</a>.
+      </p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;">
+        <a id="back-link" class="btn secondary" href="/blog/">← Back to article</a>
+        <a class="btn" href="/microblog/">MicroBlog home</a>
+      </div>
+    </div>
+  </main>
+
+  <div class="divider" aria-hidden="true"></div>
+  <section class="pre-footer-note" aria-label="Project line">
+    <div class="container">
+      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+    </div>
+  </section>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
+    </div>
+  </footer>
+
+  <script>
+
+  // Personalise by ?term= and show a back button
+  (function(){
+    const params = new URLSearchParams(location.search);
+    const raw = params.get('term') || '';
+    const term = raw.trim().replace(/\s+/g,' ').slice(0,80); // tidy + safety
+
+    const termEl = document.getElementById('term');
+    const titleEl = document.getElementById('mb-title');
+    const subEl = document.getElementById('mb-sub');
+
+    if (term) {
+      termEl.textContent = term;
+      titleEl.textContent = 'MicroBlog — ' + term + ' (coming soon)';
+      subEl.textContent = 'A concise explainer for “' + term + '” is being prepared.';
+      // Update <title> too
+      document.title = 'MicroBlog: ' + term + ' — Coming Soon';
+    } else {
+      termEl.textContent = 'This term';
+    }
+
+    // Back to article using referrer if it’s from our domain
+    const back = document.getElementById('back-link');
+    const ref = document.referrer || '';
+    try {
+      const u = new URL(ref);
+      if (u.hostname.endsWith('whytfhealth.com')) {
+        back.href = ref;
+        back.textContent = '← Back to article';
+      } else {
+        back.href = '/blog/';
+        back.textContent = '← Browse the Blog';
+      }
+    } catch(e){
+      back.href = '/blog/';
+      back.textContent = '← Browse the Blog';
+    }
+  })();
+  </script>
+</body>
+</html>

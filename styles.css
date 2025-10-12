@@ -623,3 +623,18 @@ h1, h2, h3{
                "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
                "Segoe UI Emoji", "Segoe UI Symbol";
 }
+/* Nav spacing stays elegant with the extra item */
+.nav { display:flex; gap:1rem; flex-wrap:wrap; }
+@media (max-width: 880px){
+  .nav{ gap:.65rem; }
+}
+@media (max-width: 640px){
+  .nav{ gap:.5rem; }
+}
+
+/* Active link treatment already present; keep it consistent */
+.nav-link[aria-current="page"]{
+  background-color: rgba(168,85,247,.15);
+  box-shadow: 0 0 0 1px var(--purple) inset;
+  border-radius: 6px;
+}

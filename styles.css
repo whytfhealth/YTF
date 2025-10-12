@@ -638,82 +638,96 @@ h1, h2, h3{
   box-shadow: 0 0 0 1px var(--purple) inset;
   border-radius: 6px;
 }
-/* ===== MicroBlog tiles ===== */
-.tile-grid{
+/* === MicroBlog Tiles: dark body, alternating purple/white outlines === */
+.tile-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-/* Base tile */
-.tile{
+/* Base tile styling */
+.tile {
   display: block;
-  background: #0f1217;
-  border: 1px solid rgba(255,255,255,.14);
-  border-radius: 12px;
+  background: var(--card, #0f1217);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.15);
   padding: 1rem;
   text-decoration: none;
   color: #fff;
-  transition: transform .2s ease, box-shadow .25s ease, border-color .2s ease, background-color .2s ease;
+  transition: transform .2s ease, box-shadow .3s ease, border-color .3s ease;
 }
-.tile h3{ margin: 0 0 .35rem 0; font-size: 1.05rem; color:#fff; }
-.tile .soon{ margin: 0; color: var(--muted); font-size: .9rem; }
-.tile:hover{ transform: translateY(-2px); box-shadow: 0 6px 22px rgba(0,0,0,.35); border-color: rgba(255,255,255,.22); }
+.tile h3 {
+  margin: 0 0 .4rem 0;
+  font-size: 1.05rem;
+}
+.tile .soon {
+  margin: 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+.tile:hover {
+  transform: translateY(-2px);
+}
 
-/* Purple style (applied via nth-child patterns below) */
-.tile--purple{
-  background: linear-gradient(180deg, #1a1226, #161326);
-  border-color: rgba(168,85,247,.45);
-  box-shadow: 0 0 0 1px rgba(168,85,247,.35) inset, 0 8px 28px rgba(168,85,247,.08);
-}
-.tile--purple:hover{
-  box-shadow: 0 0 0 1px rgba(168,85,247,.55) inset, 0 10px 32px rgba(168,85,247,.12);
-}
+/* === Alternating rows === */
 
-/* Desktop: 3 columns; make rows alternate:
-   Row1 purple (items 1-3), Row2 white (4-6), Row3 purple (7-9), etc. */
-@media (min-width: 960px){
-  .tile-grid{ grid-template-columns: repeat(3, 1fr); }
+/* Desktop: 3-column stripes */
+@media (min-width: 960px) {
+  .tile-grid { grid-template-columns: repeat(3, 1fr); }
+
+  /* Purple rows: 1–3, 7–9, 13–15, ... (6n+1 to 6n+3) */
   .tile-grid > .tile:nth-child(6n+1),
   .tile-grid > .tile:nth-child(6n+2),
-  .tile-grid > .tile:nth-child(6n+3){ /* first 3 of each 6 */
-    /* purple */
+  .tile-grid > .tile:nth-child(6n+3) {
+    border-color: rgba(168,85,247,.55);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
   }
-  .tile-grid > .tile:nth-child(6n+1),
-  .tile-grid > .tile:nth-child(6n+2),
-  .tile-grid > .tile:nth-child(6n+3){ background: linear-gradient(180deg, #1a1226, #161326); border-color: rgba(168,85,247,.45); box-shadow: 0 0 0 1px rgba(168,85,247,.35) inset, 0 8px 28px rgba(168,85,247,.08); }
   .tile-grid > .tile:nth-child(6n+1):hover,
   .tile-grid > .tile:nth-child(6n+2):hover,
-  .tile-grid > .tile:nth-child(6n+3):hover{ box-shadow: 0 0 0 1px rgba(168,85,247,.55) inset, 0 10px 32px rgba(168,85,247,.12); }
+  .tile-grid > .tile:nth-child(6n+3):hover {
+    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
+  }
+
+  /* White rows: 4–6, 10–12, ... (6n+4 to 6n+6) */
+  .tile-grid > .tile:nth-child(6n+4),
+  .tile-grid > .tile:nth-child(6n+5),
+  .tile-grid > .tile:nth-child(6n+6) {
+    border-color: rgba(255,255,255,.4);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 0 8px rgba(255,255,255,.12);
+  }
+  .tile-grid > .tile:nth-child(6n+4):hover,
+  .tile-grid > .tile:nth-child(6n+5):hover,
+  .tile-grid > .tile:nth-child(6n+6):hover {
+    box-shadow: 0 0 0 1px rgba(255,255,255,.3) inset, 0 0 12px rgba(255,255,255,.18);
+  }
 }
 
-/* Tablet: 2 columns; alternate by row:
-   Row1 purple (1-2), Row2 white (3-4), Row3 purple (5-6)… */
-@media (min-width: 640px) and (max-width: 959.98px){
-  .tile-grid{ grid-template-columns: repeat(2, 1fr); }
+/* Tablet: 2 columns → alternate by 2s (purple rows = 4n+1,4n+2) */
+@media (min-width:640px) and (max-width:959.98px){
+  .tile-grid { grid-template-columns: repeat(2, 1fr); }
   .tile-grid > .tile:nth-child(4n+1),
-  .tile-grid > .tile:nth-child(4n+2){
-    background: linear-gradient(180deg, #1a1226, #161326);
-    border-color: rgba(168,85,247,.45);
-    box-shadow: 0 0 0 1px rgba(168,85,247,.35) inset, 0 8px 28px rgba(168,85,247,.08);
+  .tile-grid > .tile:nth-child(4n+2) {
+    border-color: rgba(168,85,247,.55);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
   }
   .tile-grid > .tile:nth-child(4n+1):hover,
-  .tile-grid > .tile:nth-child(4n+2):hover{
-    box-shadow: 0 0 0 1px rgba(168,85,247,.55) inset, 0 10px 32px rgba(168,85,247,.12);
+  .tile-grid > .tile:nth-child(4n+2):hover {
+    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
+  }
+  .tile-grid > .tile:nth-child(4n+3),
+  .tile-grid > .tile:nth-child(4n+4) {
+    border-color: rgba(255,255,255,.4);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 0 8px rgba(255,255,255,.12);
   }
 }
 
-/* Mobile: single column; alternate white/purple/white/purple, starting with WHITE */
-@media (max-width: 639.98px){
-  .tile-grid > .tile:nth-child(2n){ /* even = purple */
-    background: linear-gradient(180deg, #1a1226, #161326);
-    border-color: rgba(168,85,247,.45);
-    box-shadow: 0 0 0 1px rgba(168,85,247,.35) inset, 0 8px 28px rgba(168,85,247,.08);
+/* Mobile: 1 column → alternate each card (odd white, even purple) */
+@media (max-width:639.98px){
+  .tile-grid > .tile:nth-child(2n) {
+    border-color: rgba(168,85,247,.55);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
   }
-  .tile-grid > .tile:nth-child(2n):hover{
-    box-shadow: 0 0 0 1px rgba(168,85,247,.55) inset, 0 10px 32px rgba(168,85,247,.12);
+  .tile-grid > .tile:nth-child(2n):hover {
+    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
   }
 }
-
-/* Tidy small <small> label inside H3 for LADA expansion */
-.tile h3 small{ font-weight: 400; color: var(--muted); }

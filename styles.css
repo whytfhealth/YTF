@@ -638,7 +638,7 @@ h1, h2, h3{
   box-shadow: 0 0 0 1px var(--purple) inset;
   border-radius: 6px;
 }
-/* === MicroBlog Tiles: dark body, alternating purple/white outlines === */
+/* === MicroBlog Tiles: Dark body, brighter alternating outlines === */
 .tile-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -650,7 +650,7 @@ h1, h2, h3{
   display: block;
   background: var(--card, #0f1217);
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.18);
   padding: 1rem;
   text-decoration: none;
   color: #fff;
@@ -669,65 +669,62 @@ h1, h2, h3{
   transform: translateY(-2px);
 }
 
-/* === Alternating rows === */
+/* === Alternating rows with brighter outlines === */
 
 /* Desktop: 3-column stripes */
 @media (min-width: 960px) {
   .tile-grid { grid-template-columns: repeat(3, 1fr); }
 
-  /* Purple rows: 1–3, 7–9, 13–15, ... (6n+1 to 6n+3) */
+  /* Purple rows (6n+1 → 6n+3) */
   .tile-grid > .tile:nth-child(6n+1),
   .tile-grid > .tile:nth-child(6n+2),
   .tile-grid > .tile:nth-child(6n+3) {
-    border-color: rgba(168,85,247,.55);
-    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
+    border-color: rgba(168,85,247,.9);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.5) inset, 0 0 12px rgba(168,85,247,.25);
   }
   .tile-grid > .tile:nth-child(6n+1):hover,
   .tile-grid > .tile:nth-child(6n+2):hover,
   .tile-grid > .tile:nth-child(6n+3):hover {
-    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
+    box-shadow: 0 0 0 1px rgba(168,85,247,1) inset, 0 0 16px rgba(168,85,247,.45);
   }
 
-  /* White rows: 4–6, 10–12, ... (6n+4 to 6n+6) */
+  /* White rows (6n+4 → 6n+6) */
   .tile-grid > .tile:nth-child(6n+4),
   .tile-grid > .tile:nth-child(6n+5),
   .tile-grid > .tile:nth-child(6n+6) {
-    border-color: rgb(255, 255, 255);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 0 8px rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.85);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 14px rgba(255,255,255,.25);
   }
   .tile-grid > .tile:nth-child(6n+4):hover,
   .tile-grid > .tile:nth-child(6n+5):hover,
   .tile-grid > .tile:nth-child(6n+6):hover {
-    box-shadow: 0 0 0 1px rgba(255,255,255,.3) inset, 0 0 12px rgba(255,255,255,.18);
+    box-shadow: 0 0 0 1px rgba(255,255,255,1) inset, 0 0 18px rgba(255,255,255,.4);
   }
 }
 
-/* Tablet: 2 columns → alternate by 2s (purple rows = 4n+1,4n+2) */
+/* Tablet: 2-column alternation */
 @media (min-width:640px) and (max-width:959.98px){
   .tile-grid { grid-template-columns: repeat(2, 1fr); }
   .tile-grid > .tile:nth-child(4n+1),
   .tile-grid > .tile:nth-child(4n+2) {
-    border-color: rgba(168,85,247,.55);
-    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
-  }
-  .tile-grid > .tile:nth-child(4n+1):hover,
-  .tile-grid > .tile:nth-child(4n+2):hover {
-    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
+    border-color: rgba(168,85,247,.9);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.5) inset, 0 0 12px rgba(168,85,247,.25);
   }
   .tile-grid > .tile:nth-child(4n+3),
   .tile-grid > .tile:nth-child(4n+4) {
-    border-color: rgb(255, 255, 255);
-    box-shadow: 0 0 0 1px rgba(255,255,255,.18) inset, 0 0 8px rgba(255,255,255,.12);
+    border-color: rgba(255,255,255,.85);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 14px rgba(255,255,255,.25);
   }
 }
 
-/* Mobile: 1 column → alternate each card (odd white, even purple) */
+/* Mobile: alternate by each card (odd white, even purple) */
 @media (max-width:639.98px){
   .tile-grid > .tile:nth-child(2n) {
-    border-color: rgba(168,85,247,.55);
-    box-shadow: 0 0 0 1px rgba(168,85,247,.3) inset, 0 0 8px rgba(168,85,247,.15);
+    border-color: rgba(168,85,247,.9);
+    box-shadow: 0 0 0 1px rgba(168,85,247,.5) inset, 0 0 12px rgba(168,85,247,.25);
   }
-  .tile-grid > .tile:nth-child(2n):hover {
-    box-shadow: 0 0 0 1px rgba(168,85,247,.6) inset, 0 0 12px rgba(168,85,247,.25);
+  .tile-grid > .tile:nth-child(2n+1) {
+    border-color: rgba(255,255,255,.85);
+    box-shadow: 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 14px rgba(255,255,255,.25);
   }
 }

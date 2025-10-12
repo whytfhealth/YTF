@@ -965,16 +965,34 @@
   if(!root) return;
 
   // Walk text nodes only (skip existing links/code/pre)
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode(node){
-      const p = node.parentNode;
-      if(!p) return NodeFilter.FILTER_REJECT;
-      const tag = p.nodeName.toLowerCase();
-      if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) return NodeFilter.FILTER_REJECT;
-      if (!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
+ const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+  acceptNode(node){
+    const p = node.parentNode;
+    if(!p) return NodeFilter.FILTER_REJECT;
+
+    // 1) Never touch these containers
+    //    - Section 7 (sources)
+    //    - Tables in the Summary Box
+    //    - Disclaimer
+    //    - Already-linked/code/script/etc. remain skipped
+    if (p.closest('#sources, .summary-table, .disclaimer')) {
+      return NodeFilter.FILTER_REJECT;
     }
-  });
+
+    // 2) Skip elements that shouldn’t be altered
+    const tag = p.nodeName.toLowerCase();
+    if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) {
+      return NodeFilter.FILTER_REJECT;
+    }
+
+    // 3) Only accept text nodes that actually contain a match
+    if (!node.nodeValue || !rx.test(node.nodeValue)) {
+      return NodeFilter.FILTER_REJECT;
+    }
+
+    return NodeFilter.FILTER_ACCEPT;
+  }
+});
 
   const toProcess = [];
   while (walker.nextNode()) toProcess.push(walker.currentNode);

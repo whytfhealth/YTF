@@ -751,3 +751,80 @@ h1, h2, h3{
 @media (prefers-reduced-motion: reduce){
   .dna-divider{ animation:none; }
 }
+
+/* Full-bleed, crisp, no shadow, no trails */
+.dna-divider{
+  display:block;
+  height:2px;
+
+  /* full-bleed across viewport even inside .container */
+  width:100vw;
+  position:relative;
+  left:50%;
+  margin-left:calc(-50vw); /* pulls it edge-to-edge */
+  border:0;
+  pointer-events:none;
+
+  /* the line */
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+  background-size:200% 100%;
+  animation:dnaSweep 8s linear infinite;
+  opacity:.55;
+
+  /* prevent paint trails */
+  will-change: background-position;
+  backface-visibility: hidden;
+  contain: paint;
+
+  /* soften ends, avoid any residual glow beyond the 2px line */
+  -webkit-mask-image: linear-gradient(to right,
+                      rgba(0,0,0,0), rgba(0,0,0,1) 8%,
+                      rgba(0,0,0,1) 92%, rgba(0,0,0,0));
+          mask-image: linear-gradient(to right,
+                      rgba(0,0,0,0), rgba(0,0,0,1) 8%,
+                      rgba(0,0,0,1) 92%, rgba(0,0,0,0));
+
+  /* spacing (tuned below for page headers) */
+  margin: 16px 0 20px;
+}
+
+@keyframes dnaSweep{
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .dna-divider{ animation:none; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* If a page has a header block (h1 + subtext) or a .section-head */
+h1 + .subtext{ margin-top:.35rem; }        /* tidy pairing */
+.subtext + .dna-divider{ margin-top:12px; } /* space before the line */
+
+/* Common section head pattern */
+.section-head{ margin-bottom: 1.25rem; }    /* was ~1rem; gives it room */
+.section-head + .dna-divider{ margin-top: 10px; }
+
+/* Ensure a gap after the divider before dense content */
+.dna-divider + .blog-grid,
+.dna-divider + .tile-grid,
+.dna-divider + .white-card-grid,
+.dna-divider + .section {
+  margin-top: 24px;
+}
+
+/* MicroBlog tiles were compact – give a touch more air if needed */
+.tile-grid{ gap: 1rem; } /* already present; keep */

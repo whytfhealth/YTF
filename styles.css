@@ -715,24 +715,31 @@ h1, h2, h3{
   }
 }
 
-/* ===== DNA LINE (site-wide premium shimmer divider) ===== */
-.dna-line {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--purple), transparent);
-  opacity: .5;
-  animation: slide 10s linear infinite;
-  border: none;
-  display: block;
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+/* ===== Full-width DNA divider (independent of hero) ===== */
+.dna-divider{
+  display:block;
+  height:2px;
+  /* full-bleed across viewport even inside .container */
+  width:100vw;
+  position:relative;
+  left:50%;
+  right:50%;
+  margin-left:-50vw;
+  margin-right:-50vw;
+
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+  opacity:.5;
+  animation:dnaDividerSlide 10s linear infinite;
+  box-shadow:0 0 6px rgba(168,85,247,.4);
+  border:0;
+  z-index:1;
 }
 
-@keyframes slide {
-  from { transform: translateX(-100%); }
-  to   { transform: translateX(100%); }
+@keyframes dnaDividerSlide{
+  from{ transform:translateX(-100%); }
+  to  { transform:translateX(100%); }
 }
 
-/* For users with reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  .dna-line { animation: none; }
+@media (prefers-reduced-motion: reduce){
+  .dna-divider{ animation:none; }
 }

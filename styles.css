@@ -715,39 +715,39 @@ h1, h2, h3{
   }
 }
 
-/* ===== Full-width DNA divider (independent of hero) ===== */
+/* ===== Full-width DNA divider (robust) ===== */
 .dna-divider{
   display:block;
   height:2px;
-  /* full-bleed across viewport even inside .container */
+  border:0;
+  pointer-events:none;
+
+  /* full-bleed across viewport in a safe way */
   width:100vw;
   position:relative;
   left:50%;
-  right:50%;
-  margin-left:-50vw;
-  margin-right:-50vw;
+  transform:translateX(-50%);   /* more reliable than big negative margins */
 
+  /* visual style (same vibe as hero DNA line) */
   background:linear-gradient(90deg, transparent, var(--purple), transparent);
-  opacity:.5;
-  animation:dnaDividerSlide 10s linear infinite;
+  opacity:.6;
   box-shadow:0 0 6px rgba(168,85,247,.4);
-  border:0;
-  z-index:1;
+
+  /* motion */
+  background-size:200% 100%;
+  animation:dnaDividerSweep 10s linear infinite;
+
+  /* layering above backgrounds/vignette */
+  z-index:2;
 }
 
-@keyframes dnaDividerSlide{
-  from{ transform:translateX(-100%); }
-  to  { transform:translateX(100%); }
+/* animation frames (same direction as hero) */
+@keyframes dnaDividerSweep{
+  0%   { background-position:200% 0; }
+  100% { background-position:-200% 0; }
 }
 
+/* respect reduced motion but still keep it visible */
 @media (prefers-reduced-motion: reduce){
   .dna-divider{ animation:none; }
-}
-.full-bleed{
-  width:100vw;
-  position:relative;
-  left:50%;
-  right:50%;
-  margin-left:-50vw;
-  margin-right:-50vw;
 }

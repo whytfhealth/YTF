@@ -98,22 +98,6 @@ img{max-width:100%;height:auto;display:block}
   .nav{gap:.5rem}
 }
 
-/* Small DNA icon animation for pre-footer */
-.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
-.dna-icon svg{display:block}
-@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-2px)}100%{transform:translateY(0)}}
-.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
-@media (prefers-reduced-motion: reduce){ .dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}}
-
-/* About-page specific spacing tweaks */
-body.about .section{padding:1.2rem 0}
-body.about .section p{margin:0.5rem 0 0.85rem}
-body.about .hero{padding:3rem 0}
-
-/* Refined DNA icon visuals */
-.dna-icon{display:inline-block; vertical-align:-3px; margin-left:.5rem; width:20px; height:20px; opacity:.95; animation: floaty 3s ease-in-out infinite}
-.dna-icon svg{display:block}
-
 /* Section spacing helper */
 .section.tight{padding-top:1.2rem;padding-bottom:1.6rem}
 body.about ul{margin:.4rem 0 0 .9rem}
@@ -133,6 +117,8 @@ body.about li{margin:.25rem 0}
   box-shadow:0 0 10px rgba(168,85,247,0.5);
 }
 @keyframes sweep{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+
 /* --- White-bordered cards for Blog & About (mobile-first) --- */
 .white-card-grid {
   display: grid;
@@ -727,4 +713,26 @@ h1, h2, h3{
     border-color: rgba(255,255,255,.85);
     box-shadow: 0 0 0 1px rgba(255,255,255,.45) inset, 0 0 14px rgba(255,255,255,.25);
   }
+}
+
+/* ===== DNA LINE (site-wide premium shimmer divider) ===== */
+.dna-line {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+  opacity: .5;
+  animation: slide 10s linear infinite;
+  border: none;
+  display: block;
+  box-shadow: 0 0 6px rgba(168, 85, 247, 0.4);
+}
+
+@keyframes slide {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+/* For users with reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .dna-line { animation: none; }
 }

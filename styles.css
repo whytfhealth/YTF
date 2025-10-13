@@ -828,3 +828,63 @@ h1 + .subtext{ margin-top:.35rem; }        /* tidy pairing */
 
 /* MicroBlog tiles were compact – give a touch more air if needed */
 .tile-grid{ gap: 1rem; } /* already present; keep */
+
+/* ===== Newsletter block ===== */
+.newsletter-card{
+  background: var(--card, #11161d);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 12px;
+  padding: 1.25rem;
+}
+
+.newsletter-form{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: .75rem;
+  margin-top: .75rem;
+}
+
+.newsletter-input{
+  width: 100%;
+  background: #0f141a;
+  border: 1px solid rgba(255,255,255,.14);
+  color: #e5e5e5;
+  border-radius: 8px;
+  padding: .75rem .85rem;
+  outline: none;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+.newsletter-input:focus{
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(168,85,247,.18);
+}
+
+.newsletter-btn{
+  padding: .75rem 1rem;
+}
+
+.tiny-note{
+  grid-column: 1 / -1;
+  margin: .25rem 0 0;
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.success-note{
+  margin-top: .75rem;
+  color: #b7f7c2;
+  font-size: .95rem;
+}
+
+/* Mobile: stack input and button */
+@media (max-width:640px){
+  .newsletter-form{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Screen-reader only helper (already in your CSS; included in case this page lacks it) */
+.sr-only{
+  position: absolute!important; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0;
+}

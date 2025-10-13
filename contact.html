@@ -65,6 +65,47 @@
 
 <div class="dna-divider" aria-hidden="true"></div>
 
+<!-- Newsletter block -->
+<section id="newsletter" class="container section" aria-labelledby="newsletter-title">
+  <div class="newsletter-card">
+    <div class="section-head">
+      <h2 id="newsletter-title">Newsletter</h2>
+      <p class="subtext">The anatomy of understanding — in your inbox.</p>
+    </div>
+
+    <!-- Buttondown embed -->
+    <form
+      class="newsletter-form"
+      action="https://buttondown.email/api/emails/subscribe"
+      method="post"
+      target="_blank"
+      rel="noopener"
+    >
+      <!-- REQUIRED: your Buttondown username -->
+      <input type="hidden" name="username" value="YOUR_BUTTONDOWN_USERNAME">
+
+      <!-- OPTIONAL but nice: send them back with a success flag -->
+      <input type="hidden" name="redirect_url" value="https://whytfhealth.com/contact.html?subscribed=1">
+
+      <label class="sr-only" for="bd-email">Email address</label>
+      <input id="bd-email" name="email" type="email" required
+             placeholder="you@example.com" autocomplete="email"
+             class="newsletter-input" />
+
+      <button class="btn newsletter-btn" type="submit">Subscribe</button>
+
+      <p class="tiny-note">
+        By subscribing, you agree to receive occasional emails from WhyTF Health.
+        Unsubscribe anytime.
+      </p>
+    </form>
+
+    <!-- Success message (appears if ?subscribed=1 is in URL) -->
+    <p id="subscribe-success" class="success-note" hidden>
+      Thanks — check your inbox for a confirmation email from Buttondown.
+    </p>
+  </div>
+</section>
 
     <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
       <label for="email">Your email</label>

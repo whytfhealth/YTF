@@ -4,62 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>MicroBlog — WhyTF Health</title>
-  <meta name="description" content="Short, human explainers (580–620 words) that match the WhyTF voice. This page features Insulin — the body’s door-opener." />
-  <link rel="canonical" href="https://whytfhealth.com/microblog/" />
+  <title>Insulin — MicroBlog — WhyTF Health</title>
+  <meta name="description" content="Insulin, humanised: the body’s door-opener that turns dinner into life — and what happens when the signal goes fuzzy." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/insulin/" />
 
   <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Perf + Analytics (match blog) -->
   <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
   <script defer src="https://cloud.umami.is/script.js"
           data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MicroBlog — WhyTF Health">
-  <meta property="og:description" content="Concise, human explainers that link from any post — searchable and deep-linkable. Featuring: Insulin." />
-  <meta property="og:url" content="https://whytfhealth.com/microblog/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Insulin — MicroBlog">
+  <meta property="og:description" content="The body’s door-opener: a quiet courier turning dinner into life — until the signal goes fuzzy.">
+  <meta property="og:url" content="https://whytfhealth.com/microblog/insulin/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MicroBlog — WhyTF Health">
-  <meta name="twitter:description" content="Short, human explainers (580–620 words) that match the WhyTF voice. Featuring: Insulin.">
+  <meta name="twitter:title" content="Insulin — MicroBlog">
+  <meta name="twitter:description" content="Insulin, humanised — how it works, how it fails, and how to help the signal land.">
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <!-- Fonts (match blog) -->
+  <!-- Fonts to match site -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Local helper styles that piggyback on your tokens/utilities -->
-  <style>
-    .tiles-toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-    .tiles-toolbar input[type="search"]{ flex:1 1 320px; padding:.75rem .9rem; border-radius:8px; }
-    .tiles-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:16px; }
-    .tile{ border:1px solid rgba(0,0,0,.12); border-radius:12px; padding:16px; background:#fff; }
-    .tile h3{ margin:.2rem 0 .4rem 0; font-size:1.05rem; }
-    .tile .meta{ font-size:.875rem; opacity:.7; }
-    .tile .actions{ margin-top:.75rem; display:flex; gap:8px; }
-    .dna-line{ margin-top:1rem; }
-    dialog.modal{ width:min(780px, 92vw); border:none; border-radius:14px; padding:0; }
-    .modal header{ padding:1.1rem 1.25rem; border-bottom:1px solid rgba(0,0,0,.1); display:flex; justify-content:space-between; align-items:center; }
-    .modal .content{ padding:1.25rem; max-height:70vh; overflow:auto; }
-    .modal .meta{ font-size:.875rem; opacity:.7; margin:.5rem 1.25rem 1rem; }
-    .hidden{ display:none !important; }
-    .scroll-progress{ position:fixed; left:0; top:0; height:4px; width:100%; transform-origin:left center; transform:scaleX(0); background:linear-gradient(90deg,var(--accent,#6b7cff),#b08cff); z-index:9999; }
-    @media (prefers-color-scheme: dark){
-      .tile{ background:#151936; color:#e6e8ff; border-color:#262c61; }
-      dialog.modal{ background:#151936; color:#e6e8ff; }
-      .modal header{ border-bottom-color:#262c61; }
-    }
-  </style>
 </head>
 
-<body id="top" class="microblog-page">
+<body id="top" class="blog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header (exact structure as blog) -->
+  <!-- Header (same as site) -->
   <header class="site-header" role="banner">
     <div class="container flex between center">
       <a href="/index.html" class="logo" aria-label="WhyTF Health home">
@@ -78,77 +53,42 @@
   </header>
 
   <main id="main" class="container section">
-    <!-- Page head -->
-    <section class="container section" aria-labelledby="microblog-title">
-      <h1 id="microblog-title">MicroBlog — The <span class="accent-word">Human</span> definitions</h1>
-      <p class="subtext">Short entries (580–620 words, up to 800 for bigger mechanisms). Search below or jump here from any blog link. This page features <strong>Insulin</strong>.</p>
-      <div class="dna-line" aria-hidden="true"></div>
-    </section>
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Insulin — The Door-Opener</h1>
+        <p class="subtext">The body’s usher that lets fuel become life.</p>
+        <p class="meta">~606 words · MicroBlog</p>
+      </header>
 
-    <div class="dna-divider" aria-hidden="true"></div>
+      <div class="dna-divider" aria-hidden="true"></div>
 
-    <!-- Search -->
-    <section class="container section" aria-labelledby="browse">
-      <h2 id="browse" class="visually-hidden">Browse MicroBlog</h2>
-      <div class="tiles-toolbar">
-        <label for="q" class="visually-hidden">Search terms</label>
-        <input id="q" type="search" placeholder="Search terms (e.g., insulin, GLUT4, DKA)…" autocomplete="off" />
-      </div>
-    </section>
+      <section>
+        <p><strong>Insulin is your body’s way of saying, “You may enter.”</strong> Every time you eat, glucose flows into your bloodstream like shoppers arriving at a mall. Insulin is the usher at each shop door — binding to its receptor, cueing the staff inside to roll up the shutters, and letting glucose step in where it can actually be turned into energy.</p>
 
-    <!-- Tiles grid -->
-    <section class="container section" aria-labelledby="tiles-heading">
-      <h2 id="tiles-heading" class="visually-hidden">MicroBlog Tiles</h2>
-      <div id="tiles" class="tiles-grid" role="list">
+        <p>The hormone is made by β-cells in the pancreas, a backstage technician that watches blood sugar rise and sends insulin out in carefully timed pulses. When a pulse lands on a cell, it doesn’t carry the glucose; it carries a message. That message flips on a relay — IRS-1 → PI3K → Akt — that moves GLUT4 transporters to the cell surface. Doors appear. Glucose walks in. ATP is made. You feel human again.</p>
 
-        <!-- ===== MicroBlog 2 — Insulin ===== -->
-        <article class="tile" role="listitem"
-                 data-slug="insulin"
-                 data-title="Insulin"
-                 data-words="606"
-                 data-tags="hormones,metabolism,glucose">
-          <h3><a href="#insulin">Insulin</a></h3>
-          <p class="meta">~606 words · Hormone</p>
-          <p>The body’s door-opener: a quiet courier turning dinner into life — until the signal goes fuzzy.</p>
-          <div class="actions">
-            <button class="open" data-open="insulin" aria-haspopup="dialog" aria-controls="microModal">Read</button>
-          </div>
-          <template class="full">
-            <p><strong>Insulin — The Door-Opener</strong></p>
-            <p>Insulin is your body’s way of saying, “You may enter.” Every time you eat, glucose flows into your bloodstream like shoppers arriving at a mall. Insulin is the usher at each shop door — binding to its receptor, cueing the staff inside to roll up the shutters, and letting glucose step in where it can actually be turned into energy.</p>
-            <p>The hormone is made by β-cells in the pancreas, a backstage technician that watches blood sugar rise and sends insulin out in carefully timed pulses. When a pulse lands on a cell, it doesn’t carry the glucose; it carries a message. That message flips on a relay — IRS-1 to PI3K to Akt — that moves GLUT4 transporters to the cell surface. Doors appear. Glucose walks in. ATP is made. You feel human again.</p>
-            <p>When everything is calm, the dance is elegant: sugar up, insulin out, doors open, sugar down, insulin quiet. But modern life loves to smash the volume knob. Grazing all day, poor sleep, chronic stress — they keep insulin levels hovering high. Cells adapt by turning the music down. The receptors hear less, respond slower, and pull back their doors. You see it on the outside as post-meal crashes and creeping blood sugars. On the inside, it’s self-protection: the cell is preventing overload.</p>
-            <p>That’s the beginning of insulin resistance — not a moral failure, a safety feature stuck on repeat. The pancreas tries to compensate, pushing out more insulin to get the same effect. For a while, the brute force works. Then the factory floor overheats: the endoplasmic reticulum strains to fold endless insulin, oxidative stress rises, and some β-cells bow out for good. The result is familiar: higher sugars, more fatigue, and a signal that keeps shouting into static.</p>
-            <p>Here’s the hopeful part: cells can relearn. Muscles are giant glucose sinks that respond to contraction even when insulin’s voice is faint. A ten-minute walk after meals can shave the spike; consistent movement restores sensitivity like cleaning dust off a microphone. Sleep, the most underrated lever, lowers the background noise of cortisol. Fewer late-night snacks give insulin the quiet hours it needs to reset. Even small weight changes calm the inflammatory chatter from deep belly fat, letting the receptor pathway speak clearly again.</p>
-            <p>Insulin is not “good” or “bad.” Too little, and cells starve with fuel parked outside. Too much, and the message dulls until the speakers blow. Health is the rhythm between the two: brief rises when food arrives, peaceful lows between meals, a deep nightly silence. Get the rhythm back, and the doors start working like they remember how.</p>
-            <hr class="dotted-divider">
-            <p><strong>Why It Matters</strong></p>
-            <p>Because insulin isn’t just a lab value — it’s the conductor that keeps energy moving on time. Understand the conversation and you can nudge it: movement to open doors, sleep to sharpen hearing, meals that pair carbs with fibre and protein so the ushers aren’t stampeded.</p>
-            <hr class="dotted-divider">
-            <p><strong>Closing Line</strong></p>
-            <p>Insulin is the language your cells speak to let fuel become life — keep the message clear, and the lights stay on.</p>
-            <p class="meta">Word count: 606</p>
-          </template>
-        </article>
-        <!-- ===== END MicroBlog 2 ===== -->
+        <p>When everything is calm, the dance is elegant: sugar up, insulin out, doors open, sugar down, insulin quiet. But modern life loves to smash the volume knob. Grazing all day, poor sleep, chronic stress — they keep insulin levels hovering high. Cells adapt by turning the music down. The receptors hear less, respond slower, and pull back their doors. You see it on the outside as post-meal crashes and creeping blood sugars. On the inside, it’s self-protection: the cell is preventing overload.</p>
 
-        <!-- ADD MORE TILES HERE (MicroBlogs 3–51 in next batches) -->
+        <p><strong>That’s the beginning of insulin resistance</strong> — not a moral failure, a safety feature stuck on repeat. The pancreas tries to compensate, pushing out more insulin to get the same effect. For a while, the brute force works. Then the factory floor overheats: the endoplasmic reticulum strains to fold endless insulin, oxidative stress rises, and some β-cells bow out for good. The result is familiar: higher sugars, more fatigue, and a signal that keeps shouting into static.</p>
 
-      </div>
-    </section>
+        <p>Here’s the hopeful part: <em>cells can relearn</em>. Muscles are giant glucose sinks that respond to contraction even when insulin’s voice is faint. A ten-minute walk after meals can shave the spike; consistent movement restores sensitivity like cleaning dust off a microphone. Sleep, the most underrated lever, lowers the background noise of cortisol. Fewer late-night snacks give insulin the quiet hours it needs to reset. Even small weight changes calm the inflammatory chatter from deep belly fat, letting the receptor pathway speak clearly again.</p>
 
-    <div class="purple-divider"></div>
+        <p>Insulin is not “good” or “bad.” Too little, and cells starve with fuel parked outside. Too much, and the message dulls until the speakers blow. <strong>Health is the rhythm between the two</strong>: brief rises when food arrives, peaceful lows between meals, a deep nightly silence. Get the rhythm back, and the doors start working like they remember how.</p>
+
+        <hr class="dotted-divider">
+
+        <p><strong>Why it matters:</strong> insulin isn’t just a lab value — it’s the conductor that keeps energy moving on time. Understand the conversation and you can nudge it: movement to open doors, sleep to sharpen hearing, meals that pair carbs with fibre and protein so the ushers aren’t stampeded.</p>
+
+        <p><strong>Closing line:</strong> Insulin is the language your cells speak to let fuel become life — keep the message clear, and the lights stay on.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section class="disclaimer">
+        <p><strong>Disclaimer:</strong> Educational only — not medical advice. Always consult a qualified clinician for individual care.</p>
+      </section>
+    </article>
   </main>
-
-  <!-- Modal reused for all tiles -->
-  <dialog id="microModal" class="modal" aria-label="MicroBlog entry">
-    <header>
-      <h3 id="modal-title">Title</h3>
-      <button id="modal-close" aria-label="Close">✕</button>
-    </header>
-    <div class="content" id="modal-content"></div>
-    <div class="content meta" id="modal-meta"></div>
-  </dialog>
 
   <div class="divider" aria-hidden="true"></div>
   <section class="pre-footer-note" aria-label="Project line">
@@ -165,111 +105,23 @@
     </div>
   </footer>
 
-  <!-- Behaviour: progress bar, back-to-top parity, search, modal, deep-link, Umami events -->
   <script>
   (function(){
-    // ===== Scroll progress (parity with blog)
     const bar = document.querySelector('.scroll-progress');
-    function updateProgress(){
-      if(!bar) return;
+    if(!bar) return;
+    function update(){
       const st = window.scrollY || document.documentElement.scrollTop;
       const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
       const pct = Math.max(0, Math.min(1, st / max));
       bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
       bar.setAttribute('aria-valuenow', Math.round(pct * 100));
     }
-    document.addEventListener('DOMContentLoaded', updateProgress, { once:true });
-    window.addEventListener('scroll', updateProgress, { passive:true });
-    window.addEventListener('resize', updateProgress);
-
-    // ===== Back to top (optional parity with blog, if you add the .back-to-top link)
-    const btn = document.querySelector('.back-to-top');
-    function onScroll(){
-      const st = window.scrollY || document.documentElement.scrollTop;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = st / max;
-      if(btn){ pct > 0.40 ? btn.classList.add('is-visible') : btn.classList.remove('is-visible'); }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', onScroll);
-    document.addEventListener('DOMContentLoaded', onScroll);
-
-    if(btn){
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        reduce ? window.scrollTo(0,0) : window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // ===== Tiles, search, modal
-    const q = document.getElementById('q');
-    const tiles = Array.from(document.querySelectorAll('#tiles .tile'));
-    const modal = document.getElementById('microModal');
-    const mTitle = document.getElementById('modal-title');
-    const mContent = document.getElementById('modal-content');
-    const mMeta = document.getElementById('modal-meta');
-    const mClose = document.getElementById('modal-close');
-
-    function normalize(s){ return (s||'').toLowerCase(); }
-    function filter(){
-      const term = normalize(q.value);
-      tiles.forEach(el=>{
-        const hay = normalize(el.dataset.title + ' ' + el.dataset.tags + ' ' + el.textContent);
-        el.classList.toggle('hidden', term && !hay.includes(term));
-      });
-      // tiny Umami hook
-      try{ if(window.umami && term) umami.track('microblog_search', { q: term }); }catch(e){}
-    }
-    function debounce(fn, ms){ let t; return function(){ clearTimeout(t); t=setTimeout(()=>fn.apply(this,arguments), ms); }; }
-    q && q.addEventListener('input', debounce(filter, 120));
-
-    function openBySlug(slug){
-      const el = tiles.find(x => x.dataset.slug === slug);
-      if(!el) return;
-      const title = el.dataset.title || el.querySelector('h3')?.textContent || slug;
-      const words = el.dataset.words || '';
-      const tpl = el.querySelector('template.full');
-      mTitle.textContent = title;
-      mContent.innerHTML = tpl ? tpl.innerHTML : '<p>No content found.</p>';
-      mMeta.textContent = words ? ('≈ ' + words + ' words') : '';
-      modal.showModal();
-      mClose.focus();
-      tiles.forEach(t=>t.classList.remove('focus'));
-      el.classList.add('focus');
-
-      try{ if(window.umami) umami.track('microblog_open', { slug, words }); }catch(e){}
-    }
-
-    document.addEventListener('click', (e)=>{
-      const btn = e.target.closest('.open');
-      if(btn){
-        const slug = btn.dataset.open;
-        location.hash = slug; // keep URL shareable
-        openBySlug(slug);
-      }
-      if(e.target === mClose){ modal.close(); }
-    });
-
-    modal.addEventListener('click', (e)=>{
-      const rect = modal.getBoundingClientRect();
-      const inDialog = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
-      if(!inDialog) modal.close();
-    });
-
-    function handleHash(){
-      const slug = (location.hash||'').replace('#','');
-      if(slug){
-        openBySlug(slug);
-        try{ if(window.umami) umami.track('microblog_deeplink', { slug }); }catch(e){}
-      }
-    }
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
+    document.addEventListener('DOMContentLoaded', update, { once: true });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
   })();
   </script>
 
-  <!-- Optional back-to-top button (matches your blog behaviour if you include it) -->
   <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 </body>
 </html>

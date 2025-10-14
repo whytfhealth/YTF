@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Retinopathy — When Sugar Blurs the Window to the World | WhyTF Health</title>
+  <meta name="description" content="How chronic high sugar damages the retina’s tiny vessels, what early signs look like, and the levers that protect vision." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/retinopathy/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Retinopathy — When Sugar Blurs the Window to the World">
+  <meta property="og:description" content="Diabetic retinopathy explained: why fragile retinal vessels leak, how to catch it early, and what treatments help." />
+  <meta property="og:url" content="https://whytfhealth.com/microblog/retinopathy/">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Retinopathy — When Sugar Blurs the Window to the World">
+  <meta name="twitter:description" content="What high glucose does to the retina, why you may not feel it, and how to protect sight." />
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js"
+          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+</head>
+
+<body id="top" class="microblog-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
+        <a href="/podcast.html" class="nav-link">Podcast</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+  </header>
+
+  <main id="main" class="container section">
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Retinopathy — When Sugar Blurs the Window to the World</h1>
+        <p class="subtext">How high glucose injures the retina’s tiniest vessels — often silently — and what protects your sight.</p>
+        <p class="meta">Estimated read time: ~3–4 min</p>
+      </header>
+
+      <hr class="dna-divider" aria-hidden="true">
+
+      <section>
+        <p>Your eyes are miracles of micro-engineering. Each <span class="gloss">retina</span> — that thin sheet at the back of your eyeball — is packed with tiny blood vessels feeding millions of light-sensitive cells. Those vessels are so fine they can’t afford turbulence. Enter chronic high sugar, and the peace shatters.</p>
+
+        <p>In <a class="gloss" href="/microblog/hyperglycemia/">hyperglycemia</a>, <span class="gloss">glucose</span> coats vessel walls, weakening them. Pressure builds. <span class="gloss">Capillaries</span> balloon, leak, and sometimes burst. The retina, starved of oxygen, sends desperate SOS signals to grow new vessels — fragile, chaotic ones that bleed easily. It’s the body’s version of emergency patchwork, but it only worsens the chaos.</p>
+
+        <p>Early on, you might see nothing. Then vision blurs, dark spots appear, or straight lines start to bend. Left unchecked, scar tissue forms, tugging on the retina and threatening <span class="gloss">detachment</span> — a permanent blackout. It’s one of the leading causes of blindness in working-age adults, yet it’s almost entirely preventable.</p>
+
+        <p>The fix is vigilance and timing. Regular eye exams catch the earliest leaks before they cause damage. <span class="gloss">Laser therapy</span> or injections can seal weak vessels, and good sugar and <span class="gloss">blood pressure</span> control stop new ones from forming. You can’t feel retinopathy happening, which is why seeing (ironically) is the only way to save sight.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Why It Matters</h3>
+        <p>Retinopathy turns invisible chemistry into visible consequence. It’s a lesson in attention: the smallest vessels can make or break the way we see the world.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Closing Line</h3>
+        <p><em>Take care of your blood, and it will take care of your vision — one heartbeat at a time.</em></p>
+      </section>
+
+      <hr class="divider" aria-hidden="true">
+
+      <section class="pre-footer-note" aria-label="Project line">
+        <div class="container">
+          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · Educational only — not medical advice ·
+        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll progress -->
+  <script>
+  (function(){
+    const bar=document.querySelector('.scroll-progress');
+    if(!bar)return;
+    function update(){
+      const st=window.scrollY||document.documentElement.scrollTop;
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      const pct=Math.max(0,Math.min(1,st/max));
+      bar.style.transform='scaleX('+pct.toFixed(4)+')';
+      bar.setAttribute('aria-valuenow',Math.round(pct*100));
+    }
+    document.addEventListener('DOMContentLoaded',update,{once:true});
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+  })();
+  </script>
+
+  <!-- Autolinker: skips headings; routes terms to their pages (or coming-soon for now) -->
+  <script>
+  (function(){
+    const ARTICLE_SEL = '#post-body';
+    const DEFAULT_URL = '/microblog/coming-soon.html';
+
+    const TERMS = [
+      {term:'retina', slug: DEFAULT_URL}, {term:'retinal', slug: DEFAULT_URL},
+      {term:'retinopathy', slug:'/microblog/retinopathy/'},
+      {term:'hyperglycemia', slug:'/microblog/hyperglycemia/'},
+      {term:'glucose', slug:'/microblog/hyperglycemia/'},
+      {term:'capillaries', slug: DEFAULT_URL}, {term:'capillary', slug: DEFAULT_URL},
+      {term:'detachment', slug: DEFAULT_URL}, {term:'detached retina', slug: DEFAULT_URL},
+      {term:'laser therapy', slug: DEFAULT_URL}, {term:'laser', slug: DEFAULT_URL},
+      {term:'injections', slug: DEFAULT_URL},
+      {term:'blood pressure', slug: DEFAULT_URL},
+      {term:'diabetes', slug:'/microblog/diabetes/'},
+      {term:'blindness', slug: DEFAULT_URL},
+      {term:'vessels', slug: DEFAULT_URL}
+    ];
+
+    TERMS.sort((a,b)=>b.term.length - a.term.length);
+    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx = new RegExp('\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\b','gi');
+
+    const root = document.querySelector(ARTICLE_SEL);
+    if(!root) return;
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        const p = node.parentNode;
+        if(!p) return NodeFilter.FILTER_REJECT;
+        const tag = p.nodeName.toLowerCase();
+        if(/^(a|code|pre|kbd|script|style|noscript|h1|h2|h3|h4|h5|h6)$/.test(tag)) return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(textNode=>{
+      const html = textNode.nodeValue.replace(rx, (m)=>{
+        const t = TERMS.find(t => t.term.toLowerCase() === m.toLowerCase());
+        const href = (t && t.slug) ? t.slug : DEFAULT_URL;
+        return `<a class="gloss" href="${href}" rel="nofollow">${m}</a>`;
+      });
+      const span = document.createElement('span');
+      span.innerHTML = html;
+      textNode.parentNode.replaceChild(span, textNode);
+    });
+  })();
+  </script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Coxsackie B — The Virus That Might Light the Fuse | WhyTF Health</title>
+  <meta name="description" content="A common childhood virus that can infect pancreatic β-cells and, in a few people, help trigger autoimmunity via molecular mimicry." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/coxsackie-b/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Coxsackie B — The Virus That Might Light the Fuse">
+  <meta property="og:description" content="How a fleeting infection might confuse immunity and contribute to Type 1 diabetes in at-risk people.">
+  <meta property="og:url" content="https://whytfhealth.com/microblog/coxsackie-b/">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Coxsackie B — The Virus That Might Light the Fuse">
+  <meta name="twitter:description" content="A virus, a resemblance, and an immune memory that won’t stand down.">
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js"
+          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+</head>
+
+<body id="top" class="microblog-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
+        <a href="/podcast.html" class="nav-link">Podcast</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+  </header>
+
+  <main id="main" class="container section">
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Coxsackie B — The Virus That Might Light the Fuse</h1>
+        <p class="subtext">A common infection that, in a few people with the right genes, may confuse immunity and nudge it toward the pancreas.</p>
+        <p class="meta">Estimated read time: ~3–4 min</p>
+      </header>
+
+      <hr class="dna-divider" aria-hidden="true">
+
+      <section>
+        <p>You’ve probably had a <span class="gloss">Coxsackie B</span> virus before — most people have. It usually causes nothing worse than a sore throat, fever, or hand-foot-mouth rash in childhood. Then it’s gone. But for a few unlucky individuals, especially those with the right genetic backdrop, Coxsackie B leaves something behind: confusion in the immune system.</p>
+
+        <p>The virus can infect pancreatic cells, including the insulin-making <span class="gloss">β-cells</span>. When it does, the immune system storms in to clear the infection. In most people, the clean-up ends peacefully. In others, <span class="gloss">T-cells</span> keep seeing those same cells as infected long after the virus is gone. It’s as if the body can’t forget the battle — a case of friendly fire that never stops.</p>
+
+        <p>Researchers have found traces of Coxsackie B genetic material in the pancreas of some people newly diagnosed with <span class="gloss">Type 1 diabetes</span>. The theory is elegant and tragic: the virus mimics β-cell proteins closely enough that the immune system’s memory gets confused — a phenomenon called <span class="gloss">molecular mimicry</span>. Once the resemblance is locked in, the war never ends.</p>
+
+        <p>Vaccines targeting Coxsackie B are now in development, not because the virus itself is deadly, but because preventing infection might stop the autoimmune domino from falling in at-risk individuals.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Why It Matters</h3>
+        <p>Coxsackie B is a reminder that even fleeting infections can echo for years. It blurs the line between infection and autoimmunity — showing how a simple virus can rewrite the immune script for life.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Closing Line</h3>
+        <p><em>Some wars don’t start with anger — they start with mistaken identity and a virus that wouldn’t leave quietly.</em></p>
+      </section>
+
+      <hr class="divider" aria-hidden="true">
+
+      <section class="pre-footer-note" aria-label="Project line">
+        <div class="container">
+          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · Educational only — not medical advice ·
+        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll progress -->
+  <script>
+  (function(){
+    const bar=document.querySelector('.scroll-progress');
+    if(!bar)return;
+    function update(){
+      const st=window.scrollY||document.documentElement.scrollTop;
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      const pct=Math.max(0,Math.min(1,st/max));
+      bar.style.transform='scaleX('+pct.toFixed(4)+')';
+      bar.setAttribute('aria-valuenow',Math.round(pct*100));
+    }
+    document.addEventListener('DOMContentLoaded',update,{once:true});
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+  })();
+  </script>
+
+  <!-- Autolinker -->
+  <script>
+  (function(){
+    const ARTICLE_SEL='#post-body';
+    const DEFAULT_URL='/microblog/coming-soon.html';
+    const TERMS=[
+      {term:'coxsackie b',slug:'/microblog/coxsackie-b/'},
+      {term:'β-cells',slug:'/microblog/beta-cells/'},{term:'beta cells',slug:'/microblog/beta-cells/'},
+      {term:'t-cells',slug:'/microblog/t-cells/'},{term:'t cells',slug:'/microblog/t-cells/'},
+      {term:'type 1 diabetes',slug:'/microblog/type-1-diabetes/'},
+      {term:'molecular mimicry',slug: DEFAULT_URL} /* placeholder till you add this page */
+    ];
+
+    TERMS.sort((a,b)=>b.term.length-a.term.length);
+    const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx=new RegExp('\\b('+TERMS.map(t=>esc(t.term)).join('|')+')\\b','gi');
+
+    const root=document.querySelector(ARTICLE_SEL);
+    if(!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode(n){
+        const p=n.parentNode;if(!p)return NodeFilter.FILTER_REJECT;
+        const tag=p.nodeName.toLowerCase();
+        if(/^(a|code|pre|kbd|script|style|noscript|h1|h2|h3|h4|h5|h6)$/.test(tag))return NodeFilter.FILTER_REJECT;
+        if(!n.nodeValue||!rx.test(n.nodeValue))return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(text=>{
+      const html=text.nodeValue.replace(rx,(m)=>{
+        const t=TERMS.find(t=>t.term.toLowerCase()===m.toLowerCase());
+        const href=(t&&t.slug)||DEFAULT_URL;
+        return `<a class="gloss" href="${href}" rel="nofollow">${m}</a>`;
+      });
+      const span=document.createElement('span');
+      span.innerHTML=html;
+      text.parentNode.replaceChild(span,text);
+    });
+  })();
+  </script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
+</body>
+</html>

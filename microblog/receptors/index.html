@@ -2,64 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>MicroBlog — WhyTF Health</title>
-  <meta name="description" content="Short, human explainers (580–620 words) that match the WhyTF voice. Start with Receptors — the tiny doormen of your cells." />
-  <link rel="canonical" href="https://whytfhealth.com/microblog/" />
-
-  <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Perf + Analytics (match blog) -->
-  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-  <script defer src="https://cloud.umami.is/script.js"
-          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+  <title>Receptors — The Tiny Doors That Decide Everything | WhyTF Health</title>
+  <meta name="description" content="Receptors are the molecular bouncers of your cells — deciding which signals get through, how drugs work, and why insulin resistance begins when the doorbell goes quiet." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/receptors/" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MicroBlog — WhyTF Health">
-  <meta property="og:description" content="Concise, human explainers that link from any post — searchable and deep-linkable." />
-  <meta property="og:url" content="https://whytfhealth.com/microblog/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Receptors — The Tiny Doors That Decide Everything">
+  <meta property="og:description" content="Every thought, heartbeat, and sugar spike begins with a receptor listening — or refusing to. The tiny doors that decide everything." />
+  <meta property="og:url" content="https://whytfhealth.com/microblog/receptors/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MicroBlog — WhyTF Health">
-  <meta name="twitter:description" content="Short, human explainers (580–620 words) that match the WhyTF voice.">
+  <meta name="twitter:title" content="Receptors — The Tiny Doors That Decide Everything">
+  <meta name="twitter:description" content="The body’s bouncers: how receptors listen to hormones, adapt to overload, and why most medicines target them." />
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <!-- Fonts (match blog) -->
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Local helper styles that piggyback on your tokens/utilities -->
-  <style>
-    .tiles-toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-    .tiles-toolbar input[type="search"]{ flex:1 1 320px; padding:.75rem .9rem; border-radius:8px; }
-    .tiles-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:16px; }
-    .tile{ border:1px solid rgba(0,0,0,.12); border-radius:12px; padding:16px; background:#fff; }
-    .tile h3{ margin:.2rem 0 .4rem 0; font-size:1.05rem; }
-    .tile .meta{ font-size:.875rem; opacity:.7; }
-    .tile .actions{ margin-top:.75rem; display:flex; gap:8px; }
-    .dna-line{ margin-top:1rem; }
-    dialog.modal{ width:min(780px, 92vw); border:none; border-radius:14px; padding:0; }
-    .modal header{ padding:1.1rem 1.25rem; border-bottom:1px solid rgba(0,0,0,.1); display:flex; justify-content:space-between; align-items:center; }
-    .modal .content{ padding:1.25rem; max-height:70vh; overflow:auto; }
-    .modal .meta{ font-size:.875rem; opacity:.7; margin:.5rem 1.25rem 1rem; }
-    .hidden{ display:none !important; }
-    .scroll-progress{ position:fixed; left:0; top:0; height:4px; width:100%; transform-origin:left center; transform:scaleX(0); background:linear-gradient(90deg,var(--accent,#6b7cff),#b08cff); z-index:9999; }
-    @media (prefers-color-scheme: dark){
-      .tile{ background:#151936; color:#e6e8ff; border-color:#262c61; }
-      dialog.modal{ background:#151936; color:#e6e8ff; }
-      .modal header{ border-bottom-color:#262c61; }
-    }
-  </style>
+  <!-- Umami -->
+  <script defer src="https://cloud.umami.is/script.js"
+          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
 </head>
 
 <body id="top" class="microblog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- Header (exact structure as blog) -->
   <header class="site-header" role="banner">
     <div class="container flex between center">
       <a href="/index.html" class="logo" aria-label="WhyTF Health home">
@@ -69,7 +42,7 @@
         <a href="/index.html" class="nav-link">Home</a>
         <a href="/about.html" class="nav-link">About</a>
         <a href="/blog/" class="nav-link">Blog</a>
-        <a href="/microblog/" class="nav-link">MicroBlog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
         <a href="/podcast.html" class="nav-link">Podcast</a>
         <a href="/contact.html" class="nav-link">Contact</a>
       </nav>
@@ -78,198 +51,126 @@
   </header>
 
   <main id="main" class="container section">
-    <!-- Page head -->
-    <section class="container section" aria-labelledby="microblog-title">
-      <h1 id="microblog-title">MicroBlog — The <span class="accent-word">Human</span> definitions</h1>
-      <p class="subtext">Short entries (580–620 words, up to 800 for bigger mechanisms). Search below or jump here from any blog link. We’re starting at #1.</p>
-      <div class="dna-line" aria-hidden="true"></div>
-    </section>
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Receptors — The Tiny Doors That Decide Everything</h1>
+        <p class="subtext">The molecular bouncers of your body — deciding who gets in, who gets ignored, and what kind of party starts inside.</p>
+        <p class="meta">Estimated read time: ~4 min</p>
+      </header>
 
-    <div class="dna-divider" aria-hidden="true"></div>
+      <hr class="dna-divider" aria-hidden="true">
 
-    <!-- Search -->
-    <section class="container section" aria-labelledby="browse">
-      <h2 id="browse" class="visually-hidden">Browse MicroBlog</h2>
-      <div class="tiles-toolbar">
-        <label for="q" class="visually-hidden">Search terms</label>
-        <input id="q" type="search" placeholder="Search terms (e.g., insulin, GLUT4, DKA)…" autocomplete="off" />
-      </div>
-    </section>
+      <section>
+        <p>Imagine every cell in your body as a nightclub. <strong>Receptors</strong> are the bouncers at the door — deciding who gets in, who gets ignored, and what kind of party kicks off inside. Without them, no hormone, drug, or signal could make itself heard. They’re how your body <em>listens</em> to its own chemistry.</p>
 
-    <!-- Tiles grid -->
-    <section class="container section" aria-labelledby="tiles-heading">
-      <h2 id="tiles-heading" class="visually-hidden">MicroBlog Tiles</h2>
-      <div id="tiles" class="tiles-grid" role="list">
+        <p>Each receptor is a protein embedded in the cell’s membrane or floating inside it. Its entire job is to recognise a specific molecule — <a class="gloss" href="/microblog/insulin/">insulin</a>, adrenaline, serotonin, whatever the signal may be — and respond appropriately. When the right molecule docks, the receptor changes shape. That small twist sends a ripple inward, triggering a cascade of reactions that alter what the cell does next. It’s like flipping a switch that turns genes, enzymes, and behaviours on or off.</p>
 
-        <!-- ===== MicroBlog 1 — Receptors ===== -->
-        <article class="tile" role="listitem"
-                 data-slug="receptors"
-                 data-title="Receptors"
-                 data-words="604"
-                 data-tags="foundations,signalling,cell-biology">
-          <h3><a href="#receptors">Receptors</a></h3>
-          <p class="meta">~604 words · Foundations</p>
-          <p>Tiny doormen on every cell — checking IDs, passing messages, deciding who gets in and what happens next.</p>
-          <div class="actions">
-            <button class="open" data-open="receptors" aria-haspopup="dialog" aria-controls="microModal">Read</button>
-          </div>
-          <template class="full">
-            <p><strong>Receptors — The Tiny Doormen of Your Cells</strong></p>
-            <p>Imagine every cell in your body as a flat with a very picky concierge. Nothing gets inside and nothing meaningful happens unless the doorman recognises the visitor. That doorman is a <em>receptor</em> — a protein sitting in the cell membrane (or just inside it) that listens for specific signals: hormones, neurotransmitters, even bits of light or smell. When the right guest arrives, the door doesn’t just open; an entire sequence kicks off inside, like switching on the building’s lights and lift at once.</p>
-            <p>Receptors are picky on purpose. Insulin binds its insulin receptor; adrenaline binds its own. “Close enough” doesn’t count. That precision keeps messages crisp: one hormone lowers blood sugar; another raises your heart rate; a third regulates appetite. Without the right receptor, a signal is just noise drifting past the cell.</p>
-            <p>Here’s the magic: most receptors don’t drag the messenger inside. They translate a knock at the door into action within the room. The insulin receptor, for example, triggers a chain reaction that moves GLUT4 transporters to the surface so glucose can flow in. Smell receptors flip on neural circuits. Pain receptors warn of damage. The outside world meets the inside chemistry at this exact hinge.</p>
-            <p>Overexposure, however, dulls the system. If insulin is shouting all day, insulin receptors quiet down — fewer on the surface, slower to respond. That’s <em>receptor desensitisation</em>, a protective reflex that can slide into disease when the noise never stops. Your cells aren’t being “stubborn”; they’re preventing overload. Unfortunately, the result is familiar: messages don’t land, glucose stays high, and the pancreas works itself ragged trying to be heard.</p>
-            <p>Not all receptors wear the same uniform. Some are <em>ion channels</em> that open to let charged particles rush in, changing a cell’s electrical mood in milliseconds — how nerves fire. Others are <em>G protein–coupled receptors</em>, flexible switches that set off indoor fireworks of second messengers. A third group lives inside the cell and binds directly to DNA, adjusting which genes are read — that’s how steroid hormones quietly reshape metabolism over hours to days.</p>
-            <p>Receptors also move. Cells can add more to the surface when they need to hear a whisper or tuck them away when the room is too loud. They change shape with tiny chemical tags — <em>phosphorylation</em> — that act like post-it notes saying “now” or “not now.” Biology isn’t brittle; it’s conversational.</p>
-            <hr class="dotted-divider">
-            <p><strong>Why It Matters</strong></p>
-            <p>When a system breaks, we often blame the messenger: “Too much sugar! Too much cortisol!” But the outcome depends on the listener. Sensitive, well-tuned receptors keep signals elegant. Dull or overwhelmed receptors turn clarity into static. Understanding receptors reframes problems like insulin resistance from “broken body” to “overloaded switchboard” — a gentler, more accurate way to fix the line.</p>
-            <hr class="dotted-divider">
-            <p><strong>Closing Line</strong></p>
-            <p>Your chemistry is a conversation — and receptors decide who gets to speak.</p>
-            <p class="meta">Word count: 604</p>
-          </template>
-        </article>
-        <!-- ===== END MicroBlog 1 ===== -->
+        <p>Different receptors have different personalities. Some, like <a class="gloss" href="/microblog/insulin-signaling/">insulin receptors</a>, are direct communicators — they start a phosphorylation chain reaction that opens <a class="gloss" href="/microblog/glut4/">glucose doors</a>. Others, like <span class="gloss" data-def="A huge receptor family that activates messenger molecules inside the cell.">G-protein-coupled receptors</span>, act through middlemen, amplifying the signal through waves of messenger molecules like <span class="gloss" data-def="Cyclic AMP, a common second messenger that amplifies hormonal signals.">cAMP</span>. There are <span class="gloss" data-def="Receptors inside the nucleus that bind hormones and alter gene transcription.">nuclear receptors</span> too — hormone readers that walk straight into the cell’s nucleus and change which genes get expressed. Every thought, heartbeat, sweat drop, and sugar spike depends on this choreography.</p>
 
-        <!-- ADD MORE TILES HERE (MicroBlogs 2–51 in next batches) -->
+        <p>But receptors can burn out. If a signal bombards them constantly — too much insulin, adrenaline, or dopamine — they adapt by retreating or tuning out. This process, called <a class="gloss" href="/microblog/receptor-desensitization/">desensitization</a>, is how cells protect themselves from overload. It’s smart short-term, but disastrous when it becomes permanent. That’s how <a class="gloss" href="/microblog/insulin-resistance/">insulin resistance</a> begins: too many doorbell rings, not enough answers.</p>
 
-      </div>
-    </section>
+        <p>Pharmaceutical science revolves around these bouncers. Almost every modern drug — from painkillers to antidepressants — either imitates, blocks, or tweaks receptor behaviour. The art of medicine, at the molecular level, is convincing the body to listen again.</p>
+      </section>
 
-    <div class="purple-divider"></div>
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Why It Matters</h3>
+        <p><strong>Receptors remind us that communication is biology’s currency.</strong> Disease often begins not because the message is wrong — but because the listener stopped responding. Understanding them turns “hormone imbalance” from a vague phrase into something tangible and fixable.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Closing Line</h3>
+        <p><em>Every heartbeat and hormone starts with a knock on a microscopic door — and a receptor choosing to listen.</em></p>
+      </section>
+
+      <hr class="divider" aria-hidden="true">
+
+      <section class="pre-footer-note" aria-label="Project line">
+        <div class="container">
+          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+        </div>
+      </section>
+    </article>
   </main>
-
-  <!-- Modal reused for all tiles -->
-  <dialog id="microModal" class="modal" aria-label="MicroBlog entry">
-    <header>
-      <h3 id="modal-title">Title</h3>
-      <button id="modal-close" aria-label="Close">✕</button>
-    </header>
-    <div class="content" id="modal-content"></div>
-    <div class="content meta" id="modal-meta"></div>
-  </dialog>
-
-  <div class="divider" aria-hidden="true"></div>
-  <section class="pre-footer-note" aria-label="Project line">
-    <div class="container">
-      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
-    </div>
-  </section>
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>© 2025 WhyTF Health · Educational only — not medical advice ·
-        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms &amp; Disclaimer</a>
+        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
       </p>
     </div>
   </footer>
 
-  <!-- Behaviour: progress bar, back-to-top parity, search, modal, deep-link, Umami events -->
+  <!-- Scroll progress -->
   <script>
   (function(){
-    // ===== Scroll progress (parity with blog)
-    const bar = document.querySelector('.scroll-progress');
-    function updateProgress(){
-      if(!bar) return;
-      const st = window.scrollY || document.documentElement.scrollTop;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = Math.max(0, Math.min(1, st / max));
-      bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
-      bar.setAttribute('aria-valuenow', Math.round(pct * 100));
+    const bar=document.querySelector('.scroll-progress');
+    if(!bar) return;
+    function update(){
+      const st=window.scrollY||document.documentElement.scrollTop;
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      const pct=Math.max(0,Math.min(1,st/max));
+      bar.style.transform='scaleX('+pct.toFixed(4)+')';
+      bar.setAttribute('aria-valuenow',Math.round(pct*100));
     }
-    document.addEventListener('DOMContentLoaded', updateProgress, { once:true });
-    window.addEventListener('scroll', updateProgress, { passive:true });
-    window.addEventListener('resize', updateProgress);
-
-    // ===== Back to top (optional parity with blog, if you add the .back-to-top link)
-    const btn = document.querySelector('.back-to-top');
-    function onScroll(){
-      const st = window.scrollY || document.documentElement.scrollTop;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = st / max;
-      if(btn){ pct > 0.40 ? btn.classList.add('is-visible') : btn.classList.remove('is-visible'); }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', onScroll);
-    document.addEventListener('DOMContentLoaded', onScroll);
-
-    if(btn){
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        reduce ? window.scrollTo(0,0) : window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    }
-
-    // ===== Tiles, search, modal
-    const q = document.getElementById('q');
-    const tiles = Array.from(document.querySelectorAll('#tiles .tile'));
-    const modal = document.getElementById('microModal');
-    const mTitle = document.getElementById('modal-title');
-    const mContent = document.getElementById('modal-content');
-    const mMeta = document.getElementById('modal-meta');
-    const mClose = document.getElementById('modal-close');
-
-    function normalize(s){ return (s||'').toLowerCase(); }
-    function filter(){
-      const term = normalize(q.value);
-      tiles.forEach(el=>{
-        const hay = normalize(el.dataset.title + ' ' + el.dataset.tags + ' ' + el.textContent);
-        el.classList.toggle('hidden', term && !hay.includes(term));
-      });
-      // tiny Umami hook
-      try{ if(window.umami && term) umami.track('microblog_search', { q: term }); }catch(e){}
-    }
-    function debounce(fn, ms){ let t; return function(){ clearTimeout(t); t=setTimeout(()=>fn.apply(this,arguments), ms); }; }
-    q && q.addEventListener('input', debounce(filter, 120));
-
-    function openBySlug(slug){
-      const el = tiles.find(x => x.dataset.slug === slug);
-      if(!el) return;
-      const title = el.dataset.title || el.querySelector('h3')?.textContent || slug;
-      const words = el.dataset.words || '';
-      const tpl = el.querySelector('template.full');
-      mTitle.textContent = title;
-      mContent.innerHTML = tpl ? tpl.innerHTML : '<p>No content found.</p>';
-      mMeta.textContent = words ? ('≈ ' + words + ' words') : '';
-      modal.showModal();
-      mClose.focus();
-      tiles.forEach(t=>t.classList.remove('focus'));
-      el.classList.add('focus');
-
-      try{ if(window.umami) umami.track('microblog_open', { slug, words }); }catch(e){}
-    }
-
-    document.addEventListener('click', (e)=>{
-      const btn = e.target.closest('.open');
-      if(btn){
-        const slug = btn.dataset.open;
-        location.hash = slug; // keep URL shareable
-        openBySlug(slug);
-      }
-      if(e.target === mClose){ modal.close(); }
-    });
-
-    modal.addEventListener('click', (e)=>{
-      const rect = modal.getBoundingClientRect();
-      const inDialog = (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom);
-      if(!inDialog) modal.close();
-    });
-
-    function handleHash(){
-      const slug = (location.hash||'').replace('#','');
-      if(slug){
-        openBySlug(slug);
-        try{ if(window.umami) umami.track('microblog_deeplink', { slug }); }catch(e){}
-      }
-    }
-    window.addEventListener('hashchange', handleHash);
-    handleHash();
+    document.addEventListener('DOMContentLoaded',update,{once:true});
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
   })();
   </script>
 
-  <!-- Optional back-to-top button (matches your blog behaviour if you include it) -->
+  <!-- Autolinker -->
+  <script>
+  (function(){
+    const ARTICLE='#post-body';
+    const DEFAULT_URL='/microblog/coming-soon.html';
+    const TERMS=[
+      {term:'receptors',slug:'/microblog/receptors/'},
+      {term:'insulin',slug:'/microblog/insulin/'},
+      {term:'insulin receptors',slug:'/microblog/insulin-signaling/'},
+      {term:'glut4',slug:'/microblog/glut4/'},
+      {term:'receptor desensitization',slug:'/microblog/receptor-desensitization/'},
+      {term:'insulin resistance',slug:'/microblog/insulin-resistance/'},
+      // tooltip-only
+      {term:'g-protein-coupled receptors',slug:DEFAULT_URL,def:'A large receptor family using G proteins to transmit signals inside cells.'},
+      {term:'cAMP',slug:DEFAULT_URL,def:'Cyclic AMP, a common messenger molecule inside cells.'},
+      {term:'nuclear receptors',slug:DEFAULT_URL,def:'Intracellular receptors that regulate gene expression directly.'}
+    ];
+    TERMS.sort((a,b)=>b.term.length-a.term.length);
+    const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx=new RegExp('\\b('+TERMS.map(t=>esc(t.term)).join('|')+')\\b','gi');
+    const root=document.querySelector(ARTICLE);
+    if(!root)return;
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode(node){
+        const p=node.parentNode;
+        if(!p)return NodeFilter.FILTER_REJECT;
+        const tag=p.nodeName.toLowerCase();
+        if(/^(a|code|pre|kbd|script|style|noscript|h1|h2|h3|h4|h5|h6)$/.test(tag))return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue||!rx.test(node.nodeValue))return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes=[];
+    while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(n=>{
+      const html=n.nodeValue.replace(rx,m=>{
+        const t=TERMS.find(t=>t.term.toLowerCase()===m.toLowerCase());
+        const href=(t&&t.slug)?t.slug:DEFAULT_URL;
+        const def=(t&&t.def)?t.def:'';
+        return `<a class="gloss" href="${href}" rel="nofollow"${def?` data-def="${def.replace(/"/g,'&quot;')}"`:''}>${m}</a>`;
+      });
+      const span=document.createElement('span');
+      span.innerHTML=html;
+      n.parentNode.replaceChild(span,n);
+    });
+  })();
+  </script>
+
   <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 </body>
 </html>
+

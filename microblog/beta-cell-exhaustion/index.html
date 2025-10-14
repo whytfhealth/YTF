@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Beta-Cell Exhaustion — When the Factory Finally Falters | WhyTF Health</title>
+  <meta name="description" content="Years of overwork push pancreatic β-cells past their limits. What beta-cell exhaustion is, why it happens, and how easing the load can help." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/beta-cell-exhaustion/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Beta-Cell Exhaustion — When the Factory Finally Falters">
+  <meta property="og:description" content="The turning point where insulin output can’t meet demand. What’s happening inside β-cells — and how to give them room to recover.">
+  <meta property="og:url" content="https://whytfhealth.com/microblog/beta-cell-exhaustion/">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Beta-Cell Exhaustion — When the Factory Finally Falters">
+  <meta name="twitter:description" content="When years of compensation end and glucose climbs for real. Inside the β-cell under strain — and how to ease the load.">
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js"
+          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+</head>
+
+<body id="top" class="microblog-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
+        <a href="/podcast.html" class="nav-link">Podcast</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+  </header>
+
+  <main id="main" class="container section">
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Beta-Cell Exhaustion — When the Factory Finally Falters</h1>
+        <p class="subtext">Years of overwork push pancreatic β-cells past their limits.</p>
+        <p class="meta">Estimated read time: ~4 min</p>
+      </header>
+
+      <!-- full-bleed subtle DNA line -->
+      <hr class="dna-divider" aria-hidden="true">
+
+      <section>
+        <p><strong>Your pancreatic β-cells have been sprinting for years, pumping out insulin against rising resistance.</strong><br>
+        Eventually, even the best factory burns out. Beta-cell exhaustion is that breaking point — production can’t meet demand, and blood sugar begins to climb for real.</p>
+
+        <p>Inside each cell, stress builds quietly. Proteins misfold, calcium surges, the endoplasmic reticulum strains like an overworked assembly line. To survive, the cell slows down, then self-destructs through apoptosis. Every one lost means less insulin, more glucose, more stress on those that remain. It’s a vicious loop disguised as steady numbers — until suddenly it’s not.</p>
+
+        <p>At this stage, the pancreas tries everything: hypertrophy (cells enlarging), recruiting new ones, even coaxing nearby cells to help. But chronic overload, oxidative stress, and inflammation drown those efforts. Eventually, the surviving β-cells can’t keep up, and glucose levels stay high even in fasting.</p>
+
+        <p>The tragedy is preventable. Studies show that easing the workload — through lower sugar intake, improved sleep, moderate fasting, and exercise — can revive partially exhausted cells. They’re resilient if given space to rest. The longer the overload continues, the less likely they are to recover.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Why It Matters</h3>
+        <p>Beta-cell exhaustion is the turning point between reversible dysfunction and chronic diabetes. It’s where “tired” becomes “gone.” Knowing it exists reframes prevention from punishment to mercy — giving your cells the quiet they’ve been begging for.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Closing Line</h3>
+        <p><em>Even microscopic workers need rest days; ignore that, and the factory lights go out.</em></p>
+      </section>
+
+      <hr class="divider" aria-hidden="true">
+
+      <section class="pre-footer-note" aria-label="Project line">
+        <div class="container">
+          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · Educational only — not medical advice ·
+        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll progress -->
+  <script>
+  (function(){
+    const bar=document.querySelector('.scroll-progress');
+    if(!bar)return;
+    function update(){
+      const st=window.scrollY||document.documentElement.scrollTop;
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      const pct=Math.max(0,Math.min(1,st/max));
+      bar.style.transform='scaleX('+pct.toFixed(4)+')';
+      bar.setAttribute('aria-valuenow',Math.round(pct*100));
+    }
+    document.addEventListener('DOMContentLoaded',update,{once:true});
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+  })();
+  </script>
+
+  <!-- Autolinker (skips headings & code; defaults to Coming Soon if slug not ready) -->
+  <script>
+  (function(){
+    const ARTICLE_SEL='#post-body';
+    const DEFAULT_URL='/microblog/coming-soon.html';
+    const TERMS=[
+      {term:'β-cells', slug:'/microblog/beta-cells/'},
+      {term:'beta cells', slug:'/microblog/beta-cells/'},
+      {term:'insulin', slug:'/microblog/insulin/'},
+      {term:'pancreas', slug:'/microblog/pancreas/'},
+      {term:'hypertrophy', slug:'/microblog/hypertrophy/'},
+      {term:'oxidative stress', slug:'/microblog/oxidative-stress/'},
+      {term:'inflammation', slug:'/microblog/inflammatory-molecules/'},
+      {term:'apoptosis', slug:'/microblog/apoptosis/'},
+      {term:'endoplasmic reticulum', slug:'/microblog/endoplasmic-reticulum-stress/'},
+      {term:'fasting', slug: DEFAULT_URL},
+      {term:'diabetes', slug:'/microblog/type-2-diabetes/'},
+      {term:'glucose', slug: DEFAULT_URL}
+    ];
+    TERMS.sort((a,b)=>b.term.length-a.term.length);
+    const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx=new RegExp('\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\b','gi');
+
+    const root=document.querySelector(ARTICLE_SEL);
+    if(!root) return;
+
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode(n){
+        const p=n.parentNode; if(!p) return NodeFilter.FILTER_REJECT;
+        const tag=p.nodeName.toLowerCase();
+        if(/(a|code|pre|kbd|script|style|noscript|h1|h2|h3|h4|h5|h6)/.test(tag)) return NodeFilter.FILTER_REJECT;
+        if(!n.nodeValue || !rx.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(text=>{
+      const html=text.nodeValue.replace(rx,(m)=>{
+        const t=TERMS.find(t=>t.term.toLowerCase()===m.toLowerCase());
+        const href=(t&&t.slug)||DEFAULT_URL;
+        return `<a class="gloss" href="${href}" rel="nofollow">${m}</a>`;
+      });
+      const span=document.createElement('span'); span.innerHTML=html;
+      text.parentNode.replaceChild(span,text);
+    });
+  })();
+  </script>
+
+  <!-- Back-to-top -->
+  <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
+</body>
+</html>

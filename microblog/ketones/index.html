@@ -2,201 +2,179 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>MicroBlog — WhyTF Health</title>
-  <meta name="description" content="Short, human explainers (580–620 words). This one explores Ketones — the body’s backup fuel and misunderstood hero." />
-  <link rel="canonical" href="https://whytfhealth.com/microblog/" />
-
-  <link rel="stylesheet" href="/styles.css" />
-
-  <!-- Perf + Analytics -->
-  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-  <script defer src="https://cloud.umami.is/script.js"
-          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+  <title>Ketones — The Body’s Backup Fuel (and Occasional Fire Alarm) | WhyTF Health</title>
+  <meta name="description" content="What ketones are, when and why your body makes them, how they fuel the brain, and where ketosis can tip into danger (DKA). Clean, layered explanation." />
+  <link rel="canonical" href="https://whytfhealth.com/microblog/ketones/" />
 
   <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MicroBlog — WhyTF Health">
-  <meta property="og:description" content="Concise, human explainers that link from any post — searchable and deep-linkable. Featuring: Ketones." />
-  <meta property="og:url" content="https://whytfhealth.com/microblog/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Ketones — The Body’s Backup Fuel (and Occasional Fire Alarm)">
+  <meta property="og:description" content="Ketones keep you going when glucose is scarce—but the same system can become dangerous. Here’s the clear, layered explainer." />
+  <meta property="og:url" content="https://whytfhealth.com/microblog/ketones/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="MicroBlog — WhyTF Health">
-  <meta name="twitter:description" content="Short, human explainers (580–620 words). Featuring: Ketones.">
+  <meta name="twitter:title" content="Ketones — The Body’s Backup Fuel (and Occasional Fire Alarm)">
+  <meta name="twitter:description" content="From fasting fuel to DKA: how ketones work, why they rise, and where balance matters." />
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <!-- Fonts -->
+  <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Minimal local styles -->
-  <style>
-    .tiles-toolbar { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
-    .tiles-toolbar input[type="search"]{ flex:1 1 320px; padding:.75rem .9rem; border-radius:8px; }
-    .tiles-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:16px; }
-    .tile{ border:1px solid rgba(0,0,0,.12); border-radius:12px; padding:16px; background:#fff; }
-    .tile h3{ margin:.2rem 0 .4rem 0; font-size:1.05rem; }
-    .tile .meta{ font-size:.875rem; opacity:.7; }
-    .tile .actions{ margin-top:.75rem; display:flex; gap:8px; }
-    dialog.modal{ width:min(780px, 92vw); border:none; border-radius:14px; padding:0; }
-    .modal header{ padding:1.1rem 1.25rem; border-bottom:1px solid rgba(0,0,0,.1); display:flex; justify-content:space-between; align-items:center; }
-    .modal .content{ padding:1.25rem; max-height:70vh; overflow:auto; }
-    .hidden{ display:none!important; }
-    .scroll-progress{ position:fixed; left:0; top:0; height:4px; width:100%; transform-origin:left center; transform:scaleX(0); background:linear-gradient(90deg,var(--accent,#6b7cff),#b08cff); z-index:9999; }
-    @media (prefers-color-scheme:dark){
-      .tile{ background:#151936; color:#e6e8ff; border-color:#262c61; }
-      dialog.modal{ background:#151936; color:#e6e8ff; }
-      .modal header{ border-bottom-color:#262c61; }
-    }
-  </style>
+  <!-- Umami -->
+  <script defer src="https://cloud.umami.is/script.js"
+          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
 </head>
 
 <body id="top" class="microblog-page">
-<a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header" role="banner">
-  <div class="container flex between center">
-    <a href="/index.html" class="logo" aria-label="WhyTF Health home">
-      <img src="/assets/logo.png" alt="WhyTF Health logo">
-    </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/index.html" class="nav-link">Home</a>
-      <a href="/about.html" class="nav-link">About</a>
-      <a href="/blog/" class="nav-link">Blog</a>
-      <a href="/microblog/" class="nav-link">MicroBlog</a>
-      <a href="/podcast.html" class="nav-link">Podcast</a>
-      <a href="/contact.html" class="nav-link">Contact</a>
-    </nav>
-    <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
-  </div>
-</header>
-
-<main id="main" class="container section">
-  <section class="container section" aria-labelledby="microblog-title">
-    <h1 id="microblog-title">MicroBlog — The <span class="accent-word">Human</span> definitions</h1>
-    <p class="subtext">Short entries (580–620 words, up to 800 for deeper mechanisms). This page features <strong>Ketones — the body’s backup fuel.</strong></p>
-    <div class="dna-line" aria-hidden="true"></div>
-  </section>
-
-  <div class="dna-divider" aria-hidden="true"></div>
-
-  <section class="container section" aria-labelledby="browse">
-    <h2 id="browse" class="visually-hidden">Browse MicroBlog</h2>
-    <div class="tiles-toolbar">
-      <label for="q" class="visually-hidden">Search terms</label>
-      <input id="q" type="search" placeholder="Search terms (e.g., insulin, GLUT4, DKA)…" autocomplete="off" />
+  <header class="site-header" role="banner">
+    <div class="container flex between center">
+      <a href="/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo">
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link" aria-current="page">MicroBlog</a>
+        <a href="/podcast.html" class="nav-link">Podcast</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
     </div>
-  </section>
-
-  <section class="container section" aria-labelledby="tiles-heading">
-    <h2 id="tiles-heading" class="visually-hidden">MicroBlog Tiles</h2>
-    <div id="tiles" class="tiles-grid" role="list">
-
-      <!-- ===== MicroBlog 3 — Ketones ===== -->
-      <article class="tile" role="listitem"
-               data-slug="ketones"
-               data-title="Ketones"
-               data-words="612"
-               data-tags="metabolism,fuel,fasting,energy">
-        <h3><a href="#ketones">Ketones</a></h3>
-        <p class="meta">~612 words · Metabolism</p>
-        <p>The backup power you already make — cleaner than fat, steadier than sugar, and occasionally mistaken for trouble.</p>
-        <div class="actions">
-          <button class="open" data-open="ketones" aria-haspopup="dialog" aria-controls="microModal">Read</button>
-        </div>
-        <template class="full">
-          <p><strong>Ketones — Your Backup Fuel System</strong></p>
-          <p>Imagine running a hybrid car. When the petrol gauge dips, the battery quietly takes over and you keep moving. Your body does the same trick with <em>ketones</em> — small molecules made from fat whenever glucose runs low. They’re your metabolic Plan B, designed not for trendy diets but for survival through famine, fever, or a long night’s sleep.</p>
-          <p>Here’s how the switch flips. When insulin levels drop — between meals, during exercise, or in fasting — your liver opens its fat vault. Fatty acids flow in, get chopped into fragments, and partly burned in mitochondria. But there’s a bottleneck: without enough carbohydrate, one key ingredient of fat oxidation (oxaloacetate) is busy elsewhere keeping blood sugar up. The liver solves this by converting the leftover fat fragments into <strong>ketone bodies</strong>: acetoacetate, β-hydroxybutyrate, and a trace of acetone. These slip into the bloodstream and travel freely to organs like muscle, heart, and brain.</p>
-          <p>Once they arrive, cells reconvert ketones into acetyl-CoA — a tidy, water-soluble fuel that feeds straight into the same power cycle glucose normally uses. Think of it as charging your devices through a universal adapter when the main socket’s gone dark. The brain, normally dependent on glucose, can get up to two-thirds of its energy from ketones after a few days of adaptation. That’s how humans survived winter long before fridges existed.</p>
-          <p>Because ketone metabolism produces less reactive oxygen stress than burning pure glucose or fat, it’s remarkably clean. That’s why people on controlled ketogenic diets sometimes report mental clarity or steady energy: fewer spikes, less biochemical exhaust. The trade-off is slower acceleration — you’re cruising efficiently, not sprinting.</p>
-          <p>Ketones become dangerous only when insulin is absent, not merely low. In untreated Type 1 diabetes, for instance, fat breakdown goes into overdrive. The liver keeps pouring out ketones with no braking signal, blood becomes acidic, and the safe adaptation turns into <strong>diabetic ketoacidosis (DKA)</strong>. It’s the difference between lighting a campfire and setting the forest ablaze.</p>
-          <p>Short of that extreme, ketones are a routine part of life. They rise gently overnight, spike during endurance exercise, and hover during fasting. They also act as messengers, dialing down inflammation and even switching on genes that improve stress resistance — a biochemical whisper that says, “We’re in scarcity mode, conserve and repair.”</p>
-          <hr class="dotted-divider">
-          <p><strong>Why It Matters</strong></p>
-          <p>Ketones reveal the body’s built-in resilience. They’re not exotic; they’re evolutionary. Understanding them reframes hunger and fasting from deprivation to dialogue — your metabolism negotiating how to keep every cell powered when supplies thin out.</p>
-          <hr class="dotted-divider">
-          <p><strong>Closing Line</strong></p>
-          <p>Ketones are proof your body plans ahead — a quiet backup generator waiting for the lights to flicker.</p>
-          <p class="meta">Word count: 612</p>
-        </template>
-      </article>
-      <!-- ===== END MicroBlog 3 ===== -->
-
-    </div>
-  </section>
-
-  <div class="purple-divider"></div>
-</main>
-
-<dialog id="microModal" class="modal" aria-label="MicroBlog entry">
-  <header>
-    <h3 id="modal-title">Title</h3>
-    <button id="modal-close" aria-label="Close">✕</button>
   </header>
-  <div class="content" id="modal-content"></div>
-  <div class="content meta" id="modal-meta"></div>
-</dialog>
 
-<div class="divider" aria-hidden="true"></div>
-<section class="pre-footer-note" aria-label="Project line">
-  <div class="container">
-    <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
-  </div>
-</section>
+  <main id="main" class="container section">
+    <article class="post" id="post-body">
+      <header class="post-header">
+        <h1>Ketones — The Body’s Backup Fuel (and Occasional Fire Alarm)</h1>
+        <p class="subtext">How your body flips to fat-burning, why ketones can help or harm, and where balance keeps you safe.</p>
+        <p class="meta">Estimated read time: ~4 min</p>
+      </header>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <p>© 2025 WhyTF Health · Educational only — not medical advice · 
-      <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
-    </p>
-  </div>
-</footer>
+      <hr class="dna-divider" aria-hidden="true">
 
-<script>
-(function(){
-  const bar=document.querySelector('.scroll-progress');
-  function update(){if(!bar)return;const s=scrollY||document.documentElement.scrollTop;
-    const m=Math.max(1,document.documentElement.scrollHeight-innerHeight);
-    const p=Math.max(0,Math.min(1,s/m));
-    bar.style.transform='scaleX('+p.toFixed(4)+')';bar.setAttribute('aria-valuenow',Math.round(p*100));}
-  document.addEventListener('DOMContentLoaded',update,{once:true});
-  addEventListener('scroll',update,{passive:true});addEventListener('resize',update);
+      <section>
+        <p>When sugar runs low, your body doesn’t panic — it adapts. It flips a biochemical switch and begins burning fat for fuel. The by-products of that shift are <strong>ketone bodies</strong>: small, acidic molecules that keep your brain alive when glucose is scarce. They’re your emergency generator, humming quietly through the night.</p>
 
-  const q=document.getElementById('q');const tiles=[...document.querySelectorAll('#tiles .tile')];
-  const modal=document.getElementById('microModal'),mT=document.getElementById('modal-title'),
-        mC=document.getElementById('modal-content'),mM=document.getElementById('modal-meta'),
-        mX=document.getElementById('modal-close');
+        <p>There are three main ketones: <em>acetoacetate</em>, <em>beta-hydroxybutyrate</em>, and <em>acetone</em>. They’re produced in the liver from <a class="gloss" href="/microblog/fatty-acids/">fatty acids</a> during fasting, intense exercise, or low-carb diets. Once released, they travel through the bloodstream, enter cells, and get converted into energy through the <a class="gloss" href="/microblog/oxidative-stress/" data-def="The cell’s powerhouses; they make ATP. Oxidative stress rises when they’re overloaded.">mitochondria</a>. It’s an ancient survival system — the reason humans can go weeks without food.</p>
 
-  function norm(s){return(s||'').toLowerCase();}
-  function filter(){const t=norm(q.value);
-    tiles.forEach(el=>{const h=norm(el.dataset.title+' '+el.dataset.tags+' '+el.textContent);
-      el.classList.toggle('hidden',t&&!h.includes(t));});
-    try{if(window.umami&&t)umami.track('microblog_search',{q:t});}catch(e){}}
-  q&&q.addEventListener('input',(()=>{let T;return e=>{clearTimeout(T);T=setTimeout(filter,120);};})());
+        <p>In healthy states, ketones rise modestly during fasting and fall when you eat. They can suppress appetite, sharpen focus, and act as clean-burning fuel for the brain and heart. That’s the science behind ketogenic diets and fasting — controlled, temporary ketosis. But when <a class="gloss" href="/microblog/insulin/">insulin</a> is missing or ineffective, like in <a class="gloss" href="/microblog/type-1-diabetes/">Type 1 diabetes</a>, the process runs wild. Fat breakdown becomes uncontrollable, ketones flood the blood, and acidity skyrockets — <a class="gloss" href="/microblog/diabetic-ketoacidosis/">diabetic ketoacidosis</a> (DKA), a dangerous emergency where chemistry turns against itself.</p>
 
-  function openSlug(s){const el=tiles.find(x=>x.dataset.slug===s);if(!el)return;
-    const t=el.dataset.title||s,w=el.dataset.words||'',tpl=el.querySelector('template.full');
-    mT.textContent=t;mC.innerHTML=tpl?tpl.innerHTML:'<p>No content.</p>';mM.textContent=w?'≈ '+w+' words':'';
-    modal.showModal();mX.focus();
-    tiles.forEach(x=>x.classList.remove('focus'));el.classList.add('focus');
-    try{if(window.umami)umami.track('microblog_open',{slug:s,words:w});}catch(e){}}
+        <p>Beyond energy, ketones are also messengers. They signal cells to reduce <a class="gloss" href="/microblog/inflammatory-molecules/">inflammation</a> and <a class="gloss" href="/microblog/oxidative-stress/">oxidative stress</a>, and they may even activate genes linked to longevity. It’s metabolism and epigenetics holding hands.</p>
 
-  addEventListener('click',e=>{
-    const b=e.target.closest('.open');if(b){location.hash=b.dataset.open;openSlug(b.dataset.open);}
-    if(e.target===mX)modal.close();});
-  modal.addEventListener('click',e=>{
-    const r=modal.getBoundingClientRect(),inBox=e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
-    if(!inBox)modal.close();});
-  function hash(){const s=(location.hash||'').replace('#','');if(s){openSlug(s);
-    try{if(window.umami)umami.track('microblog_deeplink',{slug:s});}catch(e){}}}
-  addEventListener('hashchange',hash);hash();
-})();
-</script>
+        <p>The duality is striking: the same molecules that keep you alive in famine can kill you in imbalance. That’s biology’s recurring theme — survival systems that become hazards when left unchecked.</p>
+      </section>
 
-<a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Why It Matters</h3>
+        <p><strong>Ketones show that “fat-burning” isn’t just a fitness trend — it’s a hardwired adaptation that once saved our ancestors.</strong> Used wisely, it’s resilience; uncontrolled, it’s chaos.</p>
+      </section>
+
+      <div class="purple-divider"></div>
+
+      <section>
+        <h3>Closing Line</h3>
+        <p><em>Every backup system has a limit — ketones remind us how close adaptation sits to danger.</em></p>
+      </section>
+
+      <hr class="divider" aria-hidden="true">
+
+      <section class="pre-footer-note" aria-label="Project line">
+        <div class="container">
+          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · Educational only — not medical advice ·
+        <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scroll progress -->
+  <script>
+  (function(){
+    const bar=document.querySelector('.scroll-progress');
+    if(!bar) return;
+    function update(){
+      const st=window.scrollY||document.documentElement.scrollTop;
+      const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+      const pct=Math.max(0,Math.min(1,st/max));
+      bar.style.transform='scaleX('+pct.toFixed(4)+')';
+      bar.setAttribute('aria-valuenow',Math.round(pct*100));
+    }
+    document.addEventListener('DOMContentLoaded',update,{once:true});
+    window.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update);
+  })();
+  </script>
+
+  <!-- Autolinker (skips headings/code; routes to live topics, ‘coming soon’ fallback) -->
+  <script>
+  (function(){
+    const ARTICLE='#post-body';
+    const DEFAULT_URL='/microblog/coming-soon.html';
+    const TERMS=[
+      {term:'ketones',slug:'/microblog/ketones/'},
+      {term:'insulin',slug:'/microblog/insulin/'},
+      {term:'type 1 diabetes',slug:'/microblog/type-1-diabetes/'},
+      {term:'diabetic ketoacidosis',slug:'/microblog/diabetic-ketoacidosis/'},
+      {term:'fatty acids',slug:'/microblog/fatty-acids/'},
+      {term:'inflammation',slug:'/microblog/inflammatory-molecules/'},
+      {term:'oxidative stress',slug:'/microblog/oxidative-stress/'},
+      // glossary helpers (tooltips only)
+      {term:'mitochondria',slug:DEFAULT_URL,def:'Cell powerhouses that generate ATP; also a major source of free radicals.'},
+      {term:'ketogenic diets',slug:DEFAULT_URL,def:'Dietary patterns that raise ketones by lowering carbohydrate intake.'},
+      {term:'acetone',slug:DEFAULT_URL,def:'A volatile ketone; contributes to fruity breath during high ketone states.'},
+      {term:'beta-hydroxybutyrate',slug:DEFAULT_URL,def:'The main circulating ketone used by many tissues for energy.'},
+      {term:'acetoacetate',slug:DEFAULT_URL,def:'A precursor ketone that can convert to beta-hydroxybutyrate or acetone.'}
+    ];
+    TERMS.sort((a,b)=>b.term.length-a.term.length);
+    const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const rx=new RegExp('\\b('+TERMS.map(t=>esc(t.term)).join('|')+')\\b','gi');
+    const root=document.querySelector(ARTICLE);
+    if(!root)return;
+
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{
+      acceptNode(node){
+        const p=node.parentNode; if(!p) return NodeFilter.FILTER_REJECT;
+        const tag=p.nodeName.toLowerCase();
+        if(/^(a|code|pre|kbd|script|style|noscript|h1|h2|h3|h4|h5|h6)$/.test(tag)) return NodeFilter.FILTER_REJECT;
+        if(!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes=[];
+    while(walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(n=>{
+      const html=n.nodeValue.replace(rx,m=>{
+        const t=TERMS.find(t=>t.term.toLowerCase()===m.toLowerCase());
+        const href=(t&&t.slug)?t.slug:DEFAULT_URL;
+        const def=(t&&t.def)?t.def:'';
+        return `<a class="gloss" href="${href}" rel="nofollow"${def?` data-def="${def.replace(/"/g,'&quot;')}"`:''}>${m}</a>`;
+      });
+      const span=document.createElement('span');
+      span.innerHTML=html;
+      n.parentNode.replaceChild(span,n);
+    });
+  })();
+  </script>
+
+  <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 </body>
 </html>
+

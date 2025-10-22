@@ -133,15 +133,40 @@
     <div class="container">
       <p>© 2025 WhyTF Health · <a href="/privacy.html" aria-current="page">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
       <section class="footer-lang" aria-label="Language switcher">
-  <div class="container">
-    <a class="lang-btn" href="/hu/privacy.html">
-      <span class="flag flag-hu" aria-hidden="true"></span><span class="code">HU</span>
-    </a>
-    <span class="sep" aria-hidden="true">·</span>
-    <a class="lang-btn is-current" href="/privacy.html" aria-current="true">
-      <span class="flag flag-gb" aria-hidden="true"></span><span class="code">EN</span>
-    </a>
-  </div>
+ <div class="lang-footer">
+  <a class="lang-pill is-current" href="/privacy.html" aria-label="English">
+    <span class="flag" aria-hidden="true">
+      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+        <defs><clipPath id="ukCircle-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+        <g clip-path="url(#ukCircle-privacy)">
+          <rect width="60" height="60" fill="#012169"/>
+          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+          <rect x="24" width="12" height="60" fill="#fff"/>
+          <rect y="24" width="60" height="12" fill="#fff"/>
+          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+        </g>
+      </svg>
+    </span>
+    <span class="code">EN</span>
+  </a>
+
+  <a class="lang-pill" href="/hu/privacy.html" aria-label="Magyar">
+    <span class="flag" aria-hidden="true">
+      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+        <defs><clipPath id="huCircle-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+        <g clip-path="url(#huCircle-privacy)">
+          <rect width="60" height="60" fill="#fff"/>
+          <rect width="60" height="20" y="0" fill="#D32E2E"/>
+          <rect width="60" height="20" y="40" fill="#2E8B57"/>
+        </g>
+      </svg>
+    </span>
+    <span class="code">HU</span>
+  </a>
+</div>
+
 </section>
     </div>
   </footer>

@@ -63,7 +63,7 @@
         <a href="/hu/about.html" class="nav-link">Rólunk</a>
         <a href="/blog/" class="nav-link">Blog</a>
         <a href="/microblog/" class="nav-link">MicroBlog</a>
-        <a href="/hu/contact.html" class="nav-link" aria-current="page">Kapcsolat</a>
+        <a href="/hu/contact.html" class="nav-link">Kapcsolat</a>
       </nav>
     </div>
   </header>
@@ -115,16 +115,18 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <!-- HU footer links should point to HU pages -->
-      <p>© 2025 WhyTF Health · <a href="/hu/privacy.html">Privacy</a> · <a href="/hu/terms.html">Terms &amp; Disclaimer</a></p>
+      <p>© 2025 WhyTF Health ·
+        <a href="/hu/privacy.html" aria-current="page">Adatvédelem</a> ·
+        <a href="/hu/terms.html">Felhasználási feltételek</a>
+      </p>
 
-      <!-- Footer language switcher (HU current) -->
+      <!-- Footer language switcher -->
       <div class="lang-footer">
-        <a class="lang-pill" href="/contact.html" aria-label="English">
+        <a class="lang-pill" href="/privacy.html" aria-label="English">
           <span class="flag" aria-hidden="true">
             <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-              <defs><clipPath id="ukCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-              <g clip-path="url(#ukCircle-hu-contact)">
+              <defs><clipPath id="ukCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#ukCircle-hu-privacy)">
                 <rect width="60" height="60" fill="#012169"/>
                 <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
                 <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
@@ -138,11 +140,11 @@
           <span class="code">EN</span>
         </a>
 
-        <a class="lang-pill is-current" href="/hu/contact.html" aria-label="Magyar">
+        <a class="lang-pill is-current" href="/hu/privacy.html" aria-label="Magyar">
           <span class="flag" aria-hidden="true">
             <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-              <defs><clipPath id="huCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-              <g clip-path="url(#huCircle-hu-contact)">
+              <defs><clipPath id="huCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#huCircle-hu-privacy)">
                 <rect width="60" height="60" fill="#fff"/>
                 <rect width="60" height="20" y="0" fill="#D32E2E"/>
                 <rect width="60" height="20" y="40" fill="#2E8B57"/>

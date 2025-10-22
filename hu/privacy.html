@@ -1,46 +1,53 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
-    <meta property="og:locale" content="hu_HU">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta property="og:locale" content="hu_HU">
+
   <title>Privacy Policy — WhyTF Health</title>
   <meta name="description" content="How WhyTF Health handles your data: what we collect, why we collect it, and your rights under GDPR." />
 
-  <link rel="canonical" href="https://whytfhealth.com/privacy.html" />
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Open Graph -->
+  <!-- Canonical + OG/Twitter (HU URL) -->
+  <link rel="canonical" href="https://whytfhealth.com/hu/privacy.html" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Privacy Policy — WhyTF Health" />
   <meta property="og:description" content="How WhyTF Health handles your data: what we collect, why we collect it, and your rights under GDPR." />
-  <meta property="og:url" content="https://whytfhealth.com/privacy.html" />
+  <meta property="og:url" content="https://whytfhealth.com/hu/privacy.html" />
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Privacy Policy — WhyTF Health" />
   <meta name="twitter:description" content="How WhyTF Health handles your data: what we collect, why we collect it, and your rights under GDPR." />
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
 
+  <!-- Fonts (match EN) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles: root-absolute so HU pages keep theme -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Analytics (same as EN) -->
+  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container flex between center">
-      <a href="index.html" class="logo" aria-label="WhyTF Health home">
-        <img src="assets/logo.png" alt="WhyTF Health logo" />
+      <a href="/hu/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo" />
       </a>
-     <nav class="nav" aria-label="Primary">
-  <a href="/hu/">Kezdőlap</a>
-  <a href="/hu/about.html">Rólunk</a>
-  <a href="/blog/">Blog</a> <!-- still English for now -->
-  <a href="/microblog/">MicroBlog</a> <!-- still English for now -->
-  <a href="/hu/contact.html">Kapcsolat</a>
-</nav>
+      <nav class="nav" aria-label="Primary">
+        <a href="/hu/" class="nav-link">Kezdőlap</a>
+        <a href="/hu/about.html" class="nav-link">Rólunk</a>
+        <a href="/blog/" class="nav-link">Blog</a> <!-- still EN -->
+        <a href="/microblog/" class="nav-link">MicroBlog</a> <!-- still EN -->
+        <a href="/hu/contact.html" class="nav-link">Kapcsolat</a>
+      </nav>
     </div>
   </header>
 
@@ -49,7 +56,7 @@
     <p class="subtext">Clear, plain-English privacy information for readers in the EU and beyond.</p>
     <p class="meta">Last updated: October 2025</p>
 
-<div class="dna-divider" aria-hidden="true"></div>
+    <div class="dna-divider" aria-hidden="true"></div>
 
     <h2>1) Who we are</h2>
     <p><strong>WhyTF Health</strong> is an independent medical-education project based in the European Union. We publish plain-English explainers about human biology. This website is statically hosted on <strong>GitHub Pages</strong>.</p>
@@ -123,6 +130,7 @@
   </main>
 
   <div class="divider" aria-hidden="true"></div>
+
   <section class="pre-footer-note" aria-label="Project line">
     <div class="container">
       <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
@@ -131,41 +139,45 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>© 2025 WhyTF Health · <a href="/privacy.html" aria-current="page">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
+      <p>© 2025 WhyTF Health ·
+        <a href="/hu/privacy.html" aria-current="page">Adatvédelem</a> ·
+        <a href="/hu/terms.html">Felhasználási feltételek</a>
+      </p>
+
+      <!-- Footer language switcher -->
       <div class="lang-footer">
-  <a class="lang-pill" href="/privacy.html" aria-label="English">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="ukCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#ukCircle-hu-privacy)">
-          <rect width="60" height="60" fill="#012169"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-          <rect x="24" width="12" height="60" fill="#fff"/>
-          <rect y="24" width="60" height="12" fill="#fff"/>
-          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">EN</span>
-  </a>
+        <a class="lang-pill" href="/privacy.html" aria-label="English">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="ukCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#ukCircle-hu-privacy)">
+                <rect width="60" height="60" fill="#012169"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+                <rect x="24" width="12" height="60" fill="#fff"/>
+                <rect y="24" width="60" height="12" fill="#fff"/>
+                <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+                <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">EN</span>
+        </a>
 
-  <a class="lang-pill is-current" href="/hu/privacy.html" aria-label="Magyar">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="huCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#huCircle-hu-privacy)">
-          <rect width="60" height="60" fill="#fff"/>
-          <rect width="60" height="20" y="0" fill="#D32E2E"/>
-          <rect width="60" height="20" y="40" fill="#2E8B57"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">HU</span>
-  </a>
-</div>
-
+        <a class="lang-pill is-current" href="/hu/privacy.html" aria-label="Magyar">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="huCircle-hu-privacy"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#huCircle-hu-privacy)">
+                <rect width="60" height="60" fill="#fff"/>
+                <rect width="60" height="20" y="0" fill="#D32E2E"/>
+                <rect width="60" height="20" y="40" fill="#2E8B57"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">HU</span>
+        </a>
+      </div>
     </div>
   </footer>
 </body>

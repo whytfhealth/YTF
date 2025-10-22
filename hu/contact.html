@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="hu">
-    <head>
-   <meta property="og:locale" content="hu_HU">
+<head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:locale" content="hu_HU">
+
   <title>Contact — WhyTF Health</title>
-<meta name="description" content="Suggestions, corrections, and ideas are welcome.">
-<!-- Mobile rendering: already have viewport (good) -->
-<!-- Hint the browser to connect sooner to your analytics host -->
-<link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-<link rel="canonical" href="https://whytfhealth.com/contact.html">
+  <meta name="description" content="Suggestions, corrections, and ideas are welcome.">
+  <link rel="canonical" href="https://whytfhealth.com/hu/contact.html" />
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Contact — WhyTF Health">
-<meta property="og:description" content="Suggestions, corrections, and ideas are welcome.">
-<meta property="og:url" content="https://whytfhealth.com/contact.html">
-<meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+  <!-- Fonts (match EN) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact — WhyTF Health">
-<meta name="twitter:description" content="Suggestions, corrections, and ideas are welcome.">
-<meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
-  <link rel="stylesheet" href="styles.css" />
+  <!-- THEME: use root-absolute so HU pages load global CSS -->
+  <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — WhyTF Health">
+  <meta property="og:description" content="Suggestions, corrections, and ideas are welcome.">
+  <meta property="og:url" content="https://whytfhealth.com/hu/contact.html">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — WhyTF Health">
+  <meta name="twitter:description" content="Suggestions, corrections, and ideas are welcome.">
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
+  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+
   <style>
     .form{max-width:640px;margin:0 auto}
     .input, textarea{
@@ -37,35 +45,34 @@
     textarea{min-height:160px;resize:vertical}
     label{display:block;margin:.75rem 0 .35rem}
   </style>
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container flex between center">
-      <a href="index.html" class="logo" aria-label="WhyTF Health home">
-        <img src="assets/logo.png" alt="WhyTF Health logo" />
+      <!-- Root-absolute logo path -->
+      <a href="/hu/index.html" class="logo" aria-label="WhyTF Health home">
+        <img src="/assets/logo.png" alt="WhyTF Health logo" />
       </a>
-     <nav class="nav" aria-label="Primary">
-  <a href="/hu/">Kezdőlap</a>
-  <a href="/hu/about.html">Rólunk</a>
-  <a href="/blog/">Blog</a> <!-- still English for now -->
-  <a href="/microblog/">MicroBlog</a> <!-- still English for now -->
-  <a href="/hu/contact.html">Kapcsolat</a>
-</nav>
- </div>
+
+      <!-- Keep .nav and .nav-link classes; mark current page -->
+      <nav class="nav" aria-label="Primary">
+        <a href="/hu/" class="nav-link">Kezdőlap</a>
+        <a href="/hu/about.html" class="nav-link">Rólunk</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link">MicroBlog</a>
+        <a href="/hu/contact.html" class="nav-link" aria-current="page">Kapcsolat</a>
+      </nav>
+    </div>
   </header>
 
   <main id="main" class="container section">
     <h1>Contact</h1>
     <p class="subtext">Send your thoughts, ideas, or corrections below — we read every message.</p>
 
-<div class="dna-divider" aria-hidden="true"></div>
-
-</section>
+    <div class="dna-divider" aria-hidden="true"></div>
 
     <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
       <label for="email">Your email</label>
@@ -78,7 +85,8 @@
       <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
 
       <input type="hidden" name="_subject" value="WhyTF Health Contact Submission" />
-      <input type="hidden" name="_redirect" value="https://whytfhealth.com/contact.html?sent=1" />
+      <!-- Redirect back to HU page after submit -->
+      <input type="hidden" name="_redirect" value="https://whytfhealth.com/hu/contact.html?sent=1" />
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
       <button class="btn" type="submit">Send</button>
@@ -97,7 +105,8 @@
     </script>
   </main>
 
-  <div class="divider"></div>
+  <div class="divider" aria-hidden="true"></div>
+
   <section class="pre-footer-note" aria-label="Project line">
     <div class="container">
       <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
@@ -106,40 +115,43 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-     <p>© 2025 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
-     <div class="lang-footer">
-  <a class="lang-pill" href="/contact.html" aria-label="English">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="ukCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#ukCircle-hu-contact)">
-          <rect width="60" height="60" fill="#012169"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-          <rect x="24" width="12" height="60" fill="#fff"/>
-          <rect y="24" width="60" height="12" fill="#fff"/>
-          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">EN</span>
-  </a>
+      <!-- HU footer links should point to HU pages -->
+      <p>© 2025 WhyTF Health · <a href="/hu/privacy.html">Privacy</a> · <a href="/hu/terms.html">Terms &amp; Disclaimer</a></p>
 
-  <a class="lang-pill is-current" href="/hu/contact.html" aria-label="Magyar">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="huCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#huCircle-hu-contact)">
-          <rect width="60" height="60" fill="#fff"/>
-          <rect width="60" height="20" y="0" fill="#D32E2E"/>
-          <rect width="60" height="20" y="40" fill="#2E8B57"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">HU</span>
-  </a>
-</div>
+      <!-- Footer language switcher (HU current) -->
+      <div class="lang-footer">
+        <a class="lang-pill" href="/contact.html" aria-label="English">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="ukCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#ukCircle-hu-contact)">
+                <rect width="60" height="60" fill="#012169"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+                <rect x="24" width="12" height="60" fill="#fff"/>
+                <rect y="24" width="60" height="12" fill="#fff"/>
+                <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+                <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">EN</span>
+        </a>
+
+        <a class="lang-pill is-current" href="/hu/contact.html" aria-label="Magyar">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="huCircle-hu-contact"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#huCircle-hu-contact)">
+                <rect width="60" height="60" fill="#fff"/>
+                <rect width="60" height="20" y="0" fill="#D32E2E"/>
+                <rect width="60" height="20" y="40" fill="#2E8B57"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">HU</span>
+        </a>
+      </div>
     </div>
   </footer>
 </body>

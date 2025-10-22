@@ -36,9 +36,6 @@
 
   <!-- Site header (unchanged layout) -->
   <header class="site-header" role="banner">
-    <div class="lang-switcher">
-  <a href="/hu/">Magyar</a>
-</div>
     <div class="container flex between center">
       <a href="/index.html" class="logo" aria-label="WhyTF Health home">
         <img src="/assets/logo.png" alt="WhyTF Health logo" />
@@ -53,6 +50,54 @@
 </nav>
     </div>
   </header>
+  <!-- Post-header language bar (shows at top only, hides on scroll) -->
+<div class="post-header-lang" role="region" aria-label="Language selection">
+  <div class="container">
+    <div class="lang-pills" role="list">
+      <!-- EN (current page) -->
+      <a class="lang-pill is-current" role="listitem"
+         href="/about.html" aria-current="page" aria-label="English">
+        <span class="flag" aria-hidden="true">
+          <!-- UK flag in a circle -->
+          <svg viewBox="0 0 60 60" width="28" height="28" aria-hidden="true" style="display:block;border-radius:50%;overflow:hidden">
+            <defs>
+              <clipPath id="circleClip"><circle cx="30" cy="30" r="30"/></clipPath>
+            </defs>
+            <g clip-path="url(#circleClip)">
+              <rect width="60" height="60" fill="#012169"/>
+              <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+              <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+              <rect x="24" width="12" height="60" fill="#fff"/>
+              <rect y="24" width="60" height="12" fill="#fff"/>
+              <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+              <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+            </g>
+          </svg>
+        </span>
+        <span class="code">EN</span>
+      </a>
+
+      <!-- HU -->
+      <a class="lang-pill" role="listitem"
+         href="/hu/about.html" aria-label="Magyar">
+        <span class="flag" aria-hidden="true">
+          <!-- Hungary flag in a circle -->
+          <svg viewBox="0 0 60 60" width="28" height="28" aria-hidden="true" style="display:block;border-radius:50%;overflow:hidden">
+            <defs>
+              <clipPath id="circleClipHu"><circle cx="30" cy="30" r="30"/></clipPath>
+            </defs>
+            <g clip-path="url(#circleClipHu)">
+              <rect width="60" height="60" fill="#fff"/>
+              <rect width="60" height="20" y="0" fill="#D32E2E"/>
+              <rect width="60" height="20" y="40" fill="#2E8B57"/>
+            </g>
+          </svg>
+        </span>
+        <span class="code">HU</span>
+      </a>
+    </div>
+  </div>
+</div>
 
   <main id="main">
     <!-- Page header -->
@@ -154,5 +199,23 @@
       </p>
     </div>
   </footer>
+  <script>
+  (function () {
+    const bar = document.querySelector('.post-header-lang');
+    if (!bar) return;
+
+    // toggle only when at absolute top vs any scroll
+    const onScroll = () => {
+      if (window.scrollY > 2) {
+        bar.classList.add('is-hidden');
+      } else {
+        bar.classList.remove('is-hidden');
+      }
+    };
+    // run once and on scroll
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+</script>
 </body>
 </html>

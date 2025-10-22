@@ -69,41 +69,42 @@
   </header>
 
   <main id="main" class="container section">
-    <h1>Contact</h1>
-    <p class="subtext">Send your thoughts, ideas, or corrections below — we read every message.</p>
+  <h1>Kapcsolat</h1>
+  <p class="subtext">Küldd el gondolataidat, ötleteidet vagy javítási javaslataidat — minden üzenetet elolvasunk.</p>
 
-    <div class="dna-divider" aria-hidden="true"></div>
+  <div class="dna-divider" aria-hidden="true"></div>
 
-    <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
-      <label for="email">Your email</label>
-      <input class="input" id="email" name="email" type="email" required placeholder="you@example.com" />
+  <form class="form card" action="https://formspree.io/f/mblzaypz" method="POST">
+    <label for="email">E-mail címed</label>
+    <input class="input" id="email" name="email" type="email" required placeholder="te@pelda.com" />
 
-      <label for="topic">Topic</label>
-      <input class="input" id="topic" name="topic" type="text" required placeholder="e.g., Diabetes explainer suggestion" />
+    <label for="topic">Téma</label>
+    <input class="input" id="topic" name="topic" type="text" required placeholder="pl. Cukorbetegség magyarázat javaslat" />
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required placeholder="Write your message here..."></textarea>
+    <label for="message">Üzenet</label>
+    <textarea id="message" name="message" required placeholder="Írd ide az üzeneted..."></textarea>
 
-      <input type="hidden" name="_subject" value="WhyTF Health Contact Submission" />
-      <!-- Redirect back to HU page after submit -->
-      <input type="hidden" name="_redirect" value="https://whytfhealth.com/hu/contact.html?sent=1" />
-      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+    <input type="hidden" name="_subject" value="WhyTF Health Kapcsolat üzenet" />
+    <!-- Magyar verzióra irányítás küldés után -->
+    <input type="hidden" name="_redirect" value="https://whytfhealth.com/hu/contact.html?sent=1" />
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-      <button class="btn" type="submit">Send</button>
-    </form>
+    <button class="btn" type="submit">Küldés</button>
+  </form>
 
-    <script>
-      (function(){
-        const params=new URLSearchParams(location.search);
-        if(params.get('sent')==='1'){
-          const p=document.createElement('p');
-          p.textContent='Thanks — your message was sent successfully.';
-          p.style.marginTop='1rem';
-          document.querySelector('form').after(p);
-        }
-      })();
-    </script>
-  </main>
+  <script>
+    (function(){
+      const params=new URLSearchParams(location.search);
+      if(params.get('sent')==='1'){
+        const p=document.createElement('p');
+        p.textContent='Köszönjük — az üzenetedet sikeresen elküldtük.';
+        p.style.marginTop='1rem';
+        document.querySelector('form').after(p);
+      }
+    })();
+  </script>
+</main>
+
 
   <div class="divider" aria-hidden="true"></div>
 

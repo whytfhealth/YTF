@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Blog — WhyTF Health</title>
-  <meta name="description" content="All explainers in one place — now as a clean, flowing grid. Explore human biology, appetite, metabolism, culture and care without academic buckets." />
+  <meta name="description" content="All explainers in one place — clean, layered, and endlessly scrollable. Explore biology, appetite, energy, and everything fascinating in between." />
   <link rel="canonical" href="https://whytfhealth.com/blog/">
 
   <!-- Theme -->
@@ -18,83 +18,122 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blog — WhyTF Health">
-  <meta property="og:description" content="Browse all WhyTF Health explainers in one place — essays that move from hype to hormones, culture to chemistry.">
+  <meta property="og:description" content="All WhyTF Health explainers in one place — human biology, culture, and care made understandable.">
   <meta property="og:url" content="https://whytfhealth.com/blog/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog — WhyTF Health">
-  <meta name="twitter:description" content="Explore human biology without the academic buckets. Clean grid, readable cards, fast browsing.">
+  <meta name="twitter:description" content="Clean grid. Human stories. Biology explained without the jargon.">
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <!-- Page-specific micro-CSS to style the new pills (keeps global theme intact) -->
+  <!-- Custom styling for outlined purple & white pills -->
   <style>
-    :root{
-      /* re-use your established accent if already defined in styles.css */
+    :root {
       --wth-purple: var(--accent, #6f3cff);
       --wth-purple-ink: #4a2ab8;
-      --wth-bg: #fff;
+      --wth-white: #ffffff;
     }
-    .blog-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.25rem;
       margin-top: 1.25rem;
     }
-    .white-card{
-      background:#fff;
-      border-radius:12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,.06);
+
+    .white-card {
+      background: var(--wth-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
       padding: 1.1rem 1.1rem 1rem;
-      display:flex;
-      flex-direction:column;
+      display: flex;
+      flex-direction: column;
       min-height: 180px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
-    .white-card h3{
-      margin:0 0 .4rem 0;
-      line-height:1.25;
+
+    .white-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     }
-    .white-card p{
-      margin:.25rem 0 .75rem 0;
+
+    .white-card h3 {
+      margin: 0 0 0.4rem 0;
+      line-height: 1.25;
     }
-    .white-card-meta{
-      margin-top:auto;
-      display:flex;
-      gap:.5rem;
-      align-items:center;
-      flex-wrap:wrap;
+
+    .white-card p {
+      margin: 0.25rem 0 0.75rem 0;
     }
-    .meta-pill{
-      display:inline-flex;
-      align-items:center;
-      gap:.35rem;
-      border-radius:999px;
-      padding:.35rem .65rem;
-      font-size:.85rem;
-      line-height:1;
-      white-space:nowrap;
+
+    .white-card-meta {
+      margin-top: auto;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
     }
-    /* Time pill: purple bubble with white text */
-    .meta-pill--time{
+
+    /* General pill style */
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      border-radius: 999px;
+      padding: 0.35rem 0.65rem;
+      font-size: 0.85rem;
+      line-height: 1;
+      white-space: nowrap;
+      font-weight: 600;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    /* Time pill: white outline, purple text */
+    .meta-pill--time {
+      border: 1.8px solid var(--wth-white);
+      color: var(--wth-white);
+      background: transparent;
+      font-weight: 600;
+    }
+
+    /* Tag pill: purple outline, white text */
+    .meta-pill--tag {
+      border: 1.8px solid var(--wth-purple);
+      color: var(--wth-purple);
+      background: transparent;
+    }
+
+    .meta-pill--tag:hover {
       background: var(--wth-purple);
-      color:#fff;
-      font-weight:600;
+      color: var(--wth-white);
     }
-    /* Tag pill: purple bubble as requested (can hold multiple tags) */
-    .meta-pill--tag{
-      background: var(--wth-purple);
-      color:#fff;
-      font-weight:600;
+
+    .hash {
+      opacity: 0.9;
     }
-    .meta-pill--tag .hash{opacity:.9}
-    /* If you later want outlined tags instead, switch to the commented rules below:
-    .meta-pill--tag{ background:#fff; color:var(--wth-purple-ink); border:1.5px solid var(--wth-purple); }
-    */
-    .topic-link{ text-decoration:none; }
-    .soon{ color:#7a7a7a; font-style:italic; margin-top:.25rem; }
-    .nolink{ opacity:.7 }
-    .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+
+    .topic-link {
+      text-decoration: none;
+    }
+
+    .soon {
+      color: #7a7a7a;
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    .nolink {
+      opacity: 0.7;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1rem;
+    }
   </style>
 </head>
 
@@ -120,28 +159,27 @@
   <main id="main" class="container section">
     <h1>Blog</h1>
     <p class="subtext" style="margin-bottom:2rem;">
-      Explore how the human body works — and what happens when biology meets modern life.
+      Essays and explainers — from the hype to the hormones, culture to chemistry.
     </p>
 
     <div class="dna-divider" aria-hidden="true"></div>
 
-    <!-- NEW unified grid (no academic category blocks) -->
     <section aria-label="All articles">
       <div class="blog-grid">
 
-        <!-- NEW: Ozempic essay -->
+        <!-- Ozempic -->
         <article class="white-card">
           <h3><a class="topic-link" href="/blog/therapies/why-everyone-is-talking-about-ozempic/">WhyTF Is Everyone Talking About Ozempic?</a></h3>
           <p>GLP-1, semaglutide and the quiet science behind the ‘hunger whisperer’ — the hype, how it actually works, trade-offs, stopping, and what’s next.</p>
           <div class="white-card-meta">
-            <span class="meta-pill meta-pill--time" aria-label="Estimated read time">24 min</span>
-            <span class="meta-pill meta-pill--tag" aria-label="Primary topic tag"><span class="hash">#</span>Therapies</span>
+            <span class="meta-pill meta-pill--time">24 min</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Therapies</span>
             <span class="meta-pill meta-pill--tag"><span class="hash">#</span>GLP-1</span>
             <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Appetite</span>
           </div>
         </article>
 
-        <!-- Existing posts (kept; no category blocks) -->
+        <!-- Diabetes -->
         <article class="white-card">
           <h3><a href="/blog/diseases/why-we-get-diabetes/index.html">WhyTF We Get Diabetes</a></h3>
           <p>The sugar traffic jam inside your body.</p>
@@ -152,6 +190,7 @@
           </div>
         </article>
 
+        <!-- Fatigue -->
         <article class="white-card">
           <h3><a href="/blog/diseases/why-we-get-tired/index.html">WhyTF We Get So Tired (Even After Rest)</a></h3>
           <p>Why energy evaporates even after rest.</p>
@@ -162,6 +201,7 @@
           </div>
         </article>
 
+        <!-- Weight loss -->
         <article class="white-card">
           <h3><a href="/blog/physiology/why-cant-i-lose-weight/index.html">WhyTF Can’t I Lose Weight?</a></h3>
           <p>Diets, hormones, and your body’s defence system.</p>
@@ -172,7 +212,7 @@
           </div>
         </article>
 
-        <!-- Optional “coming soon” tiles preserved in the new grid -->
+        <!-- Coming soon examples -->
         <article class="white-card">
           <h3><span class="nolink">WhyTF Insulin Matters</span></h3>
           <p>The tiny messenger that keeps every cell alive.</p>
@@ -190,21 +230,12 @@
             <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Neuroscience</span>
           </div>
         </article>
-
-        <article class="white-card">
-          <h3><span class="nolink">WhyTF Metformin Works</span></h3>
-          <p>How one molecule resets the body’s sugar strategy.</p>
-          <p class="soon">Coming soon</p>
-          <div class="white-card-meta">
-            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Therapies</span>
-          </div>
-        </article>
-
       </div>
     </section>
   </main>
 
   <div class="divider" aria-hidden="true"></div>
+
   <section class="pre-footer-note" aria-label="Project line">
     <div class="container">
       <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>

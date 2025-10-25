@@ -4,43 +4,108 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>WhyTF Is Everyone Talking About Ozempic? — WhyTF Health</title>
-  <meta name="description" content="GLP-1, semaglutide and the quiet science behind the ‘hunger whisperer’. What Ozempic really does, the trade-offs, what happens when you stop, and where this goes next." />
-  <link rel="canonical" href="https://whytfhealth.com/blog/therapies/why-everyone-is-talking-about-ozempic/" />
+  <title>Blog — WhyTF Health</title>
+  <meta name="description" content="All explainers in one place — now as a clean, flowing grid. Explore human biology, appetite, metabolism, culture and care without academic buckets." />
+  <link rel="canonical" href="https://whytfhealth.com/blog/">
 
+  <!-- Theme -->
   <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-  <script defer src="https://cloud.umami.is/script.js"
-          data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="WhyTF Is Everyone Talking About Ozempic?">
-  <meta property="og:description" content="GLP-1, semaglutide and the quiet science behind the ‘hunger whisperer’. How it works, the fine print, what happens when you stop, and the future of weight loss." />
-  <meta property="og:url" content="https://whytfhealth.com/blog/therapies/why-everyone-is-talking-about-ozempic/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Blog — WhyTF Health">
+  <meta property="og:description" content="Browse all WhyTF Health explainers in one place — essays that move from hype to hormones, culture to chemistry.">
+  <meta property="og:url" content="https://whytfhealth.com/blog/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WhyTF Is Everyone Talking About Ozempic?">
-  <meta name="twitter:description" content="GLP-1, semaglutide and the quiet science behind the ‘hunger whisperer’. What it does, trade-offs, stopping, and what’s next.">
+  <meta name="twitter:title" content="Blog — WhyTF Health">
+  <meta name="twitter:description" content="Explore human biology without the academic buckets. Clean grid, readable cards, fast browsing.">
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Page-specific micro-CSS to style the new pills (keeps global theme intact) -->
+  <style>
+    :root{
+      /* re-use your established accent if already defined in styles.css */
+      --wth-purple: var(--accent, #6f3cff);
+      --wth-purple-ink: #4a2ab8;
+      --wth-bg: #fff;
+    }
+    .blog-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+    }
+    .white-card{
+      background:#fff;
+      border-radius:12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.06);
+      padding: 1.1rem 1.1rem 1rem;
+      display:flex;
+      flex-direction:column;
+      min-height: 180px;
+    }
+    .white-card h3{
+      margin:0 0 .4rem 0;
+      line-height:1.25;
+    }
+    .white-card p{
+      margin:.25rem 0 .75rem 0;
+    }
+    .white-card-meta{
+      margin-top:auto;
+      display:flex;
+      gap:.5rem;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .meta-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.35rem;
+      border-radius:999px;
+      padding:.35rem .65rem;
+      font-size:.85rem;
+      line-height:1;
+      white-space:nowrap;
+    }
+    /* Time pill: purple bubble with white text */
+    .meta-pill--time{
+      background: var(--wth-purple);
+      color:#fff;
+      font-weight:600;
+    }
+    /* Tag pill: purple bubble as requested (can hold multiple tags) */
+    .meta-pill--tag{
+      background: var(--wth-purple);
+      color:#fff;
+      font-weight:600;
+    }
+    .meta-pill--tag .hash{opacity:.9}
+    /* If you later want outlined tags instead, switch to the commented rules below:
+    .meta-pill--tag{ background:#fff; color:var(--wth-purple-ink); border:1.5px solid var(--wth-purple); }
+    */
+    .topic-link{ text-decoration:none; }
+    .soon{ color:#7a7a7a; font-style:italic; margin-top:.25rem; }
+    .nolink{ opacity:.7 }
+    .section-head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; }
+  </style>
 </head>
 
-<body id="top" class="blog-page">
+<body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header class="site-header" role="banner">
     <div class="container flex between center">
-      <!-- logo -->
       <a href="/index.html" class="logo" aria-label="WhyTF Health home">
-        <img src="/assets/logo.png" alt="WhyTF Health logo">
+        <img src="/assets/logo.png" alt="WhyTF Health logo" />
       </a>
-
-      <!-- nav -->
       <nav class="nav" aria-label="Primary">
         <a href="/index.html" class="nav-link">Home</a>
         <a href="/about.html" class="nav-link">About</a>
@@ -49,1041 +114,107 @@
         <a href="/podcast.html" class="nav-link">Podcast</a>
         <a href="/contact.html" class="nav-link">Contact</a>
       </nav>
-
-      <!-- scroll progress underline -->
-      <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
     </div>
   </header>
 
   <main id="main" class="container section">
-    <!-- ARTICLE WRAPPER -->
-    <article class="post" id="post-body">
-      <header class="post-header">
-        <h1>WhyTF Is Everyone Talking About Ozempic?</h1>
-        <p class="subtext">GLP-1 agonists moved the weight-loss conversation from willpower to wiring. Here’s the story — hype to hormones, fine print to future.</p>
-        <p class="meta">Estimated read time: ~24 minutes · Published October 2025</p>
-      </header>
-
-      <div class="dna-divider" aria-hidden="true"></div>
-
-      <!-- ================= Movement I ================= -->
-      <section id="movement-1">
-        <h2>Movement I — The Hype and the Hunger</h2>
-        <p><em>(≈ 950 words)</em></p>
-
-        <p>It’s 2025, and somewhere between your feed and your fridge, Ozempic became a household name.</p>
-
-        <p>One minute you’re scrolling past a skincare ad, and the next — another before-and-after. The same arc every time: puffy face to chiselled jaw, captioned with “#Ozempic,” “#Wegovy,” or the slightly cheekier “#SkinnyJab.”<br>
-TikTokers film their shrinking silhouettes; celebrities drop sly hints; even your dentist’s receptionist has an opinion.</p>
-
-        <p>Weight loss has always been an industry. But now? It’s a movement.</p>
-
-        <p>Not a quiet one, either. We’ve had Atkins, Keto, Paleo, fasting, juicing — all promising salvation. But this? This one feels different. Not a lifestyle. Not a mindset. A shot. A small injection that whispers to your biology: You can rest now. You don’t need to fight yourself anymore.</p>
-
-        <p>That’s the promise wrapped inside this global frenzy — relief.</p>
-
-        <p>And that’s what’s so intoxicating.</p>
-
-        <p>Because if you’ve ever been trapped in the cycle — the calorie-counting, the guilt, the late-night fridge arguments — the idea that something could silence that relentless noise is… thrilling. Almost indecently so.</p>
-
-        <p>⸻</p>
-
-        <p>Let’s pause on that for a second — this isn’t just a trend; it’s a cultural craving.</p>
-
-        <p>A craving for quiet. For control. For finally being able to eat like the person you wish you were.</p>
-
-        <p>Ozempic didn’t just enter the market; it entered the group chat. It became the conversational cheat code: the punchline, the secret, the scapegoat, and the holy grail, all at once.</p>
-
-        <p>Even the tone around it has shifted.</p>
-
-        <p>Not “weight loss” — transformation.<br>
-Not “dieting” — science.<br>
-Not “willpower” — biology.</p>
-
-        <p>This is what makes it so powerful: it rewrites the story of failure. Suddenly, the people who “couldn’t stick to a diet” weren’t weak; they were wired. And now, for the first time, there was a way to rewrite that wiring.</p>
-
-        <p>⸻</p>
-
-        <p>Of course, when the internet smells a miracle, it builds a religion.</p>
-
-        <p>Cue the sermons: “Ozempic face,” “Ozempic butt,” “Ozempic nation.”<br>
-Cue the sceptics: “It’s cheating.”<br>
-Cue the chaos: “Diabetics can’t get their meds!”</p>
-
-        <p>Every headline, every meme, every whisper just made it louder.</p>
-
-        <p>But beneath the noise — there’s a real, astonishing story here. One that started in the gut, not the red carpet.</p>
-
-        <p>⸻</p>
-
-        <p>Before the hashtags and half-truths, there was a small hormone quietly doing its job in your intestine.</p>
-
-        <p>Let’s call it GLP-1.</p>
-
-        <p>You meet it every time you eat. You just didn’t know its name.</p>
-
-        <p>GLP-1 is the messenger that tells your brain: “Hey, we’re good down here. You can stop thinking about pizza now.”</p>
-
-        <p>It’s also the one that nudges your pancreas: “A little insulin, please — we’ve got carbs incoming.”<br>
-And it politely asks your stomach to slow down: “No rush, let’s savour this one.”</p>
-
-        <p>A little hormonal symphony, playing on repeat — until science learned to turn up the volume.</p>
-
-        <p>⸻</p>
-
-        <p>That’s where Ozempic and its cousins come in.</p>
-
-        <p>Think of them as GLP-1’s impersonators — expert mimics wearing its badge, whispering the same messages, but louder, longer, stronger.</p>
-
-        <p>“You’re full,” they say, even when you’ve barely eaten.<br>
-“You’re calm,” they insist, while the snack drawer stares you down.<br>
-“You’re safe,” they hum, as your brain stops scanning for food like it’s a lost lover.</p>
-
-        <p>Flirty? Yes. But also factual.</p>
-
-        <p>These drugs don’t burn fat. They disarm hunger.<br>
-They don’t shame your appetite — they outsmart it.</p>
-
-        <p>It’s not sorcery; it’s physiology done elegantly.<br>
-The body finally stops fighting itself.</p>
-
-        <p>⸻</p>
-
-        <p>And that’s what people are responding to. Not vanity — relief.</p>
-
-        <p>Relief from the endless negotiation with your appetite.<br>
-Relief from the guilt and the grind.<br>
-Relief from being at war with your own body.</p>
-
-        <p>It’s the same reason you see people on social media crying when the scale finally moves — not because they look different, but because they feel like they’ve escaped.</p>
-
-        <p>But here’s the twist: what seems like escape is really biology, rewritten.<br>
-Because hunger, fullness, craving — they’re not moral failings; they’re signals.</p>
-
-        <p>And now, for the first time, we’ve learned to bend those signals to our will.</p>
-
-        <p>⸻</p>
-
-        <p>It’s easy to think of Ozempic as the main character, but really, it’s the translator.</p>
-
-        <p>It speaks the body’s language back to itself — calmly, fluently, flirtatiously.</p>
-
-        <p>So, when the world keeps asking,</p>
-
-        <p>“Why is everyone talking about Ozempic?”</p>
-
-        <p>The real answer isn’t just: because it works.<br>
-It’s: because it speaks to something deeper — a wish to finally stop fighting hunger and start understanding it.</p>
-
-        <p>⸻</p>
-
-        <p>But no story this seductive ends without complications.</p>
-
-        <p>Every whisper of “miracle” hides a fine print, and this one’s written in the stomach, pancreas, and brain.<br>
-Because when you borrow the body’s chemistry, it always asks for something in return.</p>
-
-        <p>And that’s where we go next.</p>
-      </section>
-      <!-- ===== end Movement I ===== -->
-      <div class="purple-divider"></div>
-
-      <!-- ================= Movement II ================= -->
-      <section id="movement-2">
-        <h2>Movement II — Inside the Body: How Ozempic Works Its Magic</h2>
-        <p><em>(≈ 1,600 words)</em></p>
-
-        <p>Picture your body after a meal.
-        Food’s barely hit the stomach and already the chatter starts — hormones pinging messages up the vagus nerve like texts in an over-active group chat.</p>
-
-        <p>GLP-1 is always the first to speak.
-        She’s efficient, a little bossy, and slightly smug about being indispensable.
-        The moment nutrients arrive, she sends a memo: “Right, everyone, stand down — calories incoming.”
-        Pancreas replies with an insulin emoji.
-        Brain’s appetite centre reads the message and sighs with relief.
-        And your stomach? She slows her churning, saying, “Let’s make this one last.”</p>
-
-        <p>It’s smooth. Elegant. A choreography honed over millennia.</p>
-
-        <p>Now imagine turning the volume up on that orchestra — way up.
-        That’s what semaglutide does.</p>
-
-        <p>Semaglutide is a GLP-1 impersonator with perfect diction and excellent timing.
-        It doesn’t just mimic the hormone; it outperforms it, lingering in your bloodstream for days rather than minutes.
-        Where natural GLP-1 drops its cue within five minutes, semaglutide stays centre stage all week, repeating its lines until your brain finally listens.</p>
-
-        <p>“Full,” it whispers.
-        “Still full.”
-        “Honestly, darling, you’re stuffed.”</p>
-
-        <p>And the brain believes it.</p>
-
-        <hr class="dotted-divider">
-
-        <p>To understand why that’s such a revelation, you have to know where hunger really begins.
-        We like to think it’s in the stomach — that grumble, that hollowness.
-        But the true command centre is in the hypothalamus, a deep, ancient part of the brain that keeps you alive by balancing two opposing forces: the push to eat and the permission to stop.</p>
-
-        <p>On one side sits ghrelin, the hungry one.
-        She’s loud, dramatic, impossible to ignore — the friend who texts “U up?” at midnight.
-        On the other side sits GLP-1, calm and reasonable, armed with receipts and a spreadsheet.</p>
-
-        <p>Normally they argue all day.
-        Ghrelin shouts, GLP-1 sighs, you open the fridge.</p>
-
-        <p>Semaglutide steps in like a poised mediator who also happens to be devastatingly persuasive.
-        She lowers ghrelin’s mic, looks the hypothalamus straight in the eye, and says, “Darling, we’ve eaten enough.”
-        For once, the brain agrees.</p>
-
-        <hr class="dotted-divider">
-
-        <p>But GLP-1’s influence doesn’t stop at appetite.
-        She’s multitasking.</p>
-
-        <p>She calls the pancreas, asking for a measured insulin release — not the chaotic flood that leads to sugar crashes.
-        She also messages the liver: “Hold off on pumping more glucose into the blood; we’re good for now.”
-        Then she texts the stomach: “Slow the exit doors — let’s keep this meal around a bit longer.”</p>
-
-        <p>The combined result feels uncanny.
-        Food moves through you more slowly, so you stay full.
-        Blood sugar behaves.
-        Energy feels steadier.
-        And because your brain isn’t under siege from hunger signals, willpower stops being a full-time job.</p>
-
-        <p>It’s not that you suddenly despise food; you just… stop thinking about it all the time.
-        The constant mental tab — “What can I eat next? Should I?” — finally closes.</p>
-
-        <hr class="dotted-divider">
-
-        <p>That’s the quiet genius of these drugs: they don’t fight your body, they negotiate with it.
-        Instead of commanding “eat less,” they persuade your biology to want less.
-        And persuasion, as anyone who’s ever flirted knows, lasts longer than force.</p>
-
-        <p>It’s worth pausing to admire how subtle the chemistry is.
-        Semaglutide binds to the same GLP-1 receptors in the brain and gut, but it’s modified so your enzymes can’t dismiss it too quickly.
-        A single tweak — a fatty-acid chain that anchors it to albumin in your blood — gives it staying power.
-        That’s why one tiny jab a week keeps whispering to your neurons for seven days straight.</p>
-
-        <p>If natural GLP-1 is a text, semaglutide is a voice-note you can’t ignore.</p>
-
-        <hr class="dotted-divider">
-
-        <p>Now zoom in further — a microscopic close-up.
-        Inside a brain cell in the hypothalamus, the GLP-1 receptor is a lock.
-        Semaglutide is the key that fits perfectly, turning it and launching a cascade of signals:
-        “Reduce appetite. Increase satiety. Decrease food motivation.”</p>
-
-        <p>That cascade quiets the mesolimbic reward system — the same circuitry that lights up when you crave chocolate or scroll TikTok at 2 a.m.
-        With those lights dimmed, food loses its loudspeaker quality.</p>
-
-        <p>People describe it like this:
-        “I still like food, but it’s in the background now.”
-        That’s biology, not magic.
-        The reward pathways literally fire less often.</p>
-
-        <p>So when you see someone on Ozempic pushing away half a burger with an apologetic smile, they’re not being virtuous.
-        Their dopamine simply didn’t RSVP.</p>
-
-        <hr class="dotted-divider">
-
-        <p>Of course, appetite is personal.
-        Some feel gentle quiet; others feel near-complete indifference.
-        There are memes about people forgetting to eat — half-joking, half-true.
-        But the degree depends on genes, dosing, metabolism, and, frankly, personality.
-        Bodies are chatty in different dialects.</p>
-
-        <p>Yet across studies, the pattern repeats:
-        less hunger, smaller portions, steadier sugar, significant weight loss.
-        Fifteen to twenty per cent over a year.
-        Numbers that once belonged to bariatric surgery.</p>
-
-        <hr class="dotted-divider">
-
-        <p>So why hadn’t anyone cracked this sooner?
-        Because appetite isn’t one switch; it’s a symphony of feedback loops.
-        Leptin from fat tissue tells your brain about long-term energy stores.
-        Insulin adds its two cents.
-        Ghrelin demands snacks.
-        Peptide YY and cholecystokinin chime in after meals.
-        GLP-1 sits among them, conducting with a light baton.</p>
-
-        <p>For decades, diet pills tried brute force: speed up metabolism, block fat absorption, dehydrate the body.
-        They failed because they never addressed why you eat — the signal, not the symptom.</p>
-
-        <p>Semaglutide finally went for the signal.
-        It didn’t shout at the orchestra; it simply changed the sheet music.</p>
-
-        <hr class="dotted-divider">
-
-        <p>You can almost picture the inside of your brain at dinner.
-        The first bite hits your tongue.
-        Taste buds send fireworks to the reward centre — dopamine, hello old friend!
-        But GLP-1 has already left her sticky note: “Tone it down; we’re pacing ourselves.”
-        Stomach stretches, hormones respond, insulin rises in neat synchrony.
-        Within minutes, that gentle fullness spreads — not bloated, just content.
-        For once, you leave half the chips without resentment.</p>
-
-        <p>The feeling surprises people.
-        They realise hunger doesn’t have to rule them; it can coexist, civilised.
-        It’s like discovering the volume knob on a song you thought could only be loud.</p>
-
-        <hr class="dotted-divider">
-
-        <p>Still, the body doesn’t like surprises for long.
-        That’s why semaglutide’s dosing starts slow — micro-amounts, creeping upward each month.
-        Go too fast and your gut rebels: nausea, queasiness, the infamous “Ozempic burp.”
-        Too graphic? Perhaps. But honest.
-        Your stomach, suddenly told to empty at half speed, sulks.
-        She was used to drama; now she’s on slow motion.</p>
-
-        <p>For most, that settles after a few weeks.
-        For others, it’s the reason they stop.
-        Every love story has its limits.</p>
-
-        <hr class="dotted-divider">
-
-        <p>And yes, there’s the matter of the face.
-        Rapid fat loss can leave skin behind — gravity cashing in its IOU.
-        Dermatologists coined “Ozempic face” because, of course, they did.
-        It’s not the drug melting collagen; it’s time revealing the scaffolding that was always there.
-        Skin’s elastic, but only to a point.
-        Lift weights, eat protein, hydrate — those aren’t clichés; they’re damage control.</p>
-
-        <p>The deeper truth: most of what the world calls “side effects” are simply the body adjusting to a new equilibrium.
-        Semaglutide slows everything down — digestion, appetite, even impulsivity around food.
-        It asks the body to live at a calmer tempo.
-        Some cells grumble before agreeing.</p>
-
-        <hr class="dotted-divider">
-
-        <p>From a biochemical standpoint, the magic number is the GLP-1 receptor density in your hypothalamus and brainstem.
-        That density partly explains why some people lose twenty per cent of their weight and others only five.
-        It’s not fairness; it’s receptor real estate.
-        Imagine two houses: one wired for fibre internet, one still on dial-up.
-        Same router, different speed.</p>
-
-        <p>Scientists are already tinkering — newer drugs like tirzepatide add another hormone, GIP, to widen the signal.
-        Early trials show even greater losses.
-        But the principle stays: mimic the body’s own whispers, not override them.</p>
-
-        <hr class="dotted-divider">
-
-        <p>So where does this leave us?
-        In a new biological truce.</p>
-
-        <p>For the first time, medicine isn’t scolding the overweight body; it’s listening to it.
-        Instead of “try harder,” it’s saying “let’s fix the signal.”
-        That’s revolutionary — not because it’s high-tech, but because it’s humane.</p>
-
-        <p>And maybe that’s why people talk about these injections the way they used to talk about miracles.
-        Because after decades of being told to fight your hunger, someone finally handed you a ceasefire.</p>
-
-        <hr class="dotted-divider">
-
-        <p>But ceasefires can be fragile.
-        You still have to feed the system wisely, protect muscle, and respect the chemistry that’s helping you.
-        Because when the weekly whispers stop, the old voices — ghrelin, craving, chaos — might start singing again.</p>
-
-        <p>For now, though, the body’s quiet.
-        GLP-1 leans back, satisfied, sending one last note up the vagus nerve:
-        “We’ve got this, love. No need to rush dessert.”</p>
-      </section>
-      <!-- ===== end Movement II ===== -->
-      <div class="purple-divider"></div>
-
-      <!-- ================= Movement III ================= -->
-      <section id="movement-3">
-        <h2>Movement III — The Trade-offs: What the Body Gives, What It Takes</h2>
-        <p><em>(≈ 1,800 words)</em></p>
-
-        <p>Every truce in biology comes with fine print.
-        For every hormone you quiet, another clears its throat somewhere else.
-        And semaglutide’s sweet-talk with your appetite is no exception.</p>
-
-        <p>The first trade-off is physical — your gut.
-        GLP-1’s natural job is to slow digestion just a little, so nutrients trickle rather than flood.
-        Semaglutide, however, is an overachiever; it lingers for days, telling your stomach, “Take your time, darling.”
-        The stomach obliges — until she realises dinner from yesterday is still loitering.
-        Cue that queasy, heavy feeling so many new users describe.</p>
-
-        <p>It’s not poison; it’s pacing.
-        Your stomach’s muscle contractions literally slow down.
-        Food that once emptied in two hours may now take four or five.
-        That delay smooths blood-sugar peaks but can also feel like a traffic jam under your ribs.
-        The body adjusts eventually — enzymes recalibrate, gut nerves learn the new rhythm — yet those first weeks can test even the most patient eater.</p>
-
-        <p>Clinicians call this gastric accommodation.
-        Everyone else calls it ugh, I feel full all the time.
-        And ironically, that’s the mechanism working.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>When “Too Full” Becomes “Too Much”</h3>
-        <p>In the early days, nausea often masquerades as discipline.
-        You eat half your usual portion, push the plate away, and think, Look at me, finally stopping when I’m full.
-        Inside, though, the vagus nerve is waving a small white flag.
-        It’s overwhelmed by constant satiety signals.</p>
-
-        <p>Some people lose weight beautifully through that phase; others find it miserable.
-        There’s a narrow line between appetite control and aversion therapy.
-        If you overshoot the dose or increase too quickly, your stomach protests like a spurned lover — sudden cramps, even vomiting.
-        That’s why doctors insist on the slow ramp-up: let your gut learn the choreography before turning up the tempo.</p>
-
-        <p>Eventually, equilibrium returns.
-        Meals shrink, digestion steadies, and what remains is a quieter, steadier hunger.
-        But remember — that calm isn’t cost-free energy; it’s a new metabolic budget.
-        Fewer calories in means less raw material for everything: heat, movement, repair.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Metabolic Economy Slows Down</h3>
-        <p>Think of metabolism as your household’s electricity.
-        When semaglutide reduces your intake, the body automatically dims the lights to save power.
-        It lowers resting energy expenditure by roughly 5–15 per cent beyond what weight loss alone would predict.
-        Heart rate slows a little, thyroid output may ease back, spontaneous fidgeting drops.
-        You don’t notice at first — just a subtle lethargy, a tendency to sit longer before standing up.</p>
-
-        <p>That’s not failure; it’s adaptation.
-        The same survival reflex that once protected hunter-gatherers from famine now interprets your weekly injection as a modern drought.
-        The body becomes efficient — a little too efficient.</p>
-
-        <p>Here’s where strength training earns its halo.
-        Every kilogram of muscle burns about 13 kilocalories per day at rest; lose ten kilos of it and you’ve silently erased a small snack’s worth of daily burn.
-        Without resistance exercise, a third of the weight lost on GLP-1 drugs can be lean tissue.
-        It’s why clinicians emphasise protein and weights: keep the engine even as you shrink the chassis.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Mirror’s Fine Print</h3>
-        <p>Rapid fat loss rewrites how you inhabit your own reflection.
-        Fat leaves quickly; skin and muscle lag behind.
-        Hence the internet’s morbidly catchy nicknames — Ozempic face, Ozempic butt.</p>
-
-        <p>Dermatologists explain it more kindly: the subcutaneous fat that once cushioned your cheeks or hips thins before collagen can adapt.
-        You see hollows, folds, a face that looks older than the calendar says.
-        Some mourn it; others welcome the sculpted look.
-        Either way, it’s physics, not punishment.</p>
-
-        <p>The remedy isn’t filler alone; it’s time.
-        After six to twelve months at a stable weight, collagen synthesis often rebounds.
-        Exercise helps by increasing circulation; protein supplies the amino acids for new connective tissue.
-        But yes, the mirror may briefly feel unfamiliar — your body catching up to the story your hormones already wrote.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Gut, the Gallbladder, and the Grumbles</h3>
-        <p>Slower digestion means bile hangs around longer in the gallbladder.
-        In some unlucky people, crystals form — gallstones.
-        It’s the same risk seen after any rapid weight loss, surgery or diet alike.
-        Semaglutide didn’t invent it; it just accelerates the timeline.</p>
-
-        <p>Add dehydration from mild nausea, and you’ve got the perfect recipe for that twinge under your ribs.
-        Doctors usually manage it with hydration, moderate fat intake, and, if needed, a pause in dose escalation.
-        Serious cases are rare, but they remind us that biology always keeps receipts.</p>
-
-        <p>Pancreatitis — inflammation of the pancreas — is another whispered fear.
-        It’s uncommon but possible, especially in those already prone.
-        The enzyme factory gets irritated when asked to operate under new hormonal management.
-        Hence the medical caveat: if abdominal pain turns sharp or persistent, seek review, don’t soldier on.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Hair, the Hormones, the Hangover</h3>
-        <p>Some users notice hair shedding a few months in.
-        That’s not semaglutide attacking follicles; it’s telogen effluvium, the body’s version of energy triage.
-        When calories drop fast, the body prioritises essentials — heart, brain, lungs — over luxuries like hair growth.
-        Once nutrition stabilises, so does the mane.</p>
-
-        <p>There’s also a subtler hormonal ripple.
-        Leptin, the long-term satiety hormone from fat cells, falls as fat mass declines.
-        Less leptin can slightly lower thyroid output and fertility hormones.
-        Nothing catastrophic, but it’s why some women report menstrual changes or feeling “colder.”
-        Again, that’s evolution whispering, “Maybe don’t make a baby during famine.”</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Emotional Weather</h3>
-        <p>Here’s a trade-off no one mentions in clinical trials: pleasure.
-        Food is one of humanity’s oldest joys.
-        When semaglutide blunts reward circuits, meals can feel… muted.
-        Not joyless, just quieter — like someone turned the brightness down on taste.
-        For chronic overeaters that quiet is bliss; for foodies it’s grief.</p>
-
-        <p>Some call it food mourning.
-        You sit before your favourite pasta and realise it no longer flirts back.
-        It’s not you; it’s dopamine down-regulation in the nucleus accumbens, the brain’s pleasure hub.
-        The drug dampens that fireworks display on purpose; that’s how it kills craving.
-        But emotional adjustment takes longer than neural adaptation.
-        Learning to find pleasure elsewhere — conversation, movement, creativity — becomes part of the process.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Dependency by Design</h3>
-        <p>Perhaps the most sobering trade-off: this truce lasts only while the messenger stays.
-        Stop the injections and within weeks GLP-1 levels fall, hunger hormones roar back, and lost kilos start returning home.
-        Clinical follow-ups show two-thirds of weight regained within a year of stopping.
-        The body isn’t vindictive; it’s restoring the set point it believes is safe.</p>
-
-        <p>That reality reframes these drugs from cure to management tool — like spectacles for vision or insulin for diabetes.
-        For many, that’s acceptable: better long-term stability than the endless diet carousel.
-        For others, the thought of lifelong injections feels heavy.</p>
-
-        <p>Researchers are exploring maintenance schedules — micro-doses, cycling, combination therapies — to see if the brain can be gently re-trained rather than constantly reminded.
-        But for now, continuity is key.
-        Think of semaglutide less as a sprint coach, more as a long-term therapist for your appetite.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Social Battlefield</h3>
-        <p>The side-effects aren’t only chemical.
-        Take the comments sections under any “Ozempic transformation”: half admiration, half accusation.
-        “You cheated.” “Easy way out.” “Try eating less.”
-        It’s the old morality play of body and virtue, replayed for the algorithm.</p>
-
-        <p>But here’s the scientific truth: obesity is a biological state, not a personality flaw.
-        Appetite signalling, insulin resistance, genetic predisposition — all measurable, all treatable.
-        Using medication isn’t cheating; it’s chemistry catching up with compassion.</p>
-
-        <p>Still, stigma sticks.
-        Some patients hide their pens like contraband, jabbing thighs in bathroom stalls before dinner parties.
-        Others joke openly — “Just my weekly willpower boost!” — but flinch when someone nods too knowingly.
-        This emotional tax isn’t in the clinical trials, yet it weighs heavily.</p>
-
-        <p>That’s why many clinicians now treat obesity under the same chronic-disease model as hypertension: ongoing, legitimate, requiring empathy not moralising.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Flirting with the Physiology</h3>
-        <p>Let’s lighten the lab coat for a moment.
-        Imagine semaglutide at the metabolic soirée.
-        She glides in wearing a molecule-length gown, eyes the pancreas and purrs, “A little insulin, love, not too much.”
-        The pancreas, usually shy, complies.
-        Across the room, the stomach slows her waltz, sighing, “Fine, I’ll take it slow tonight.”
-        Meanwhile the brain — ever the over-thinker — leans back and whispers, “For once, I’m… content.”</p>
-
-        <p>That’s the flirtation behind the pharmacology: real signalling, dressed in charm.
-        Each wink corresponds to a receptor binding; each sigh to a slowed nerve impulse.
-        It’s funny, yes, but it’s also exactly what’s happening under the skin.</p>
-
-        <p>And when the music fades, what’s left is equilibrium — fragile, lovely, worth maintaining.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Holding the Balance</h3>
-        <p>By now the picture’s clear: the body gives and takes in equal measure.
-        It gives peace from constant hunger but takes spontaneity.
-        It gives weight loss but takes a little muscle, a little sparkle from food’s joy.
-        It gives confidence but demands commitment.</p>
-
-        <p>Whether that exchange feels fair depends on where you started — on how much the old battle with appetite cost you.
-        For many, the trade-off is priceless: the first quiet meal in years without guilt or obsession.
-        For others, the side-effects are too loud, the long-term uncertainty too unsettling.</p>
-
-        <p>Either way, semaglutide forces a conversation not just about kilos, but about what comfort means.
-        Because controlling appetite isn’t only chemistry; it’s identity.</p>
-
-        <hr class="dotted-divider">
-
-        <p>So yes, these injections change more than waistlines.
-        They change rhythms — of digestion, of dopamine, of daily life.
-        And understanding those shifts is the only way to use them wisely.</p>
-
-        <p>Because every negotiation with biology demands respect.
-        Push too hard and the body pushes back; listen, and it just might cooperate.</p>
-
-        <p>Next, we’ll see what happens after the honeymoon — when the body begins reclaiming its territory and the question becomes how to keep peace once the whispers fade.</p>
-      </section>
-      <!-- ===== end Movement III ===== -->
-      <div class="purple-divider"></div>
-
-      <!-- ================= Movement IV ================= -->
-      <section id="movement-4">
-        <h2>Movement IV — The Comeback: What Happens When You Stop</h2>
-        <p><em>(≈ 1,400 words)</em></p>
-
-        <p>Every story that starts with control eventually meets its sequel: loss of it.</p>
-
-        <p>Because when the weekly shots stop, biology remembers what it was built for — equilibrium, not obedience.
-        The quiet hunger you forgot begins to hum again.
-        The fridge light looks a little warmer.
-        Meals stretch longer; seconds sneak back in.
-        And somewhere inside your brain, old pathways — dopamine, ghrelin, the lot — start to stir.</p>
-
-        <p>It’s not failure; it’s physics.
-        Remove the mimic, and the orchestra returns to its original score.</p>
-
-        <p>GLP-1 levels fall within days.
-        Stomach emptying speeds back up.
-        Appetite circuits light up like they’ve been waiting their turn to sing.
-        That’s the rebound most people feel around week three: a quiet restlessness in the gut, a renewed curiosity about snacks, a longing you thought was gone.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Weight of Reversal</h3>
-        <p>Clinically, it’s dramatic.
-        The STEP-1 trial — the big one that made headlines — followed participants who stopped semaglutide after 68 weeks.
-        Over the next year, they regained about two-thirds of what they’d lost.
-        Not instantly, but persistently.
-        Hunger crept up, metabolism slowed less than it had, but enough to tilt the scales back.</p>
-
-        <p>The cruel part is that the brain doesn’t care about fairness.
-        It remembers deprivation as threat and rushes to restock.
-        The same leptin and ghrelin shifts that once saved your ancestors from famine now ensure your jeans get tight again.</p>
-
-        <p>Metabolically, the body’s saying, “Oh, we’re safe again? Great — let’s prepare for the next famine.”</p>
-
-        <p>And so the cycle continues — unless you intervene before the script repeats.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Hunger Reawakens</h3>
-        <p>Here’s what most people describe after stopping:
-        The first week feels fine — a placebo calm.
-        The second week brings cravings, gentle but insistent.
-        By week four, appetite feels “normal” again, though “normal” now means louder than you remember.
-        It’s not the drug haunting you; it’s homeostasis reasserting itself.</p>
-
-        <p>Ghrelin, the hunger hormone, which semaglutide kept sedated, rises by roughly 30 per cent.
-        Leptin, which falls during weight loss, takes months to rebuild.
-        That mismatch — high hunger, low fullness — is metabolic mischief in its purest form.</p>
-
-        <p>The body isn’t plotting sabotage; it’s solving a perceived problem.
-        You’re lighter, yes, but to your hypothalamus that reads as “we’re in danger.”
-        So it hits the appetite accelerator and doesn’t tap the brakes until your old weight — your defended set point — returns.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Why “Just Maintain” Is Harder Than It Sounds</h3>
-        <p>People assume maintenance is willpower.
-        It’s not; it’s neurochemistry.
-        The brain literally defends weight the way it defends temperature.
-        Drop below your biological comfort zone and the hypothalamus triggers dozens of tiny compensations:
-        slower metabolism, heightened smell sensitivity to food, stronger dopamine response to taste, even more vivid dreams about eating.
-        (Yes, really — some users report “food dreams” post-GLP-1. That’s your limbic system on nostalgia.)</p>
-
-        <p>Every bite feels better because your neurons want it to.
-        That’s the brain’s persuasion campaign to get you to “restore balance.”</p>
-
-        <p>Without the drug’s whispers, you’re back to negotiation — the old, exhausting hunger politics you thought you’d retired from.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Set Point Strikes Back</h3>
-        <p>Remember the set point from before — the internal thermostat of body fat?
-        Semaglutide lowered it temporarily, convincing your brain the new lighter state was fine.
-        But the minute the drug fades, the old calibration tries to reinstall itself.
-        It’s like your body rebooting to factory settings.</p>
-
-        <p>Researchers call it “metabolic memory.”
-        Fat cells shrink during treatment but rarely die; they simply wait, eager to refill.
-        Their leptin output drops in proportion to their volume, not their number.
-        So you’re left with a chorus of small, hungry cells sending “feed me” signals to the brain.</p>
-
-        <p>The more dramatic your weight loss, the louder those signals.
-        It’s a cruel symmetry: the better you responded, the more your biology misses the drug.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Emotional Rebound</h3>
-        <p>There’s also the psychological echo.
-        Many describe it as grief — not just for the returning weight, but for the calm that vanished with the injections.
-        That gentle quiet in the brain, that absence of constant craving, becomes addictive in its own way.
-        When it goes, the noise feels unbearable.</p>
-
-        <p>It’s why some compare stopping semaglutide to coming off antidepressants:
-        you don’t miss the chemical; you miss the peace.</p>
-
-        <p>That makes relapse easier.
-        A small indulgence snowballs, not because you lack discipline, but because your nervous system is once again wired for reward-seeking.
-        The brain doesn’t like silence; it fills it with hunger, distraction, or dopamine — sometimes all three.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Biology Doesn’t Punish — It Persists</h3>
-        <p>Let’s be clear: rebound isn’t punishment.
-        It’s preservation.
-        The same circuits that kept early humans alive after famines are alive in you.
-        To your body, fat loss looks like illness; regaining looks like healing.
-        Your brain releases fewer stress hormones when weight returns.
-        Your thyroid perks back up.
-        Everything relaxes — except your patience.</p>
-
-        <p>That’s the paradox of progress: the better semaglutide works, the harder your body fights to undo it once it’s gone.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Strategies for Staying Steady</h3>
-        <p>Still, biology can be outwitted — not by force, but by foresight.</p>
-
-        <ul>
-          <li><strong>1. Strength training:</strong> The more muscle you have, the higher your resting burn. It’s your best defence against the metabolic slowdown that follows discontinuation.</li>
-          <li><strong>2. Protein first:</strong> Keeps you full longer and stabilises blood sugar as hunger hormones rebound.</li>
-          <li><strong>3. Structured meals:</strong> After months of chemical appetite control, meal rhythm retrains hunger cues manually.</li>
-          <li><strong>4. Sleep and stress:</strong> Poor sleep raises ghrelin; stress raises cortisol — both of which amplify post-drug hunger.</li>
-          <li><strong>5. Psychological check-ins:</strong> Expect the noise to return. It’s not regression; it’s recalibration.</li>
-        </ul>
-
-        <p>Think of it as teaching your body what “enough” feels like without the weekly translator.
-        At first, it resists — like a toddler learning to self-soothe.
-        But with routine, the signals soften again.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Long Game: Rewriting the Ending</h3>
-        <p>The key is understanding that the drug never changed who you were — it just quieted a few loud voices.
-        Now that they’re back, you get to choose how to respond.</p>
-
-        <p>Some people stay on a maintenance dose indefinitely.
-        Others switch to a less potent GLP-1, or pair tapering with therapy, resistance training, and diet structure.
-        A few transition completely off medication, armed with new awareness of hunger and habit.</p>
-
-        <p>None of these paths are wrong.
-        The real success isn’t never regaining weight — it’s never regaining the helplessness.</p>
-
-        <p>Semaglutide showed you what calm feels like.
-        The task now is learning to build it without a prescription.</p>
-
-        <hr class="dotted-divider">
-
-        <p>Because the truth is, the body never forgets — but it can forgive.
-        Each signal that once shouted can be taught to whisper again.
-        And every cycle, even the rebound, can become part of understanding rather than failure.</p>
-
-        <p>That’s the quiet ending no one posts online:
-        the moment you stop seeing the comeback as defeat, and start seeing it as a dialogue — between you and the body that, against all odds, is still just trying to keep you safe.</p>
-      </section>
-      <!-- ===== end Movement IV ===== -->
-      <div class="purple-divider"></div>
-
-      <!-- ================= Movement V ================= -->
-      <section id="movement-5">
-        <h2>Movement V — The Future of GLP-1: Beyond Weight, Toward Metabolic Health</h2>
-        <p><em>(≈ 1,500 words)</em></p>
-
-        <p>By now, GLP-1 drugs have become shorthand for weight loss, but the story isn’t stopping at the waistline.  
-        The same pathway that calms appetite also touches blood sugar, inflammation, liver fat, even cardiovascular risk.  
-        In other words, this “hunger hormone” has quietly revealed a metabolic switchboard hiding in plain sight.</p>
-
-        <p>And scientists are only beginning to play with its dials.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>From Weight to Wellness</h3>
-        <p>In diabetes care, semaglutide and its cousin liraglutide already proved they lower A1C and protect the heart.  
-        Patients taking them had fewer strokes, fewer cardiac events, better kidney outcomes.  
-        Those effects seemed almost incidental at first — a nice surprise while controlling glucose.  
-        But the more researchers looked, the clearer it became: GLP-1 isn’t just about appetite; it’s about energy balance at every level of the body.</p>
-
-        <p>GLP-1 receptors live everywhere — pancreas, gut, brain, heart, even immune cells.  
-        Activate them and you get slower digestion, smoother insulin release, calmer inflammation, lower oxidative stress.  
-        You don’t just eat differently; you function differently.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Tirzepatide Era (and Beyond)</h3>
-        <p>Then came tirzepatide — a dual agonist that mimics both GLP-1 and GIP (glucose-dependent insulinotropic polypeptide).  
-        Think of it as a two-speaker system playing the same song in surround sound.  
-        Early trials showed average weight loss of 22 per cent — numbers that used to belong to gastric surgery.  
-        But the more intriguing part was what happened to metabolic syndrome markers:  
-        triglycerides dropped, HDL rose, blood pressure softened, fatty liver scores improved.</p>
-
-        <p>The body wasn’t just smaller; it was calmer on the inside.</p>
-
-        <p>Pharma didn’t need more encouragement. Now a wave of next-generation “poly-agonists” is coming — molecules that target three or even four hormones at once (GLP-1, GIP, glucagon, amylin).  
-        The goal is precision metabolic reprogramming — nudging every lever of energy balance in concert rather than shouting through one.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Reimagining Treatment Paradigms</h3>
-        <p>For clinicians, the shift is existential.  
-        Obesity was long framed as behaviour — a failure of discipline.  
-        GLP-1s blew that apart.  
-        They made appetite a treatable biological signal, not a moral weakness.  
-        And that opens doors far beyond weight loss clinics: cardiology, hepatology, psychiatry, geriatrics.  
-        Anywhere metabolism misfires, this pathway has something to say.</p>
-
-        <p>Imagine a future where GLP-1-based drugs are used to treat alcohol cravings, reduce neuroinflammation in Alzheimer’s, or protect kidneys in diabetes before damage starts.  
-        Early studies already hint at it.  
-        Appetite and reward run through the same dopamine circuits; dampen one and you often quiet the other.  
-        Some patients on semaglutide report losing interest not only in food, but in alcohol, shopping, even scrolling addictions.  
-        That’s not side effect — that’s neurochemistry cross-talk.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Accessibility Problem</h3>
-        <p>Of course, miracles cost money.  
-        As of 2025, monthly out-of-pocket prices in the U.S. still hover around $499.  
-        In the U.K., private prescriptions run hundreds of pounds.  
-        Public coverage is patchy; waiting lists long.  
-        Meanwhile, social media turns the drugs into luxury status symbols — another divide between those who can afford quiet biology and those who can’t.</p>
-
-        <p>Equity in access will be the next moral frontier.  
-        The same way insulin once moved from miracle to necessity, GLP-1s will have to make that journey too.  
-        And if history is any guide, it will take pressure — from policy, from patients, from the public refusing to frame metabolic health as a luxury good.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Next-Gen Blueprint</h3>
-        <p>Researchers are already designing long-acting oral versions, tiny implants, and gut-restricted formulations that reduce nausea and cost.  
-        Some labs are experimenting with RNA therapies that turn on GLP-1 production from your own cells — a sort of endogenous upgrade.  
-        Others are mapping how the microbiome influences GLP-1 signalling, opening the door to diet or probiotic adjuncts that amplify the same pathway naturally.</p>
-
-        <p>The dream is a world where weight and metabolism can be managed with gentle tuning instead of lifelong shots.  
-        Not to erase appetite — to restore its rhythm.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>The Cultural Reckoning</h3>
-        <p>Beyond labs and pharmacies, there’s the question of identity.  
-        What happens when a generation grows up believing hunger is optional?  
-        When weight is modifiable by prescription, how do we measure discipline, effort, or even beauty?</p>
-
-        <p>The Ozempic moment isn’t just medical; it’s philosophical.  
-        It forces a shift from morality to metabolism, from “control yourself” to “understand yourself.”  
-        It’s the first time a weight-loss tool has made the public ask what hunger really means — not just how to ignore it.</p>
-
-        <p>That conversation will get messy.  
-        There will be resistance, resentment, and moral panic before acceptance.  
-        But every biological revolution goes through that arc.  
-        Once upon a time, antidepressants were seen as shortcuts for sadness.  
-        Now we call them medicine.  
-        GLP-1s will get there too — eventually.</p>
-
-        <hr class="dotted-divider">
-
-        <h3>Where This Goes Next</h3>
-        <p>The future of GLP-1 isn’t thinness; it’s stability.  
-        A way to keep metabolism balanced in a world that throws it off daily.  
-        Whether through drugs, diet, or gene tweaks, the goal is the same: a body that doesn’t have to fight itself to feel okay.</p>
-
-        <p>That future is already unfolding in clinics and living rooms alike — in the calm after years of hunger noise.  
-        Maybe that’s why Ozempic feels bigger than a trend: it quietly proved that biology can be re-written without war.</p>
-
-        <p>And if there’s a lesson to take from this movement, it’s not that the future belongs to those who inject it.  
-        It belongs to those who finally understand what their bodies were trying to say all along.</p>
-      </section>
-      <!-- ===== end Movement V ===== -->
-      <div class="purple-divider"></div>
-
-      <!-- ================= SOURCES & REFERENCES ================= -->
-      <section id="sources" class="content-section">
-        <h2>Sources & References</h2>
-
-        <h3>Clinical Trials & Efficacy</h3>
-        <ol>
-          <li>Wilding JPH et al. (2021). “Once-weekly semaglutide in adults with overweight or obesity.” <em>New Eng J Med</em> 384: 989–1002. (STEP-1 trial)</li>
-          <li>Wadden TA et al. (2021). “Effects of subcutaneous semaglutide 2.4 mg on body composition.” <em>Diabetes Obes Metab</em> 23: 1482–1491. (STEP-1 DEXA substudy)</li>
-          <li>Jastreboff AM et al. (2022). “Tirzepatide once weekly for the treatment of obesity.” <em>New Eng J Med</em> 387: 205–216. (SURMOUNT-1 trial)</li>
-        </ol>
-
-        <div class="dotted-divider"></div>
-
-        <h3>Mechanism, Pharmacology & Neurobiology</h3>
-        <ol start="4">
-          <li>Holst JJ (2019). “The physiology of GLP-1 and GLP-1-based therapy.” <em>Physiol Rev</em> 99(1): 515–548.</li>
-          <li>van Can J et al. (2014). “Effects of the once-weekly GLP-1 analog semaglutide on gastric emptying, appetite, and food intake.” <em>Diabetes Obes Metab</em> 16: 159–165.</li>
-          <li>Müller TD et al. (2023). “Mechanisms of weight loss induced by GLP-1 receptor agonists.” <em>Nat Rev Endocrinol</em> 19: 492–507.</li>
-          <li>van Bloemendaal L et al. (2014). “GLP-1 receptor activation modulates reward and food-cue reactivity in the human brain.” <em>Diabetes</em> 63: 4186–4196.</li>
-        </ol>
-
-        <div class="dotted-divider"></div>
-
-        <h3>Withdrawal & Regain</h3>
-        <ol start="8">
-          <li>Rubino DM et al. (2022). “Weight regain and cardiometabolic effects after withdrawal of semaglutide: STEP-1 extension.” <em>Diabetes Obes Metab</em> 24(8): 1553–1564.</li>
-          <li>Khan MA et al. (2023). “Weight regain following GLP-1 receptor agonist discontinuation: systematic review and meta-analysis.” <em>Obesity</em> 31(3): 567–579.</li>
-        </ol>
-
-        <div class="dotted-divider"></div>
-
-        <h3>Safety & Adverse Effects</h3>
-        <ol start="10">
-          <li>FDA Prescribing Information, Ozempic® (semaglutide) injection. Revised 2024.</li>
-          <li>EMA Summary of Product Characteristics, Ozempic and Wegovy. Updated 2025.</li>
-          <li>Kristensen SL et al. (2020). “Cardiovascular, renal and safety outcomes with GLP-1 receptor agonists.” <em>BMJ</em> 370:m4573.</li>
-        </ol>
-
-        <div class="dotted-divider"></div>
-
-        <h3>Comparative & Public Health Context</h3>
-        <ol start="13">
-          <li>NICE Guidance TA875 (2023). “Semaglutide for managing overweight and obesity.” National Institute for Health and Care Excellence (U.K.).</li>
-          <li>NHS England (2025). “Access to GLP-1 medicines for weight management.”</li>
-          <li>Fortune Business Insights (2024). “Weight Management Market Size, Share & Trends 2025–2032.”</li>
-        </ol>
-
-        <div class="dotted-divider"></div>
-
-        <p class="subtext">
-          <strong>Compiled from peer-reviewed literature, regulatory documents (FDA, EMA), institutional guidelines (WHO, NICE, NHS England) and reputable clinical sources (NEJM, Nature Reviews, BMJ, Cleveland Clinic) between 2014 and 2025.</strong>
-        </p>
-      </section>
-
-      <div class="purple-divider"></div>
-
-      <!-- ================= NEWSLETTER ================= -->
-      <section id="newsletter" class="container section" aria-labelledby="newsletter-title">
-        <div class="newsletter-card">
-          <div class="section-head">
-            <h2 id="newsletter-title">Newsletter</h2>
-            <p class="subtext">The Anatomy of Understanding — in your inbox.</p>
+    <h1>Blog</h1>
+    <p class="subtext" style="margin-bottom:2rem;">
+      Explore how the human body works — and what happens when biology meets modern life.
+    </p>
+
+    <div class="dna-divider" aria-hidden="true"></div>
+
+    <!-- NEW unified grid (no academic category blocks) -->
+    <section aria-label="All articles">
+      <div class="blog-grid">
+
+        <!-- NEW: Ozempic essay -->
+        <article class="white-card">
+          <h3><a class="topic-link" href="/blog/therapies/why-everyone-is-talking-about-ozempic/">WhyTF Is Everyone Talking About Ozempic?</a></h3>
+          <p>GLP-1, semaglutide and the quiet science behind the ‘hunger whisperer’ — the hype, how it actually works, trade-offs, stopping, and what’s next.</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--time" aria-label="Estimated read time">24 min</span>
+            <span class="meta-pill meta-pill--tag" aria-label="Primary topic tag"><span class="hash">#</span>Therapies</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>GLP-1</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Appetite</span>
           </div>
+        </article>
 
-          <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script>
-          <iframe
-            src="https://subscribe-forms.beehiiv.com/a7762084-43c1-41d1-8ebe-91a4587f82ce"
-            class="beehiiv-embed"
-            frameborder="0"
-            scrolling="no"
-            style="width:100%;height:340px;margin:0;border-radius:8px;background-color:transparent;box-shadow:none;">
-          </iframe>
-        </div>
-      </section>
-
-      <div class="divider" aria-hidden="true"></div>
-
-      <!-- ================= PRE-FOOTER NOTE ================= -->
-      <section class="pre-footer-note" aria-label="Project line">
-        <div class="container">
-          <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
-        </div>
-      </section>
-
-      <!-- ================= FOOTER ================= -->
-      <footer class="site-footer" role="contentinfo">
-        <div class="container">
-          <p>© 2025 WhyTF Health · Educational only — not medical advice ·
-            <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a>
-          </p>
-
-          <!-- Footer language switcher -->
-          <div class="lang-footer">
-            <a class="lang-pill" href="/hu/blog/therapies/why-everyone-is-talking-about-ozempic.html" aria-label="Magyar">
-              <span class="flag" aria-hidden="true">
-                <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-                  <defs><clipPath id="huCircle-oz"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-                  <g clip-path="url(#huCircle-oz)">
-                    <rect width="60" height="60" fill="#fff"/>
-                    <rect width="60" height="20" y="0" fill="#D32E2E"/>
-                    <rect width="60" height="20" y="40" fill="#2E8B57"/>
-                  </g>
-                </svg>
-              </span>
-              <span class="code">HU</span>
-            </a>
-
-            <a class="lang-pill is-current" href="/blog/therapies/why-everyone-is-talking-about-ozempic.html" aria-label="English">
-              <span class="flag" aria-hidden="true">
-                <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-                  <defs><clipPath id="ukCircle-oz"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-                  <g clip-path="url(#ukCircle-oz)">
-                    <rect width="60" height="60" fill="#012169"/>
-                    <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-                    <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-                    <rect x="24" width="12" height="60" fill="#fff"/>
-                    <rect y="24" width="60" height="12" fill="#fff"/>
-                    <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-                    <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-                  </g>
-                </svg>
-              </span>
-              <span class="code">EN</span>
-            </a>
+        <!-- Existing posts (kept; no category blocks) -->
+        <article class="white-card">
+          <h3><a href="/blog/diseases/why-we-get-diabetes/index.html">WhyTF We Get Diabetes</a></h3>
+          <p>The sugar traffic jam inside your body.</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--time">20 min</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Metabolism</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Insulin</span>
           </div>
-        </div>
-      </footer>
-<!-- Scroll progress underline -->
-<script>
-(function(){
-  const bar = document.querySelector('.scroll-progress');
-  if (!bar) return;
-  function update(){
-    const st  = window.scrollY || document.documentElement.scrollTop;
-    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-    const pct = Math.max(0, Math.min(1, st / max));
-    bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
-    bar.setAttribute('aria-valuenow', Math.round(pct * 100));
-  }
-  document.addEventListener('DOMContentLoaded', update, { once: true });
-  window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
-})();
-</script>
-<!-- Glossary autolinker (links to MicroBlog if available; else Coming Soon) -->
-<script>
-(function(){
-  const ARTICLE_SEL = '#post-body';
-  const DEFAULT_URL = '/microblog/coming-soon.html';
-  const mk = (slug) => `/microblog/${slug}/`;
+        </article>
 
-  // Terms relevant to the Ozempic/GLP-1 article
-  const TERMS = [
-    {term:'GLP-1',                 slug:'glp-1',                 def:'Gut hormone that boosts insulin, slows gastric emptying, and increases satiety.'},
-    {term:'semaglutide',           slug:'semaglutide',           def:'Long-acting GLP-1 receptor agonist (Ozempic/Wegovy) with ~1-week half-life.'},
-    {term:'tirzepatide',           slug:'tirzepatide',           def:'Dual GLP-1/GIP agonist (e.g., Zepbound/Mounjaro) with potent weight-loss effects.'},
-    {term:'GIP',                   slug:'gip',                   def:'Glucose-dependent insulinotropic polypeptide; incretin that augments insulin.'},
-    {term:'amylin',                slug:'amylin',                def:'Pancreatic hormone that slows gastric emptying and promotes satiety.'},
-    {term:'insulin',               slug:'insulin',               def:'Hormone that moves glucose into cells; high levels favor energy storage.'},
-    {term:'insulin resistance',    slug:'insulin-resistance',    def:'Reduced cellular response to insulin → higher insulin and easier fat storage.'},
-    {term:'hypothalamus',          slug:'hypothalamus',          def:'Brain region coordinating hunger, hormones, and energy expenditure.'},
-    {term:'mesolimbic reward',     slug:'mesolimbic-reward',     def:'Dopamine pathways that assign “wanting” to food and other rewards.'},
-    {term:'dopamine',              slug:'dopamine',              def:'Neurotransmitter for motivation/reward; hyperpalatable foods spike it.'},
-    {term:'leptin',                slug:'leptin',                def:'Fullness signal from fat tissue; chronically high levels can cause resistance.'},
-    {term:'ghrelin',               slug:'ghrelin',               def:'Hunger hormone from the stomach; rises with dieting and weight loss.'},
-    {term:'vagus nerve',           slug:'vagus-nerve',           def:'Main gut–brain nerve carrying satiety and digestive signals to the brain.'},
-    {term:'gastric emptying',      slug:'gastric-emptying',      def:'Rate at which the stomach passes food to the intestine; slower = fuller longer.'},
-    {term:'satiety',               slug:'satiety',               def:'Physiological fullness that suppresses appetite and food seeking.'},
-    {term:'adaptive thermogenesis',slug:'adaptive-thermogenesis',def:'Metabolic downshift with dieting beyond what body-size changes explain.'},
-    {term:'NEAT',                  slug:'neat',                  def:'Non-exercise activity thermogenesis: everyday movement energy burn.'},
-    {term:'HbA1c',                 slug:'hba1c',                 def:'3-month average of blood glucose; used to monitor diabetes control.'},
-    {term:'pancreatitis',          slug:'pancreatitis',          def:'Inflammation of the pancreas; rare but important safety consideration.'},
-    {term:'gallstones',            slug:'gallstones',            def:'Crystallized bile in the gallbladder; risk can rise with rapid weight loss.'},
-    {term:'set point',             slug:'set-point',             def:'Defended weight range the brain aims to maintain via appetite and metabolism.'},
-    {term:'GLP-1 receptor',        slug:'glp-1-receptor',        def:'Protein target on cells that GLP-1 agonists bind to reduce appetite.'}
-  ];
+        <article class="white-card">
+          <h3><a href="/blog/diseases/why-we-get-tired/index.html">WhyTF We Get So Tired (Even After Rest)</a></h3>
+          <p>Why energy evaporates even after rest.</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--time">25 min</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Energy</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Mitochondria</span>
+          </div>
+        </article>
 
-  // Microblogs you already have; everything else falls back to coming-soon.
-  const existing = new Set([
-    'insulin','insulin-resistance','glp-1','semaglutide',
-    // add known slugs here as they go live:
-    // 'gip','hypothalamus','neat','adaptive-thermogenesis', ...
-  ]);
+        <article class="white-card">
+          <h3><a href="/blog/physiology/why-cant-i-lose-weight/index.html">WhyTF Can’t I Lose Weight?</a></h3>
+          <p>Diets, hormones, and your body’s defence system.</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--time">22 min</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>SetPoint</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Hormones</span>
+          </div>
+        </article>
 
-  // attach URLs; prefer live microblogs, else coming-soon
-  TERMS.forEach(t=>{
-    t.url = existing.has(t.slug) ? mk(t.slug) : DEFAULT_URL;
-  });
+        <!-- Optional “coming soon” tiles preserved in the new grid -->
+        <article class="white-card">
+          <h3><span class="nolink">WhyTF Insulin Matters</span></h3>
+          <p>The tiny messenger that keeps every cell alive.</p>
+          <p class="soon">Coming soon</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Insulin</span>
+          </div>
+        </article>
 
-  // Build regex (longest terms first to avoid partial overlaps)
-  TERMS.sort((a,b)=>b.term.length - a.term.length);
-  const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-  const rx  = new RegExp('\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\b', 'gi');
+        <article class="white-card">
+          <h3><span class="nolink">WhyTF Neurons Fire</span></h3>
+          <p>The electricity that turns thought into movement.</p>
+          <p class="soon">Coming soon</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Neuroscience</span>
+          </div>
+        </article>
 
-  const root = document.querySelector(ARTICLE_SEL);
-  if(!root) return;
+        <article class="white-card">
+          <h3><span class="nolink">WhyTF Metformin Works</span></h3>
+          <p>How one molecule resets the body’s sugar strategy.</p>
+          <p class="soon">Coming soon</p>
+          <div class="white-card-meta">
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Therapies</span>
+          </div>
+        </article>
 
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode(node){
-      const p = node.parentNode; if(!p) return NodeFilter.FILTER_REJECT;
-      if (p.closest('#sources, .summary-table, .disclaimer')) return NodeFilter.FILTER_REJECT;
-      const tag = p.nodeName.toLowerCase();
-      if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) return NodeFilter.FILTER_REJECT;
-      if (!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
-  });
+      </div>
+    </section>
+  </main>
 
-  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  <div class="divider" aria-hidden="true"></div>
+  <section class="pre-footer-note" aria-label="Project line">
+    <div class="container">
+      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+    </div>
+  </section>
 
-  nodes.forEach(n=>{
-    const html = n.nodeValue.replace(rx, function(m){
-      const t = TERMS.find(t=>t.term.toLowerCase()===m.toLowerCase());
-      const url = (t && t.url) || DEFAULT_URL;
-      const def = (t && t.def) || '';
-      return `<a class="gloss" href="${url}" data-term="${(t?t.slug:m).toLowerCase()}" data-def="${def}" rel="nofollow">${m}</a>`;
-    });
-    const span = document.createElement('span');
-    span.innerHTML = html;
-    n.parentNode.replaceChild(span, n);
-  });
-})();
-</script>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms &amp; Disclaimer</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -29,116 +29,90 @@
 
   <!-- Updated styling for outlined look + hover glow -->
   <style>
-    :root {
-      --wth-purple: var(--accent, #6f3cff);
-      --wth-bg: var(--background, #f9f9fb);
-      --wth-white: #ffffff;
-    }
+  /* No :root overrides, no body background — respect your global theme */
 
-    body {
-      background: var(--wth-bg);
-    }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
 
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+  /* Card: transparent surface, subtle white outline, smooth hover */
+  .white-card {
+    background: transparent;                  /* ← blend with site bg */
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
 
-    /* Updated card: same as background with subtle border */
-    .white-card {
-      background: var(--wth-bg);
-      border: 1.5px solid rgba(255, 255, 255, 0.4);
-      border-radius: 12px;
-      padding: 1.2rem 1.3rem 1.1rem;
-      display: flex;
-      flex-direction: column;
-      min-height: 180px;
-      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-    }
+  .white-card:hover {
+    transform: translateY(-3px);
+    /* use your global --accent if present; fallback only if missing */
+    box-shadow: 0 0 14px color-mix(in srgb, var(--accent, #6f3cff) 20%, transparent);
+    border-color: color-mix(in srgb, var(--accent, #6f3cff) 50%, rgba(255,255,255,0.45));
+  }
 
-    .white-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 0 14px rgba(111, 60, 255, 0.2);
-      border-color: rgba(111, 60, 255, 0.5);
-    }
+  .white-card h3 {
+    margin: 0 0 0.4rem 0;
+    line-height: 1.25;
+  }
 
-    .white-card h3 {
-      margin: 0 0 0.4rem 0;
-      line-height: 1.25;
-    }
+  .white-card p {
+    margin: 0.25rem 0 0.75rem 0;
+  }
 
-    .white-card p {
-      margin: 0.25rem 0 0.75rem 0;
-    }
+  .white-card-meta {
+    margin-top: auto;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-    .white-card-meta {
-      margin-top: auto;
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+  /* Pill base */
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  }
 
-    /* Pill base */
-    .meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      border-radius: 999px;
-      padding: 0.35rem 0.65rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      line-height: 1;
-      white-space: nowrap;
-      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
-    }
+  /* Time pill: white outline, white text */
+  .meta-pill--time {
+    border: 1.8px solid #fff;
+    color: #fff;
+    background: transparent;
+  }
 
-    /* Time pill: white outline, white text */
-    .meta-pill--time {
-      border: 1.8px solid var(--wth-white);
-      color: var(--wth-white);
-      background: transparent;
-    }
+  /* Tag pill: purple outline, purple text (uses global --accent) */
+  .meta-pill--tag {
+    border: 1.8px solid var(--accent, #6f3cff);
+    color: var(--accent, #6f3cff);
+    background: transparent;
+  }
+  .meta-pill--tag:hover {
+    background: var(--accent, #6f3cff);
+    color: #fff;
+  }
 
-    /* Tag pill: purple outline, purple text */
-    .meta-pill--tag {
-      border: 1.8px solid var(--wth-purple);
-      color: var(--wth-purple);
-      background: transparent;
-    }
+  .hash { opacity: 0.9; }
+  .topic-link { text-decoration: none; }
+  .soon { color: #7a7a7a; font-style: italic; margin-top: 0.25rem; }
+  .nolink { opacity: 0.7; }
+  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+</style>
 
-    .meta-pill--tag:hover {
-      background: var(--wth-purple);
-      color: var(--wth-white);
-    }
-
-    .hash {
-      opacity: 0.9;
-    }
-
-    .topic-link {
-      text-decoration: none;
-    }
-
-    .soon {
-      color: #7a7a7a;
-      font-style: italic;
-      margin-top: 0.25rem;
-    }
-
-    .nolink {
-      opacity: 0.7;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-  </style>
 </head>
 
 <body>

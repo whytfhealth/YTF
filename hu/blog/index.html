@@ -2,29 +2,29 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Blog — WhyTF Health</title>
-  <meta name="description" content="Minden magyarázat egy helyen — böngéssz rendszerek és témák szerint." />
+  <meta name="description" content="Magyarázatok egy helyen — böngéssz témák szerint, az emberi biológiától a klinikai összefüggésekig." />
   <link rel="canonical" href="https://whytfhealth.com/hu/blog/" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Blog — WhyTF Health">
-  <meta property="og:description" content="Minden magyarázat egy helyen — böngéssz rendszerek és témák szerint.">
-  <meta property="og:url" content="https://whytfhealth.com/hu/blog/">
-  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+  <meta property="og:locale" content="hu_HU" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog — WhyTF Health" />
+  <meta property="og:description" content="Minden magyarázat egy helyen — rétegezett szemlélettel, az alapoktól a klinikai szintig." />
+  <meta property="og:url" content="https://whytfhealth.com/hu/blog/" />
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Blog — WhyTF Health">
-  <meta name="twitter:description" content="Minden magyarázat egy helyen — böngéssz rendszerek és témák szerint.">
-  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog — WhyTF Health" />
+  <meta name="twitter:description" content="Minden magyarázat egy helyen — rétegezett szemlélettel, az alapoktól a klinikai szintig." />
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
 
-  <!-- Theme & fonts (root-absolute to keep styling consistent) -->
-  <link rel="stylesheet" href="/styles.css" />
+  <!-- Fonts + Styles -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
 
   <!-- Analytics -->
   <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
@@ -43,8 +43,7 @@
       <nav class="nav" aria-label="Elsődleges">
         <a href="/hu/" class="nav-link">Kezdőlap</a>
         <a href="/hu/about.html" class="nav-link">Rólunk</a>
-        <!-- As requested, HU routes for Blog/MicroBlog (ok if 404 for now) -->
-        <a href="/hu/blog/" class="nav-link">Blog</a>
+        <a href="/hu/blog/" class="nav-link is-current">Blog</a>
         <a href="/hu/microblog/" class="nav-link">MicroBlog</a>
         <a href="/hu/contact.html" class="nav-link">Kapcsolat</a>
       </nav>
@@ -54,131 +53,58 @@
   <main id="main" class="container section">
     <h1>Blog</h1>
     <p class="subtext" style="margin-bottom:2rem;">
-      Fedezd fel, hogyan működik az emberi test — és mi történik, amikor kisiklik.
+      Fedezd fel, hogyan működik az emberi test — és mi történik, amikor nem úgy működik.
     </p>
 
     <div class="dna-divider" aria-hidden="true"></div>
 
-    <!-- Miért leszünk betegek (Betegségek) -->
-    <section class="category" id="diseases">
-      <h2><a class="topic-link" href="/hu/blog/diseases/">Miért leszünk betegek <span class="subtext">(Betegségek)</span></a></h2>
-      <div class="white-card-grid">
-        <article class="white-card">
-          <h3><a href="/hu/blog/diseases/why-we-get-diabetes/index.html">Miért kapunk cukorbetegséget?</a></h3>
-          <p>A cukorforgalom torlódása a testedben.</p>
-          <div class="white-card-meta">
-            <span class="white-read-time">20 perc</span>
-            <span>Betegségek</span>
-          </div>
-        </article>
-        <article class="white-card">
-          <h3><a href="/hu/blog/diseases/why-we-get-tired/index.html">Miért fáradunk el (még pihenés után is)?</a></h3>
-          <p>Miért tűnik el az energia még akkor is, ha pihensz?</p>
-          <div class="white-card-meta">
-            <span class="white-read-time">25 perc</span>
-            <span>Betegségek</span>
-          </div>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért dugulnak el az artériák?</span></h3>
-          <p>A lipidek, a gyulladás és a károsodás lassú története.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-      </div>
-    </section>
+    <!-- BLOG CARDS -->
+    <section class="white-card-grid">
+      <!-- Ozempic -->
+      <article class="white-card">
+        <h3><a href="/hu/blog/terapiak/miert-beszel-mindenki-az-ozempicrol/index.html">Miért beszél mindenki az Ozempicről?</a></h3>
+        <p>GLP-1, semaglutid és az „éhség-suttogó” tudománya — hogyan hat, mi a csavar, és mi történik, ha abbahagyod.</p>
+        <div class="white-card-meta">
+          <span class="white-read-time purple-outline">24 perc</span>
+          <span class="white-hashtag white-outline">#Terápiák</span>
+        </div>
+      </article>
 
-    <div class="purple-divider"></div>
+      <!-- Why We Get Diabetes -->
+      <article class="white-card">
+        <h3><a href="/hu/blog/betegsegek/miert-leszunk-cukorbetegek/index.html">Miért leszünk cukorbetegek?</a></h3>
+        <p>A cukorforgalom torlódása a testedben — mi történik, amikor az inzulin üzenete elakad.</p>
+        <div class="white-card-meta">
+          <span class="white-read-time purple-outline">20 perc</span>
+          <span class="white-hashtag white-outline">#Betegségek</span>
+        </div>
+      </article>
 
-    <!-- Hogyan működik valójában a test (Élettan) -->
-    <section class="category" id="physiology">
-      <h2><a class="topic-link" href="/hu/blog/physiology/">Hogyan működik valójában a test <span class="subtext">(Élettan)</span></a></h2>
-      <div class="white-card-grid">
-        <article class="white-card">
-          <h3><span class="nolink">Miért fontos az inzulin?</span></h3>
-          <p>Az apró hírvivő, amely minden sejtet életben tart.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-        <article class="white-card">
-          <h3><a href="/hu/blog/physiology/why-cant-i-lose-weight/index.html">Miért nem tudok lefogyni?</a></h3>
-          <p>Diéták, hormonok és a tested védekező rendszere.</p>
-          <div class="white-card-meta">
-            <span class="white-read-time">22 perc</span>
-            <span>Élettan</span>
-          </div>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért tüzelnek a neuronok?</span></h3>
-          <p>Az elektromosság, amely a gondolatot mozgássá alakítja.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-      </div>
-    </section>
+      <!-- Why We Get Tired -->
+      <article class="white-card">
+        <h3><a href="/hu/blog/elettan/miert-faradunk-el/index.html">Miért fáradunk el (még pihenés után is)?</a></h3>
+        <p>Amikor az energia eltűnik — fáradtság, hormonok, és az anyagcsere apró trükkjei.</p>
+        <div class="white-card-meta">
+          <span class="white-read-time purple-outline">25 perc</span>
+          <span class="white-hashtag white-outline">#Élettan</span>
+        </div>
+      </article>
 
-    <div class="purple-divider"></div>
-
-    <!-- Hogyan hatnak a gyógyszerek (Gyógyszertan és terápiák) -->
-    <section class="category" id="therapies">
-      <h2><a class="topic-link" href="/hu/blog/therapies/">Hogyan hatnak a gyógyszerek <span class="subtext">(Gyógyszertan és terápiák)</span></a></h2>
-      <div class="white-card-grid">
-        <article class="white-card">
-          <h3><span class="nolink">Miért működik a metformin?</span></h3>
-          <p>Hogyan állítja újra egy molekula a szervezet cukorstratégiáját.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért csökkentik az étvágyat a GLP-1 gyógyszerek?</span></h3>
-          <p>A bélhormonok, amelyek halkan a tudatodhoz beszélnek.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért védenek az ACE-gátlók?</span></h3>
-          <p>Hogyan lett egy vérnyomáscsökkentőből szív-vese páncél.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-      </div>
-    </section>
-
-    <div class="purple-divider"></div>
-
-    <!-- Hogyan jövünk rá a dolgokra (Diagnosztika) -->
-    <section class="category" id="diagnostics">
-      <h2><a class="topic-link" href="/hu/blog/diagnostics/">Hogyan jövünk rá a dolgokra <span class="subtext">(Diagnosztika)</span></a></h2>
-      <div class="white-card-grid">
-        <article class="white-card">
-          <h3><span class="nolink">Miért mesél az HbA1c?</span></h3>
-          <p>Mit emlékezik a véred a cukorszokásaidról.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért számít a lipidszint?</span></h3>
-          <p>A „jó” és „rossz” koleszterin apró betűs részei.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-      </div>
-    </section>
-
-    <div class="purple-divider"></div>
-
-    <!-- Hogyan maradunk egészségesek (Megelőzés és közegészségügy) -->
-    <section class="category" id="prevention">
-      <h2><a class="topic-link" href="/hu/blog/prevention/">Hogyan maradunk egészségesek <span class="subtext">(Megelőzés és közegészségügy)</span></a></h2>
-      <div class="white-card-grid">
-        <article class="white-card">
-          <h3><span class="nolink">Miért ment életeket a szűrés?</span></h3>
-          <p>Gond megtalálása korán — még mielőtt a tünetek kiabálnának.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-        <article class="white-card">
-          <h3><span class="nolink">Miért változtatják meg a szokások a biológiát?</span></h3>
-          <p>Alvás, étkezés, mozgás — a rutin csendes biokémiája.</p>
-          <p class="soon">Hamarosan</p>
-        </article>
-      </div>
+      <!-- Why Can’t I Lose Weight -->
+      <article class="white-card">
+        <h3><a href="/hu/blog/elettan/miert-nem-tudok-lefogyni/index.html">Miért nem tudok lefogyni?</a></h3>
+        <p>Diéták kontra biológia: hormonok, anyagcsere, és a test védekező mechanizmusai.</p>
+        <div class="white-card-meta">
+          <span class="white-read-time purple-outline">22 perc</span>
+          <span class="white-hashtag white-outline">#Élettan</span>
+        </div>
+      </article>
     </section>
   </main>
 
   <div class="divider"></div>
-  <section class="pre-footer-note" aria-label="Project line">
+
+  <section class="pre-footer-note" aria-label="Projekt záró sor">
     <div class="container">
       <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
     </div>
@@ -186,7 +112,12 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>© 2025 WhyTF Health · <a href="/hu/privacy.html">Adatvédelem</a> · <a href="/hu/terms.html">Felhasználási feltételek</a></p>
+      <p>© 2025 WhyTF Health · Oktatási célokra — nem orvosi tanácsadás · 
+        <a href="/hu/privacy.html">Adatvédelem</a> · 
+        <a href="/hu/terms.html">Felhasználási feltételek</a>
+      </p>
+
+      <!-- Footer language switcher -->
       <div class="lang-footer">
         <a class="lang-pill" href="/blog/" aria-label="English">
           <span class="flag" aria-hidden="true">

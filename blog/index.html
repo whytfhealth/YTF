@@ -5,10 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Blog — WhyTF Health</title>
-  <meta name="description" content="All explainers in one place — clean, layered, and endlessly scrollable. Explore biology, appetite, energy, and everything fascinating in between." />
+  <meta name="description" content="All explainers in one place — clean, flowing, and human. Explore metabolism, hormones, culture, and everything that makes biology fascinating." />
   <link rel="canonical" href="https://whytfhealth.com/blog/">
 
-  <!-- Theme -->
   <link rel="stylesheet" href="/styles.css" />
   <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
@@ -18,45 +17,51 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Blog — WhyTF Health">
-  <meta property="og:description" content="All WhyTF Health explainers in one place — human biology, culture, and care made understandable.">
+  <meta property="og:description" content="Essays and explainers from WhyTF Health — exploring human biology and the stories we tell about it.">
   <meta property="og:url" content="https://whytfhealth.com/blog/">
   <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Blog — WhyTF Health">
-  <meta name="twitter:description" content="Clean grid. Human stories. Biology explained without the jargon.">
+  <meta name="twitter:description" content="Essays and explainers that bridge science and story — all in one place.">
   <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-  <!-- Custom styling for outlined purple & white pills -->
+  <!-- Updated styling for outlined look + hover glow -->
   <style>
     :root {
       --wth-purple: var(--accent, #6f3cff);
-      --wth-purple-ink: #4a2ab8;
+      --wth-bg: var(--background, #f9f9fb);
       --wth-white: #ffffff;
+    }
+
+    body {
+      background: var(--wth-bg);
     }
 
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 1.25rem;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
 
+    /* Updated card: same as background with subtle border */
     .white-card {
-      background: var(--wth-white);
+      background: var(--wth-bg);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
       border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-      padding: 1.1rem 1.1rem 1rem;
+      padding: 1.2rem 1.3rem 1.1rem;
       display: flex;
       flex-direction: column;
       min-height: 180px;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
 
     .white-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 0 14px rgba(111, 60, 255, 0.2);
+      border-color: rgba(111, 60, 255, 0.5);
     }
 
     .white-card h3 {
@@ -76,7 +81,7 @@
       flex-wrap: wrap;
     }
 
-    /* General pill style */
+    /* Pill base */
     .meta-pill {
       display: inline-flex;
       align-items: center;
@@ -84,21 +89,20 @@
       border-radius: 999px;
       padding: 0.35rem 0.65rem;
       font-size: 0.85rem;
+      font-weight: 600;
       line-height: 1;
       white-space: nowrap;
-      font-weight: 600;
-      transition: background 0.2s ease, color 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
     }
 
-    /* Time pill: white outline, purple text */
+    /* Time pill: white outline, white text */
     .meta-pill--time {
       border: 1.8px solid var(--wth-white);
       color: var(--wth-white);
       background: transparent;
-      font-weight: 600;
     }
 
-    /* Tag pill: purple outline, white text */
+    /* Tag pill: purple outline, purple text */
     .meta-pill--tag {
       border: 1.8px solid var(--wth-purple);
       color: var(--wth-purple);
@@ -212,7 +216,7 @@
           </div>
         </article>
 
-        <!-- Coming soon examples -->
+        <!-- Coming soon -->
         <article class="white-card">
           <h3><span class="nolink">WhyTF Insulin Matters</span></h3>
           <p>The tiny messenger that keeps every cell alive.</p>

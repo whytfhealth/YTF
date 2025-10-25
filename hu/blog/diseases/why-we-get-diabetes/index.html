@@ -1,57 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta property="og:locale" content="hu_HU" />
 
-  <title>WhyTF We Get Diabetes — WhyTF Health</title>
-  <meta name="description" content="A full explainer on diabetes — from sugar traffic jams to insulin resistance and the molecular chaos inside your cells." />
-  <link rel="canonical" href="https://whytfhealth.com/blog/why-we-get-diabetes/" />
+  <title>Miért kapunk cukorbetegséget? — WhyTF Health</title>
+  <meta name="description" content="A teljes történet: a cukorforgalmi torlódástól az inzulinrezisztencián át a β-sejtek kimerüléséig — közérthetően, rétegekben." />
 
+  <!-- Canonical (HU) -->
+  <link rel="canonical" href="https://whytfhealth.com/hu/blog/why-we-get-diabetes/" />
+
+  <!-- Fonts (match site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Theme CSS (root-absolute so HU keeps styling) -->
   <link rel="stylesheet" href="/styles.css" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Miért kapunk cukorbetegséget?" />
+  <meta property="og:description" content="A cukorforgalmi torlódástól az inzulinrezisztenciáig — a diabétesz története rétegekben, közérthetően." />
+  <meta property="og:url" content="https://whytfhealth.com/hu/blog/why-we-get-diabetes/" />
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Miért kapunk cukorbetegséget?" />
+  <meta name="twitter:description" content="A diabétesz: üzemanyag az ajtó előtt, de a sejtek nem nyitnak — érthető magyarázat rétegekben." />
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg" />
+
+  <!-- Analytics (same as site) -->
   <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
   <script defer src="https://cloud.umami.is/script.js"
           data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="WhyTF We Get Diabetes">
-  <meta property="og:description" content="From the sugar traffic jam to insulin resistance and β-cell burnout — diabetes explained layer by layer.">
-  <meta property="og:url" content="https://whytfhealth.com/blog/why-we-get-diabetes/">
-  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="WhyTF We Get Diabetes">
-  <meta name="twitter:description" content="From the sugar traffic jam to insulin resistance and β-cell burnout — diabetes explained in layers.">
-  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 
     <body id="top" class="blog-page">
   <a class="skip-link" href="#main">Skip to content</a>
 
- <header class="site-header" role="banner">
+<header class="site-header" role="banner">
   <div class="container flex between center">
-    <!-- logo -->
-    <a href="/index.html" class="logo" aria-label="WhyTF Health home">
-      <img src="/assets/logo.png" alt="WhyTF Health logo">
+    <!-- Logo (root-absolute path) -->
+    <a href="/hu/index.html" class="logo" aria-label="WhyTF Health kezdőlap">
+      <img src="/assets/logo.png" alt="WhyTF Health logó" />
     </a>
 
-    <!-- nav -->
-   <nav class="nav" aria-label="Primary">
-  <a href="/index.html" class="nav-link">Home</a>
-  <a href="/about.html" class="nav-link">About</a>
-  <a href="/blog/" class="nav-link">Blog</a>
-  <a href="/microblog/" class="nav-link">MicroBlog</a>
-  <a href="/podcast.html" class="nav-link">Podcast</a>
-  <a href="/contact.html" class="nav-link">Contact</a>
-</nav>
-    <!-- ✅ ADD THIS LINE AS THE LAST CHILD INSIDE THE CONTAINER -->
+    <!-- Hungarian nav; Blog/MicroBlog point to HU sections (OK to 404 for now) -->
+    <nav class="nav" aria-label="Elsődleges">
+      <a href="/hu/" class="nav-link">Kezdőlap</a>
+      <a href="/hu/about.html" class="nav-link">Rólunk</a>
+      <a href="/hu/blog/" class="nav-link">Blog</a>
+      <a href="/hu/microblog/" class="nav-link">MicroBlog</a>
+      <a href="/hu/contact.html" class="nav-link">Kapcsolat</a>
+    </nav>
+
+    <!-- Scroll progress (used on long reads) -->
     <div class="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
   </div>
 </header>
+
 <main id="main" class="container section">
 
   <!-- ARTICLE WRAPPER: grid for article + right-rail TOC -->
@@ -820,11 +830,42 @@
   </div>
 </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container">
-      <p>© 2025 WhyTF Health · Educational only — not medical advice · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
-    </div>
-  </footer>
+ <div class="lang-footer">
+  <!-- EN pill -> English article -->
+  <a class="lang-pill" href="/blog/why-we-get-diabetes/" aria-label="English">
+    <span class="flag" aria-hidden="true">
+      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+        <defs><clipPath id="ukCircle-hu-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+        <g clip-path="url(#ukCircle-hu-diabetes)">
+          <rect width="60" height="60" fill="#012169"/>
+          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+          <rect x="24" width="12" height="60" fill="#fff"/>
+          <rect y="24" width="60" height="12" fill="#fff"/>
+          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+        </g>
+      </svg>
+    </span>
+    <span class="code">EN</span>
+  </a>
+
+  <!-- HU pill -> current HU article -->
+  <a class="lang-pill is-current" href="/hu/blog/why-we-get-diabetes/" aria-label="Magyar">
+    <span class="flag" aria-hidden="true">
+      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+        <defs><clipPath id="huCircle-hu-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+        <g clip-path="url(#huCircle-hu-diabetes)">
+          <rect width="60" height="60" fill="#fff"/>
+          <rect width="60" height="20" y="0" fill="#D32E2E"/>
+          <rect width="60" height="20" y="40" fill="#2E8B57"/>
+        </g>
+      </svg>
+    </span>
+    <span class="code">HU</span>
+  </a>
+</div>
+
 
 <script>
 (function(){

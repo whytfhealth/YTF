@@ -1118,91 +1118,96 @@
     </section>
   </main>
 
-   <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer" role="contentinfo">
   <div class="container">
     <p>© 2025 WhyTF Health ·  
       <a href="/privacy.html">Privacy</a> · 
       <a href="/terms.html">Terms & Disclaimer</a>
     </p>
 
-   <!-- EN pill -> English article -->
-  <a class="lang-pill" href="/blog/why-we-get-tired/index.html" aria-label="English">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="ukCircle-hu-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#ukCircle-hu-diabetes)">
-          <rect width="60" height="60" fill="#012169"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-          <rect x="24" width="12" height="60" fill="#fff"/>
-          <rect y="24" width="60" height="12" fill="#fff"/>
-          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">EN</span>
-  </a>
+    <!-- Footer language switcher -->
+    <div class="lang-footer">
+      <!-- EN pill (current page) -->
+      <a class="lang-pill is-current" href="/blog/why-we-get-tired/index.html" aria-label="English">
+        <span class="flag" aria-hidden="true">
+          <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+            <defs><clipPath id="ukCircle-en-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+            <g clip-path="url(#ukCircle-en-diabetes)">
+              <rect width="60" height="60" fill="#012169"/>
+              <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+              <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+              <rect x="24" width="12" height="60" fill="#fff"/>
+              <rect y="24" width="60" height="12" fill="#fff"/>
+              <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+              <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+            </g>
+          </svg>
+        </span>
+        <span class="code">EN</span>
+      </a>
 
-  <!-- HU pill -> current HU article -->
-  <a class="lang-pill is-current" href="/hu/blog/why-we-get-tired/index.html" aria-label="Magyar">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="huCircle-hu-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#huCircle-hu-diabetes)">
-          <rect width="60" height="60" fill="#fff"/>
-          <rect width="60" height="20" y="0" fill="#D32E2E"/>
-          <rect width="60" height="20" y="40" fill="#2E8B57"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">HU</span>
-  </a>
-</div>
+      <!-- HU pill (points to translated HU version) -->
+      <a class="lang-pill" href="/hu/blog/why-we-get-tired/index.html" aria-label="Magyar">
+        <span class="flag" aria-hidden="true">
+          <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+            <defs><clipPath id="huCircle-en-diabetes"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+            <g clip-path="url(#huCircle-en-diabetes)">
+              <rect width="60" height="60" fill="#fff"/>
+              <rect width="60" height="20" y="0" fill="#D32E2E"/>
+              <rect width="60" height="20" y="40" fill="#2E8B57"/>
+            </g>
+          </svg>
+        </span>
+        <span class="code">HU</span>
+      </a>
+    </div>
+  </div>
+</footer>
 
-  <!-- Scroll progress underline -->
-  <script>
-  (function(){
-    const bar = document.querySelector('.scroll-progress');
-    if (!bar) return;
-    function update(){
-      const st  = window.scrollY || document.documentElement.scrollTop;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = Math.max(0, Math.min(1, st / max));
-      bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
-      bar.setAttribute('aria-valuenow', Math.round(pct * 100));
-    }
-    document.addEventListener('DOMContentLoaded', update, { once: true });
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-  })();
-  </script>
+<script>
+(function(){
+  const bar = document.querySelector('.scroll-progress');
+  if (!bar) return;
 
-  <!-- Back to top + helper -->
-  <script>
-  (function(){
-    const btn = document.querySelector('.back-to-top');
-    function onScroll(){
-      const st  = window.scrollY || document.documentElement.scrollTop;
-      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const pct = st / max;
-      if(pct > 0.40){ btn && btn.classList.add('is-visible'); }
-      else{ btn && btn.classList.remove('is-visible'); }
-    }
-    window.addEventListener('scroll', onScroll, { passive:true });
-    window.addEventListener('resize', onScroll);
-    document.addEventListener('DOMContentLoaded', onScroll);
+  function update(){
+    const st = window.scrollY || document.documentElement.scrollTop;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = Math.max(0, Math.min(1, st / max));
+    bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
+    bar.setAttribute('aria-valuenow', Math.round(pct * 100));
+  }
 
-    if(btn){
-      btn.addEventListener('click', function(e){
-        e.preventDefault();
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if(reduce){ window.scrollTo(0,0); }
-        else{ window.scrollTo({ top: 0, behavior: 'smooth' }); }
-      });
-    }
-  })();
-  </script>
+  // run once and on events
+  document.addEventListener('DOMContentLoaded', update, { once: true });
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();
+
+(function(){
+
+  /* ===== Back to top ===== */
+  const btn = document.querySelector('.back-to-top');
+  function onScroll(){
+    const st = window.scrollY || document.documentElement.scrollTop;
+    const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const pct = st / max;
+    if(pct > 0.40){ btn && btn.classList.add('is-visible'); }
+    else{ btn && btn.classList.remove('is-visible'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', onScroll);
+  document.addEventListener('DOMContentLoaded', onScroll);
+
+  if(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(reduce){ window.scrollTo(0,0); }
+      else{ window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    });
+  }
+})();
+</script>
 
   <!-- Glossary autolinker: link to real microblogs where available; add hover defs -->
   <script>

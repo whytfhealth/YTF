@@ -929,3 +929,78 @@ h1 + .subtext{ margin-top:.35rem; }        /* tidy pairing */
   color:#fff;
   letter-spacing:.4px;
 }
+/* ==========================================
+   Glossary Hover Tooltips (EN + HU)
+   ========================================== */
+
+/* Basic link style */
+a.gloss {
+  position: relative;
+  cursor: help;
+  color: var(--accent, #6f3cff);
+  text-decoration: underline dotted 1px;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+/* Hover / focus color pulse */
+a.gloss:hover,
+a.gloss:focus {
+  color: var(--accent, #7d4aff);
+  outline: none;
+}
+
+/* Tooltip bubble container */
+a.gloss::after {
+  content: attr(data-def);
+  position: absolute;
+  left: 50%;
+  top: -0.4rem;
+  transform: translate(-50%, -110%);
+  min-width: 180px;
+  max-width: 260px;
+  background: var(--accent, #6f3cff);
+  color: #fff;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  border-radius: 8px;
+  padding: 0.5rem 0.6rem;
+  opacity: 0;
+  pointer-events: none;
+  white-space: normal;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 99;
+}
+
+/* Small triangle “arrow” */
+a.gloss::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  transform: translateX(-50%);
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid var(--accent, #6f3cff);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Show on hover/focus */
+a.gloss:hover::after,
+a.gloss:hover::before,
+a.gloss:focus::after,
+a.gloss:focus::before {
+  opacity: 1;
+  transform: translate(-50%, -130%);
+}
+
+/* Optional subtle motion for reduced-motion users */
+@media (prefers-reduced-motion: reduce) {
+  a.gloss::after,
+  a.gloss::before {
+    transition: none;
+  }
+}

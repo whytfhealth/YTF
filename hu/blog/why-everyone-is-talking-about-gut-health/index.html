@@ -917,6 +917,23 @@
   });
 })();
 </script>
+ <!-- Scroll progress underline -->
+  <script>
+  (function(){
+    const bar = document.querySelector('.scroll-progress');
+    if (!bar) return;
+    function update(){
+      const st  = window.scrollY || document.documentElement.scrollTop;
+      const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      const pct = Math.max(0, Math.min(1, st / max));
+      bar.style.transform = 'scaleX(' + pct.toFixed(4) + ')';
+      bar.setAttribute('aria-valuenow', Math.round(pct * 100));
+    }
+    document.addEventListener('DOMContentLoaded', update, { once: true });
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
+  </script>
 
 
 

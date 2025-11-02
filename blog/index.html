@@ -29,8 +29,6 @@
 
   <!-- Updated styling for outlined look + hover glow -->
   <style>
-  /* No :root overrides, no body background — respect your global theme */
-
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -38,9 +36,8 @@
     margin-top: 2rem;
   }
 
-  /* Card: transparent surface, subtle white outline, smooth hover */
   .white-card {
-    background: transparent;                  /* ← blend with site bg */
+    background: transparent;
     border: 1.5px solid rgba(255, 255, 255, 0.45);
     border-radius: 12px;
     padding: 1.2rem 1.3rem 1.1rem;
@@ -52,7 +49,6 @@
 
   .white-card:hover {
     transform: translateY(-3px);
-    /* use your global --accent if present; fallback only if missing */
     box-shadow: 0 0 14px color-mix(in srgb, var(--accent, #6f3cff) 20%, transparent);
     border-color: color-mix(in srgb, var(--accent, #6f3cff) 50%, rgba(255,255,255,0.45));
   }
@@ -74,7 +70,6 @@
     flex-wrap: wrap;
   }
 
-  /* Pill base */
   .meta-pill {
     display: inline-flex;
     align-items: center;
@@ -88,14 +83,12 @@
     transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
   }
 
-  /* Time pill: white outline, white text */
   .meta-pill--time {
     border: 1.8px solid #fff;
     color: #fff;
     background: transparent;
   }
 
-  /* Tag pill: purple outline, purple text (uses global --accent) */
   .meta-pill--tag {
     border: 1.8px solid var(--accent, #6f3cff);
     color: var(--accent, #6f3cff);
@@ -111,7 +104,7 @@
   .soon { color: #7a7a7a; font-style: italic; margin-top: 0.25rem; }
   .nolink { opacity: 0.7; }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
-</style>
+  </style>
 
 </head>
 
@@ -190,17 +183,22 @@
           </div>
         </article>
 
-        <!-- gut health -->
+        <!-- Gut health (FIXED) -->
         <article class="white-card">
-          <h3><a href="/blog/why-everyone-is-talking-about-gut-health>WhyTF Is Everyone talking about Gut Health</a></h3>
-          <p>Diets, hormones, and your body’s "Good Bacteria"</p>
+          <h3>
+            <a href="/blog/why-everyone-is-talking-about-gut-health/">
+              WhyTF Is Everyone Talking About Gut Health?
+            </a>
+          </h3>
+          <p>Your inner ecosystem, TikTok’s favourite topic, and what actually matters.</p>
           <div class="white-card-meta">
             <span class="meta-pill meta-pill--time">23 min</span>
-            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Well‑Being</span>
-            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Bacteria</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Well-Being</span>
+            <span class="meta-pill meta-pill--tag"><span class="hash">#</span>Microbiome</span>
           </div>
-               </article>
+        </article>
 
+        <!-- Coming soon -->
         <article class="white-card">
           <h3><span class="nolink">WhyTF Neurons Fire</span></h3>
           <p>The electricity that turns thought into movement.</p>
@@ -221,49 +219,48 @@
     </div>
   </section>
 
-<footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <p>© 2025 WhyTF Health · 
-      <a href="/privacy.html">Privacy</a> · 
-      <a href="/terms.html">Terms &amp; Disclaimer</a>
-    </p>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>© 2025 WhyTF Health ·
+        <a href="/privacy.html">Privacy</a> ·
+        <a href="/terms.html">Terms &amp; Disclaimer</a>
+      </p>
 
-    <!-- Footer language switcher -->
-    <div class="lang-footer">
-      <a class="lang-pill is-current" href="/blog/" aria-label="English">
-        <span class="flag" aria-hidden="true">
-          <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-            <defs><clipPath id="ukCircle-blog-en"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-            <g clip-path="url(#ukCircle-blog-en)">
-              <rect width="60" height="60" fill="#012169"/>
-              <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-              <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-              <rect x="24" width="12" height="60" fill="#fff"/>
-              <rect y="24" width="60" height="12" fill="#fff"/>
-              <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-              <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-            </g>
-          </svg>
-        </span>
-        <span class="code">EN</span>
-      </a>
+      <div class="lang-footer">
+        <a class="lang-pill is-current" href="/blog/" aria-label="English">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="ukCircle-blog-en"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#ukCircle-blog-en)">
+                <rect width="60" height="60" fill="#012169"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+                <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+                <rect x="24" width="12" height="60" fill="#fff"/>
+                <rect y="24" width="60" height="12" fill="#fff"/>
+                <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+                <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">EN</span>
+        </a>
 
-      <a class="lang-pill" href="/hu/blog/" aria-label="Magyar">
-        <span class="flag" aria-hidden="true">
-          <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-            <defs><clipPath id="huCircle-blog-en"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-            <g clip-path="url(#huCircle-blog-en)">
-              <rect width="60" height="60" fill="#fff"/>
-              <rect width="60" height="20" y="0" fill="#D32E2E"/>
-              <rect width="60" height="20" y="40" fill="#2E8B57"/>
-            </g>
-          </svg>
-        </span>
-        <span class="code">HU</span>
-      </a>
+        <a class="lang-pill" href="/hu/blog/" aria-label="Magyar">
+          <span class="flag" aria-hidden="true">
+            <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+              <defs><clipPath id="huCircle-blog-en"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+              <g clip-path="url(#huCircle-blog-en)">
+                <rect width="60" height="60" fill="#fff"/>
+                <rect width="60" height="20" y="0" fill="#D32E2E"/>
+                <rect width="60" height="20" y="40" fill="#2E8B57"/>
+              </g>
+            </svg>
+          </span>
+          <span class="code">HU</span>
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
 </html>

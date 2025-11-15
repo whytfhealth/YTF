@@ -1,20 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root & core pages -->
   <url><loc>https://whytfhealth.com/</loc></url>
   <url><loc>https://whytfhealth.com/about.html</loc></url>
-  <url><loc>https://whytfhealth.com/blog/</loc></url>
-  <url><loc>https://whytfhealth.com/podcast.html</loc></url>
+  <url><loc>https://whytfhealth.com/privacy.html</loc></url>
+  <url><loc>https://whytfhealth.com/terms.html</loc></url>
   <url><loc>https://whytfhealth.com/contact.html</loc></url>
-  <url><loc>https://whytfhealth.com/blog/diseases/</loc></url>
-<url><loc>https://whytfhealth.com/blog/physiology/</loc></url>
-<url><loc>https://whytfhealth.com/blog/therapies/</loc></url>
-<url><loc>https://whytfhealth.com/blog/diagnostics/</loc></url>
-<url><loc>https://whytfhealth.com/blog/prevention/</loc></url>
-<url><loc>https://whytfhealth.com/blog/diseases/why-we-get-diabetes/index.html</loc></url>
-<url><loc>https://whytfhealth.com/blog/why-we-get-tired/index.html</loc></url>
-<url><loc>https://whytfhealth.com/blog/why-cant-i-lose-weight/index.html</loc></url>
-<url><loc>https://whytfhealth.com/blog/why-cant-i-sleep-even-when-im-tired/index.html</loc></url>
-  <!-- Add blog posts here as you publish them, e.g.:
-  <url><loc>https://whytfhealth.com/blog/why-insulin-matters/</loc></url>
-  -->
+  <url><loc>https://whytfhealth.com/podcast.html</loc></url>
+  <url><loc>https://whytfhealth.com/404.html</loc></url>
+
+  <!-- Newsletter -->
+  <url><loc>https://whytfhealth.com/newsletter/confirm.html</loc></url>
+  <url><loc>https://whytfhealth.com/newsletter/welcome.html</loc></url>
+
+  <!-- EN blog index & articles -->
+  <url><loc>https://whytfhealth.com/blog/</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-we-get-diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-we-get-tired/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-cant-i-lose-weight/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-cant-i-sleep-even-when-im-tired/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-everyone-is-talking-about-gut-health/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/blog/why-everyone-is-talking-about-ozempic/index.html</loc></url>
+
+  <!-- HU core pages -->
+  <url><loc>https://whytfhealth.com/hu/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/about.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/privacy.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/terms.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/contact.html</loc></url>
+
+  <!-- HU blog index & articles -->
+  <url><loc>https://whytfhealth.com/hu/blog/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-we-get-diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-we-get-tired/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-cant-i-lose-weight/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-cant-i-sleep-even-when-im-tired/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-everyone-is-talking-about-gut-health/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/blog/why-everyone-is-talking-about-ozempic/index.html</loc></url>
+
+  <!-- EN MicroBlog index -->
+  <url><loc>https://whytfhealth.com/microblog/</loc></url>
+
+  <!-- EN MicroBlog entries -->
+  <url><loc>https://whytfhealth.com/microblog/akt/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/amylin/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/antibodies/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/apoptosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/atherosclerosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/beta-cell-exhaustion/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/beta-cells/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/compensated-insulin-resistance/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/coxsackie-b/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/cytokine/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/diabetic-ketoacidosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/endoplasmic-reticulum-strain/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/epigenetic-marks/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/fatty-acid-oxidation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/fatty-acids/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/free-radicals/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/gene-expression/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/gluconeogenesis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/glut-4/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/glycogen/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/hla-dr3/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/hla-dr4/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/hyperglycaemia/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/hyperinsulinaemia/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/hypertrophy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/il-6/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/inflammatory-molecules/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/insulin/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/insulin-resistance/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/insulin-resistance-syndrome/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/insulin-signaling/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/irs-1/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/islets-of-langerhans/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/ketones/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/lada/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/lipotoxicity/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/neuropathy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/oxidative-stress/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/pancreas/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/phosphorylation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/pi3k/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/prediabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/receptor-desensitisation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/receptors/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/retinopathy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/rubella/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/t-cells/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/tnf-alpha/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/type-1-diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/type-2-diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/atherosclerosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/microblog/coming-soon.html</loc></url>
+
+  <!-- HU MicroBlog index -->
+  <url><loc>https://whytfhealth.com/hu/microblog/index.html</loc></url>
+
+  <!-- HU MicroBlog entries -->
+  <url><loc>https://whytfhealth.com/hu/microblog/akt/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/amylin/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/antibodies/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/apoptosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/atherosclerosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/beta-cell-exhaustion/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/beta-cells/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/compensated-insulin-resistance/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/coxsackie-b/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/cytokine/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/diabetic-ketoacidosis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/endoplasmic-reticulum-strain/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/epigenetic-marks/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/fatty-acid-oxidation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/fatty-acids/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/free-radicals/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/gene-expression/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/gluconeogenesis/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/glut-4/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/glycogen/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/hla-dr3/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/hla-dr4/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/hyperglycaemia/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/hyperinsulinaemia/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/hypertrophy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/il-6/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/inflammatory-molecules/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/insulin/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/insulin-resistance/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/insulin-resistance-syndrome/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/insulin-signaling/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/irs-1/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/islets-of-langerhans/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/ketones/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/lada/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/lipotoxicity/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/neuropathy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/oxidative-stress/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/pancreas/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/phosphorylation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/pi3k/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/prediabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/receptor-desensitisation/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/receptors/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/retinopathy/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/rubella/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/t-cells/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/tnf-alpha/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/type-1-diabetes/index.html</loc></url>
+  <url><loc>https://whytfhealth.com/hu/microblog/type-2-diabetes/index.html</loc></url>
+
 </urlset>

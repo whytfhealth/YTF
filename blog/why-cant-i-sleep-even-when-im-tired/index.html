@@ -2393,7 +2393,18 @@
       {term:'orexin', slug:'orexin', def:'Wake-promoting brain chemical targeted by some modern sleeping pills.'}
     ];
 
-    const exists = new Set(['insulin','insulin-resistance','diabetes','insulin-signaling']);
+    const exists = new Set([
+      'insulin',
+      'insulin-resistance',
+      'diabetes',
+      'insulin-signaling',
+      'cortisol',
+      'melatonin',
+      'circadian-rhythm',
+      'sleep-drive',
+      'insomnia',
+      'cbt-i'
+    ]);
 
     TERMS.sort((a,b)=>b.term.length - a.term.length);
     const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');

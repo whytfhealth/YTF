@@ -2601,7 +2601,25 @@
 
     const existing = new Set([
       'dopamine',
-      'mesolimbic-reward'
+      'mesolimbic-reward',
+      'vta',
+      'nucleus-accumbens',
+      'prefrontal-cortex',
+      'basal-ganglia',
+      'ventral-striatum',
+      'dorsal-striatum',
+      'reward-prediction-error',
+      'parkinsons',
+      'substantia-nigra',
+      'addiction',
+      'sensitisation',
+      'incentive-sensitisation',
+      'anhedonia',
+      'depression',
+      'l-dopa',
+      'dopamine-agonist',
+      'bupropion',
+      'norepinephrine'
     ]);
 
     TERMS.forEach(t => {
@@ -2610,8 +2628,8 @@
     });
 
     TERMS.sort((a,b)=>b.term.length - a.term.length);
-    const esc = s => s.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\\\$&');
-    const pattern = '\\\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\\\b';
+    const esc = s => s.replace(/[.*+?^${}()|[\\]\\]/g,'\\$&');
+    const pattern = '\\b(' + TERMS.map(t=>esc(t.term)).join('|') + ')\\b';
     const rx = new RegExp(pattern, 'gi');
 
     const root = document.querySelector(ARTICLE_SEL);

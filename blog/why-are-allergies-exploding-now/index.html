@@ -61,7 +61,7 @@
       <header class="post-header">
         <h1>WhyTF Are Allergies Exploding Now?</h1>
         <p class="subtext">From peanut-free schools to thunderstorm asthma — a long, flirty, science-heavy explainer on why immune systems are suddenly freaking out at peanuts, pollen, and half the modern world.</p>
-        <p class="meta">Estimated read time: ~30 minutes · Published December 2025</p>
+        <p class="meta">Estimated read time: ~30 minutes · Published November 2025</p>
       </header>
 
       <div class="dna-divider" aria-hidden="true"></div>
@@ -2874,7 +2874,99 @@
   })();
   </script>
 
+  <!-- Glossary autolinker (allergy/immune terms) -->
+  <script>
+  (function(){
+    const ARTICLE_SEL = '#post-body';
+    const DEFAULT_URL = '/microblog/coming-soon.html';
+    const mk = (slug) => '/microblog/' + slug + '/';
+
+    const TERMS = [
+      {term:'microbiome',                slug:'microbiome',                 def:'The full ecosystem of microbes (bacteria, fungi, viruses) living in and on you, especially in the gut.'},
+      {term:'gut microbiome',            slug:'microbiome',                 def:'The microbial community in your intestines that helps digest food, train immunity and produce signalling molecules.'},
+      {term:'short-chain fatty acids',   slug:'short-chain-fatty-acids',    def:'Tiny fat molecules made by gut bacteria from fibre; they calm inflammation and strengthen the gut barrier.'},
+      {term:'SCFAs',                     slug:'short-chain-fatty-acids',    def:'Short-chain fatty acids — microbiome-derived molecules that help regulate immunity and allergy risk.'},
+      {term:'SCFA',                      slug:'short-chain-fatty-acids',    def:'Short-chain fatty acid; a microbiome metabolite with strong anti-inflammatory effects.'},
+      {term:'butyrate',                  slug:'butyrate',                   def:'A short-chain fatty acid that nourishes gut cells and signals the immune system to chill.'},
+      {term:'prebiotics',                slug:'prebiotics',                 def:'Fibres that your microbes, not you, digest — they selectively feed beneficial gut bacteria.'},
+      {term:'probiotics',                slug:'probiotics',                 def:'Live microbes that, in the right context, can support gut and immune balance.'},
+      {term:'dysbiosis',                 slug:'dysbiosis',                  def:'An imbalanced microbiome where helpful species shrink and problem species overgrow.'},
+      {term:'Akkermansia muciniphila',   slug:'akkermansia-muciniphila',    def:'A gut bacterium linked to metabolic health and gut barrier integrity.'},
+      {term:'fibre',                     slug:'fibres',                     def:'Plant-derived carbohydrates your gut bacteria ferment into immune-calming molecules.'},
+      {term:'fiber',                     slug:'fibres',                     def:'Dietary fibre — microbiome fuel that helps stabilise immune and allergy responses.'},
+      {term:'IgE',                       slug:'ige',                        def:'The antibody type that drives classic allergies and anaphylaxis when it overreacts to harmless things.'},
+      {term:'IgE antibodies',            slug:'ige',                        def:'Allergy-linked antibodies that arm mast cells to react to pollen, foods and other allergens.'},
+      {term:'mast cells',                slug:'mast-cells',                 def:'Immune cells packed with histamine and other mediators that trigger itching, swelling and hives.'},
+      {term:'histamine',                 slug:'histamine',                  def:'A signalling chemical released during allergic reactions that causes itching, swelling and runny nose.'},
+      {term:'T cells',                   slug:'t-cells',                    def:'Immune cells that coordinate responses, kill infected cells, and help maintain tolerance to self.'},
+      {term:'type 1 diabetes',           slug:'type-1-diabetes',            def:'Autoimmune diabetes where the immune system destroys insulin-making beta cells.'},
+      {term:'T1D',                       slug:'type-1-diabetes',            def:'Short for type 1 diabetes — an autoimmune attack on pancreatic beta cells.'},
+      {term:'helminths',                 slug:'helminths',                  def:'Parasitic worms that strongly modulate immunity and historically helped keep overreactions in check.'},
+      {term:'microplastics',             slug:'microplastics',              def:'Tiny plastic particles that accumulate in bodies and can inflame tissues and disrupt immune signalling.'}
+    ];
+
+    const existing = new Set([
+      'microbiome',
+      'short-chain-fatty-acids',
+      'butyrate',
+      'prebiotics',
+      'probiotics',
+      'dysbiosis',
+      'akkermansia-muciniphila',
+      'fibres',
+      'type-1-diabetes',
+      't-cells'
+    ]);
+
+    TERMS.forEach(t => {
+      const hasPage = existing.has(t.slug);
+      t.url = hasPage ? mk(t.slug) : DEFAULT_URL;
+    });
+
+    TERMS.sort((a,b)=>b.term.length - a.term.length);
+    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+    const pattern = '\\b(' + TERMS.map(t => esc(t.term)).join('|') + ')\\b';
+    const rx = new RegExp(pattern, 'gi');
+
+    const root = document.querySelector(ARTICLE_SEL);
+    if (!root) return;
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        const p = node.parentNode;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        if (p.closest('#sources, .summary-table, .disclaimer')) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        const tag = p.nodeName.toLowerCase();
+        if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        if (!node.nodeValue || !rx.test(node.nodeValue)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach(n => {
+      const html = n.nodeValue.replace(rx, m => {
+        const t = TERMS.find(t => t.term.toLowerCase() === m.toLowerCase());
+        const url = (t && t.url) || DEFAULT_URL;
+        const def = (t && t.def) || '';
+        const slug = (t ? t.slug : m).toLowerCase();
+        return '<a class="gloss" href="'+url+'" data-term="'+slug+'" data-def="'+def+'" rel="nofollow">'+m+'</a>';
+      });
+      const span = document.createElement('span');
+      span.innerHTML = html;
+      n.parentNode.replaceChild(span, n);
+    });
+  })();
+  </script>
+
   <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 </body>
 </html>
-

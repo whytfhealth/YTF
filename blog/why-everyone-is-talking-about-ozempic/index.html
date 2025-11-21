@@ -1079,6 +1079,7 @@ Because when you borrow the body’s chemistry, it always asks for something in 
       const p = node.parentNode; if(!p) return NodeFilter.FILTER_REJECT;
       if (p.closest('#sources, .summary-table, .disclaimer')) return NodeFilter.FILTER_REJECT;
       const tag = p.nodeName.toLowerCase();
+      if (p.closest('h1,h2,h3,h4,h5,h6')) return NodeFilter.FILTER_REJECT;
       if (/(a|code|pre|kbd|script|style|noscript)/.test(tag)) return NodeFilter.FILTER_REJECT;
       if (!node.nodeValue || !rx.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
       return NodeFilter.FILTER_ACCEPT;

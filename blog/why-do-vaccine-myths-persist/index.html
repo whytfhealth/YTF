@@ -1943,6 +1943,92 @@
   })();
   </script>
 
+  <script>
+  (function(){
+    const ARTICLE_SEL = '#post-body';
+    const STOP_SEL = '#sources, .summary-table, .disclaimer';
+    const DEFAULT_URL = '/microblog/coming-soon.html';
+    const TERMS = [
+      { term: 'measles-mumps-rubella', slug: 'mmr', def: 'Combined measles, mumps, and rubella vaccine.' },
+      { term: 'MMR', slug: 'mmr', def: 'The combined measles–mumps–rubella vaccine.' },
+      { term: 'herd immunity threshold', slug: 'herd-immunity', def: 'Coverage level where spread stalls because most people are immune.' },
+      { term: 'herd immunity', slug: 'herd-immunity', def: 'Community-level protection when enough people are immune to block spread.' },
+      { term: 'immunocompromised', slug: 'immunocompromised', def: 'People with weakened immunity who rely on others being vaccinated.' },
+      { term: 'adverse event', slug: 'adverse-event', def: 'An unwanted effect after vaccination, usually mild and temporary.' },
+      { term: 'adjuvant', slug: 'adjuvant', def: 'Helper ingredient that boosts an immune response to a vaccine.' },
+      { term: 'antigen', slug: 'antigen', def: 'A molecule immune cells recognize and learn to target.' },
+      { term: 'thimerosal', slug: 'thimerosal', def: 'Ethylmercury-based preservative removed from most childhood vaccines.' },
+      { term: 'aluminum', slug: 'aluminum', def: 'Common adjuvant salts that safely boost vaccine responses.' },
+      { term: 'vaccine', slug: 'vaccine', def: 'A preparation that trains immunity to recognize a pathogen.' },
+      { term: 'vaccines', slug: 'vaccine', def: 'Preparations that train immunity to recognize pathogens.' },
+      { term: 'measles', slug: 'measles', def: 'Extremely contagious viral illness prevented by MMR.' },
+      { term: 'pertussis', slug: 'pertussis', def: 'Whooping cough targeted by DTP/DTaP vaccination.' },
+      { term: 'diphtheria', slug: 'diphtheria', def: 'Toxin-producing infection prevented by DTP/DTaP.' },
+      { term: 'tetanus', slug: 'tetanus', def: 'Neurotoxin-producing wound infection prevented by vaccination.' },
+      { term: 'polio', slug: 'polio', def: 'Paralytic viral disease nearly eliminated by vaccination.' },
+      { term: 'Wakefield', slug: 'wakefield', def: 'Andrew Wakefield, author of the retracted MMR-autism paper.' },
+      { term: 'autism', slug: 'autism', def: 'Neurodevelopmental spectrum condition unrelated to vaccination.' }
+    ];
+    const existing = new Set([]);
+
+    const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const sorted = TERMS.slice().sort((a,b) => b.term.length - a.term.length);
+    const byLower = new Map(sorted.map(t => [t.term.toLowerCase(), t]));
+    if(!sorted.length) return;
+    const rx = new RegExp('\\b(' + sorted.map(t => esc(t.term)).join('|') + ')\\b', 'gi');
+    const root = document.querySelector(ARTICLE_SEL);
+    if(!root) return;
+
+    const slugify = s => s.toLowerCase().trim().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node){
+        if(!node || !node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if(!parent) return NodeFilter.FILTER_REJECT;
+        if(parent.closest('a, code, pre, script, style, noscript')) return NodeFilter.FILTER_REJECT;
+        if(parent.closest(STOP_SEL)) return NodeFilter.FILTER_REJECT;
+        if(parent.closest('h1,h2,h3,h4,h5,h6')) return NodeFilter.FILTER_REJECT;
+        rx.lastIndex = 0;
+        return rx.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+
+    const process = (node) => {
+      const text = node.nodeValue;
+      rx.lastIndex = 0;
+      let m, last = 0;
+      const frag = document.createDocumentFragment();
+      while((m = rx.exec(text))){
+        const before = text.slice(last, m.index);
+        if(before) frag.append(before);
+        const raw = m[0];
+        const key = m[1].toLowerCase();
+        const term = byLower.get(key);
+        const slug = term?.slug || slugify(raw);
+        const href = existing.has(slug) ? `/microblog/${slug}/` : DEFAULT_URL;
+        const a = document.createElement('a');
+        a.className = 'gloss';
+        a.href = href;
+        a.dataset.term = slug;
+        a.dataset.def = term?.def || raw;
+        a.textContent = raw;
+        frag.append(a);
+        last = rx.lastIndex;
+      }
+      const tail = text.slice(last);
+      if(tail) frag.append(tail);
+      node.parentNode.replaceChild(frag, node);
+    };
+
+    const nodes = [];
+    while(walker.nextNode()){
+      nodes.push(walker.currentNode);
+    }
+    nodes.forEach(process);
+  })();
+  </script>
+
   <a href="#top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</a>
 </body>
 </html>

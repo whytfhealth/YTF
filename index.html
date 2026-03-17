@@ -53,7 +53,7 @@
       <div class="orb orb-1"></div>
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
-      <div class="container">
+      <div class="container hero-split">
         <div class="hero-text">
           <span class="hero-eyebrow">Human Health</span>
           <h1 id="hero-title">Finally <span class="gradient-text">makes sense.</span></h1>
@@ -63,43 +63,78 @@
             <a href="about.html" class="btn secondary">About the project</a>
           </div>
         </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="dna-wrap">
+            <canvas id="dna-canvas" width="280" height="500"></canvas>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- How it works -->
-    <section class="container section" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-label">How It Works</h2>
-      <div class="how-grid">
-        <div class="how-card">
-          <span class="how-num gradient-text">1</span>
-          <h3>Start Simple</h3>
-          <p>Every explainer opens with a clean, plain-English overview — no jargon walls, no assumed knowledge.</p>
-        </div>
-        <div class="how-card">
-          <span class="how-num gradient-text">2</span>
-          <h3>Go Deeper</h3>
-          <p>Scroll to add mechanisms, analogies, and real-world context at whatever pace works for you.</p>
-        </div>
-        <div class="how-card">
-          <span class="how-num gradient-text">3</span>
-          <h3>Deep Dive</h3>
-          <p>Pathways, clinical links, and drug targets — still written like a human, not a textbook.</p>
-        </div>
+    <!-- Topics -->
+    <section class="container section reveal" aria-labelledby="topics-title">
+      <div class="section-head">
+        <h2 id="topics-title">Explore by topic</h2>
+        <a class="section-cta" href="blog/index.html">All articles →</a>
+      </div>
+      <div class="topics-grid">
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">⚡</span>
+          <div>
+            <h3>Metabolism</h3>
+            <p>How your body burns and stores energy — and why it fights back</p>
+          </div>
+        </a>
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">🧠</span>
+          <div>
+            <h3>Brain &amp; Mood</h3>
+            <p>Dopamine, serotonin, and the wiring behind how you feel</p>
+          </div>
+        </a>
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">🦠</span>
+          <div>
+            <h3>Gut Health</h3>
+            <p>The microbiome and its reach across your entire body</p>
+          </div>
+        </a>
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">😴</span>
+          <div>
+            <h3>Sleep</h3>
+            <p>What actually happens in those eight hours — and what breaks it</p>
+          </div>
+        </a>
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">⚖️</span>
+          <div>
+            <h3>Weight &amp; Fat</h3>
+            <p>The biology your diet plan probably ignored</p>
+          </div>
+        </a>
+        <a href="/blog/" class="topic-card">
+          <span class="topic-icon">🩺</span>
+          <div>
+            <h3>Diseases</h3>
+            <p>How conditions like diabetes actually develop inside you</p>
+          </div>
+        </a>
       </div>
     </section>
 
     <!-- Latest posts -->
-    <section class="container section" aria-labelledby="latest-title">
+    <section class="container section reveal" aria-labelledby="latest-title">
       <div class="section-head">
         <h2 id="latest-title">Latest from the blog</h2>
         <a class="section-cta" href="blog/index.html">Browse all →</a>
       </div>
-      <div class="post-grid">
-        <article class="post-card">
-          <div class="post-tag">Diseases</div>
+      <div class="post-grid-featured">
+        <article class="post-card post-card--featured">
+          <div class="post-tag">Diseases · 20 min read</div>
           <h3><a href="/blog/why-we-get-diabetes/index.html">WhyTF We Get Diabetes</a></h3>
-          <p>The sugar traffic jam inside your body — from insulin resistance to why glucose can't get where it needs to go.</p>
-          <div class="post-meta">20 min read</div>
+          <p>The sugar traffic jam inside your body — from insulin resistance to why glucose can't get where it needs to go. A layered deep-dive from first principles to clinical pathways.</p>
+          <a href="/blog/why-we-get-diabetes/index.html" class="post-card-cta">Read article →</a>
         </article>
         <article class="post-card">
           <div class="post-tag">Diseases</div>
@@ -127,7 +162,7 @@
 
   <footer class="site-footer" role="contentinfo">
     <div class="container">
-      <p>© 2026 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
+      <p>© 2026 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms &amp; Disclaimer</a></p>
       <section class="footer-lang" aria-label="Language switcher">
         <div class="lang-footer">
           <a class="lang-pill is-current" href="/index.html" aria-label="English">
@@ -175,6 +210,92 @@
         bar.style.transform = `scaleX(${pct})`;
       }, { passive: true });
     }
+
+    // Scroll reveal
+    const revealEls = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      revealEls.forEach(el => io.observe(el));
+    } else {
+      revealEls.forEach(el => el.classList.add('is-in'));
+    }
+
+    // DNA double helix canvas
+    (function () {
+      const canvas = document.getElementById('dna-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const W = 280, H = 500;
+      canvas.width  = W * dpr;
+      canvas.height = H * dpr;
+      canvas.style.width  = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.scale(dpr, dpr);
+
+      const CX   = W / 2;
+      const AMP  = W * 0.31;
+      const FREQ = (2 * Math.PI) / (H * 0.44);
+      const RUNGS = 13;
+
+      let phase = 0;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function drawFrame() {
+        ctx.clearRect(0, 0, W, H);
+
+        const rungY = [];
+        for (let i = 0; i <= RUNGS; i++) rungY.push((i / RUNGS) * H);
+
+        rungY.forEach(y => {
+          const x1 = CX + AMP * Math.sin(FREQ * y + phase);
+          const x2 = CX + AMP * Math.sin(FREQ * y + phase + Math.PI);
+          const front = Math.sin(FREQ * y + phase) >= 0 ? 1 : 2;
+
+          ctx.strokeStyle = 'rgba(168,85,247,0.22)';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.moveTo(x1, y);
+          ctx.lineTo(x2, y);
+          ctx.stroke();
+
+          const r1 = front === 1 ? 4 : 2.8;
+          const r2 = front === 2 ? 4 : 2.8;
+          ctx.fillStyle = front === 1 ? 'rgba(212,168,255,0.9)' : 'rgba(168,85,247,0.55)';
+          ctx.beginPath(); ctx.arc(x1, y, r1, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = front === 2 ? 'rgba(212,168,255,0.9)' : 'rgba(168,85,247,0.55)';
+          ctx.beginPath(); ctx.arc(x2, y, r2, 0, Math.PI * 2); ctx.fill();
+        });
+
+        ctx.beginPath();
+        for (let y = 0; y <= H; y += 2) {
+          const x = CX + AMP * Math.sin(FREQ * y + phase);
+          y === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(168,85,247,0.6)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        ctx.beginPath();
+        for (let y = 0; y <= H; y += 2) {
+          const x = CX + AMP * Math.sin(FREQ * y + phase + Math.PI);
+          y === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = 'rgba(192,132,252,0.45)';
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        if (!reducedMotion) {
+          phase += 0.007;
+          requestAnimationFrame(drawFrame);
+        }
+      }
+
+      drawFrame();
+    })();
   </script>
 </body>
 </html>

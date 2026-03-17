@@ -4,29 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="jX0FNeM1nSXZVT_hbt7cbAx-YC4Rq7rtHrRYiasR-PY" />
-  <title>WhyTF Health — human biology that finally makes sense</title>
-<meta name="description" content="Plain-English explainers that build step-by-step from simple to clinical.">
-<!-- Mobile rendering: already have viewport (good) -->
-<!-- Hint the browser to connect sooner to your analytics host -->
-<link rel="preconnect" href="https://cloud.umami.is" crossorigin>
-<link rel="canonical" href="https://whytfhealth.com/">
+  <title>WhyTF Health — human health that finally makes sense</title>
+  <meta name="description" content="Plain-English explainers that build step-by-step from simple to clinical.">
+  <link rel="preconnect" href="https://cloud.umami.is" crossorigin>
+  <link rel="canonical" href="https://whytfhealth.com/">
 
-<!-- Open Graph -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="WhyTF Health — human biology that finally makes sense">
-<meta property="og:description" content="Layered explainers that start simple and get deep — from sleep and gut health to dopamine, weight, and metabolism.">
-<meta property="og:url" content="https://whytfhealth.com/">
-<meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="WhyTF Health — human health that finally makes sense">
+  <meta property="og:description" content="Layered explainers that start simple and get deep — from sleep and gut health to dopamine, weight, and metabolism.">
+  <meta property="og:url" content="https://whytfhealth.com/">
+  <meta property="og:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
 
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="WhyTF Health — human biology that finally makes sense">
-<meta name="twitter:description" content="Plain-English explainers that build step-by-step from simple to clinical — across metabolism, brain, hormones and more.">
-<meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WhyTF Health — human health that finally makes sense">
+  <meta name="twitter:description" content="Plain-English explainers that build step-by-step from simple to clinical — across metabolism, brain, hormones and more.">
+  <meta name="twitter:image" content="https://whytfhealth.com/assets/og/whytfhealth-default.jpg">
+
   <link rel="stylesheet" href="styles.css" />
   <script defer src="https://cloud.umami.is/script.js" data-website-id="afc6c7f5-970c-4121-acdf-95e65f845801"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,20 +36,26 @@
         <img src="assets/logo.png" alt="WhyTF Health logo" />
       </a>
       <nav class="nav" aria-label="Primary">
-  <a href="/index.html" class="nav-link">Home</a>
-  <a href="/about.html" class="nav-link">About</a>
-  <a href="/blog/" class="nav-link">Blog</a>
-  <a href="/microblog/" class="nav-link">MicroBlog</a>
-  <a href="/contact.html" class="nav-link">Contact</a>
-</nav>
+        <a href="/index.html" class="nav-link" aria-current="page">Home</a>
+        <a href="/about.html" class="nav-link">About</a>
+        <a href="/blog/" class="nav-link">Blog</a>
+        <a href="/microblog/" class="nav-link">MicroBlog</a>
+        <a href="/contact.html" class="nav-link">Contact</a>
+      </nav>
     </div>
+    <div class="scroll-progress" id="scrollBar"></div>
   </header>
 
   <main id="main">
+
+    <!-- Hero -->
     <section class="hero" aria-labelledby="hero-title">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
       <div class="container">
         <div class="hero-text">
-          <span class="hero-eyebrow">Human Biology</span>
+          <span class="hero-eyebrow">Human Health</span>
           <h1 id="hero-title">Finally <span class="gradient-text">makes sense.</span></h1>
           <p class="subtext">We start simple, then go deeper — so curious readers and med students can both leave with real understanding.</p>
           <div class="cta-buttons">
@@ -63,66 +68,60 @@
 
     <!-- How it works -->
     <section class="container section" aria-labelledby="how-title">
-      <h2 id="how-title">How It Works</h2>
+      <h2 id="how-title" class="section-label">How It Works</h2>
       <div class="how-grid">
         <div class="how-card">
+          <span class="how-num gradient-text">1</span>
           <h3>Start Simple</h3>
-          <p>Every explainer opens with a clean, kid-level overview — no jargon walls.</p>
+          <p>Every explainer opens with a clean, plain-English overview — no jargon walls, no assumed knowledge.</p>
         </div>
         <div class="how-card">
+          <span class="how-num gradient-text">2</span>
           <h3>Go Deeper</h3>
-          <p>Scroll to add mechanisms, analogies, visuals, and real-world context.</p>
+          <p>Scroll to add mechanisms, analogies, and real-world context at whatever pace works for you.</p>
         </div>
         <div class="how-card">
+          <span class="how-num gradient-text">3</span>
           <h3>Deep Dive</h3>
-          <p>Pathways, clinical links, and drug targets — still written like a human.</p>
+          <p>Pathways, clinical links, and drug targets — still written like a human, not a textbook.</p>
         </div>
       </div>
     </section>
 
-    <!-- Latest posts (placeholders) -->
+    <!-- Latest posts -->
     <section class="container section" aria-labelledby="latest-title">
       <div class="section-head">
         <h2 id="latest-title">Latest from the blog</h2>
         <a class="section-cta" href="blog/index.html">Browse all →</a>
       </div>
-        <div class="white-card-grid">
-   <article class="white-card">
-  <h3><a href="/blog/why-we-get-diabetes/index.html">WhyTF We Get Diabetes</a></h3>
-  <p>The sugar traffic jam inside your body.</p>
-  <div class="white-card-meta">
-    <span class="white-read-time">20 min</span>
-    <span>Diseases</span>
-  </div>
-</article>
-
-
-    <article class="white-card">
-      <h3><a href="/blog/why-we-get-tired/index.html">WhyTF We Get So Tired (Even After Rest)</a></h3>
-      <p>Why energy evaporates even after rest.</p>
-      <div class="white-card-meta">
-        <span class="white-read-time">25 min</span>
-        <span>Diseases</span>
+      <div class="post-grid">
+        <article class="post-card">
+          <div class="post-tag">Diseases</div>
+          <h3><a href="/blog/why-we-get-diabetes/index.html">WhyTF We Get Diabetes</a></h3>
+          <p>The sugar traffic jam inside your body — from insulin resistance to why glucose can't get where it needs to go.</p>
+          <div class="post-meta">20 min read</div>
+        </article>
+        <article class="post-card">
+          <div class="post-tag">Diseases</div>
+          <h3><a href="/blog/why-we-get-tired/index.html">WhyTF We Get So Tired (Even After Rest)</a></h3>
+          <p>Why energy evaporates even when you're doing everything right — the biology of fatigue.</p>
+          <div class="post-meta">25 min read</div>
+        </article>
+        <article class="post-card">
+          <div class="post-tag">Physiology</div>
+          <h3><a href="/blog/why-cant-i-lose-weight/index.html">WhyTF Can't I Lose Weight?</a></h3>
+          <p>Diets vs. biology — why your body fights back harder than you'd expect.</p>
+          <div class="post-meta">22 min read</div>
+        </article>
       </div>
-    </article>
-
-    <article class="white-card">
-      <h3><a href="/blog/why-cant-i-lose-weight/index.html">WhyTF Can’t I Lose Weight?</a></h3>
-      <p>Diets vs. biology: your body’s defence system.</p>
-      <div class="white-card-meta">
-        <span class="white-read-time">22 min</span>
-        <span>Physiology</span>
-      </div>
-    </article>
-  </div>
-</section>
+    </section>
 
   </main>
 
   <div class="divider"></div>
   <section class="pre-footer-note" aria-label="Project line">
     <div class="container">
-      <p><strong>Why That’s <span class="accent-word">Fascinating</span> Health</strong></p>
+      <p><strong>Why That's <span class="accent-word">Fascinating</span> Health</strong></p>
     </div>
   </section>
 
@@ -130,41 +129,52 @@
     <div class="container">
       <p>© 2026 WhyTF Health · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms & Disclaimer</a></p>
       <section class="footer-lang" aria-label="Language switcher">
-  <div class="lang-footer">
-  <a class="lang-pill is-current" href="/index.html" aria-label="English">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="ukCircle-home"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#ukCircle-home)">
-          <rect width="60" height="60" fill="#012169"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
-          <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
-          <rect x="24" width="12" height="60" fill="#fff"/>
-          <rect y="24" width="60" height="12" fill="#fff"/>
-          <rect x="26.5" width="7" height="60" fill="#C8102E"/>
-          <rect y="26.5" width="60" height="7" fill="#C8102E"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">EN</span>
-  </a>
-
-  <a class="lang-pill" href="/hu/index.html" aria-label="Magyar">
-    <span class="flag" aria-hidden="true">
-      <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
-        <defs><clipPath id="huCircle-home"><circle cx="30" cy="30" r="30"/></clipPath></defs>
-        <g clip-path="url(#huCircle-home)">
-          <rect width="60" height="60" fill="#fff"/>
-          <rect width="60" height="20" y="0" fill="#D32E2E"/>
-          <rect width="60" height="20" y="40" fill="#2E8B57"/>
-        </g>
-      </svg>
-    </span>
-    <span class="code">HU</span>
-  </a>
-</div>
-</section>
+        <div class="lang-footer">
+          <a class="lang-pill is-current" href="/index.html" aria-label="English">
+            <span class="flag" aria-hidden="true">
+              <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+                <defs><clipPath id="ukCircle-home"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+                <g clip-path="url(#ukCircle-home)">
+                  <rect width="60" height="60" fill="#012169"/>
+                  <path d="M0,0 60,60 M60,0 0,60" stroke="#fff" stroke-width="12"/>
+                  <path d="M0,0 60,60 M60,0 0,60" stroke="#C8102E" stroke-width="7"/>
+                  <rect x="24" width="12" height="60" fill="#fff"/>
+                  <rect y="24" width="60" height="12" fill="#fff"/>
+                  <rect x="26.5" width="7" height="60" fill="#C8102E"/>
+                  <rect y="26.5" width="60" height="7" fill="#C8102E"/>
+                </g>
+              </svg>
+            </span>
+            <span class="code">EN</span>
+          </a>
+          <a class="lang-pill" href="/hu/index.html" aria-label="Magyar">
+            <span class="flag" aria-hidden="true">
+              <svg viewBox="0 0 60 60" width="24" height="24" aria-hidden="true" style="border-radius:50%;overflow:hidden">
+                <defs><clipPath id="huCircle-home"><circle cx="30" cy="30" r="30"/></clipPath></defs>
+                <g clip-path="url(#huCircle-home)">
+                  <rect width="60" height="60" fill="#fff"/>
+                  <rect width="60" height="20" y="0" fill="#D32E2E"/>
+                  <rect width="60" height="20" y="40" fill="#2E8B57"/>
+                </g>
+              </svg>
+            </span>
+            <span class="code">HU</span>
+          </a>
+        </div>
+      </section>
     </div>
   </footer>
+
+  <script>
+    // Scroll progress bar
+    const bar = document.getElementById('scrollBar');
+    if (bar) {
+      window.addEventListener('scroll', () => {
+        const s = document.documentElement;
+        const pct = s.scrollTop / (s.scrollHeight - s.clientHeight);
+        bar.style.transform = `scaleX(${pct})`;
+      }, { passive: true });
+    }
+  </script>
 </body>
 </html>
